@@ -1,0 +1,63 @@
+{
+  "name": "tva-div-template",
+  "version": "0.3.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "serve-it": "export VUE_APP_LANG=it && vue-cli-service serve",
+    "serve-en": "export VUE_APP_LANG=en && vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "build-staging": "vue-cli-service build --mode staging",
+    "build-staging-it": "vue-cli-service build --mode staging-it",
+    "build-staging-en": "vue-cli-service build --mode staging-en",
+    "build-staging-all": "npm run build-staging-it && npm run build-staging-en",
+    "zip": "rm -rf export-* && zip -r export-$(date '+%Y.%m.%d-%H.%M.%S').zip dist/",
+    "generate-icons": "node generate-icons.js"
+  },
+  "dependencies": {
+    "@yzfe/svgicon": "^1.1.0",
+    "@yzfe/vue3-svgicon": "^1.0.1",
+    "core-js": "^3.6.5",
+    "pinia": "^2.0.27",
+    "vue": "^3.1.0",
+    "vue-i18n": "^9.1.10",
+    "vue-router": "^4.0.16"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.18.2",
+    "@intlify/vue-i18n-loader": "^5.0.0",
+    "@vue/cli-plugin-babel": "~5.0.5",
+    "@vue/cli-plugin-eslint": "^5.0.5",
+    "@vue/cli-service": "~5.0.5",
+    "@vue/compiler-sfc": "^3.1.0",
+    "@yzfe/svgicon-loader": "^1.1.0",
+    "@yzfe/vue-cli-plugin-svgicon": "~1.1.0",
+    "babel-plugin-lodash": "^3.3.4",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^9.1.1",
+    "sass": "^1.52.3",
+    "sass-loader": "^13.0.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
+    },
+    "rules": {
+      "vue/multi-word-component-names": "off"
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
