@@ -1,30 +1,24 @@
 import { createApp } from "vue";
-import { createPinia } from 'pinia'
 import App from "./App.vue";
 
 // Plugins
 import globalVariables from "./plugins/globalVariables";
-import router from "./utilities/router";
+import { createPinia } from 'pinia';
 
 import i18n from "./utilities/language";
+import { VueSvgIconPlugin } from '@yzfe/vue3-svgicon'
+import '@yzfe/svgicon/lib/svgicon.css'
 
-import { VueSvgIconPlugin } from "@yzfe/vue3-svgicon";
-import "@yzfe/svgicon/lib/svgicon.css";
 
+const app = createApp(App).use(VueSvgIconPlugin, { tagName: 'icon' });
+const pinia = createPinia();
 
-const pinia = createPinia()
-
-const el = document.querySelector('#app')
-
-const app = createApp(App, {
-  section: el.getAttribute('section'),
-  lang: el.getAttribute('lang'),
-})
-
-app.use(VueSvgIconPlugin, { tagName: "icon" });
-app.use(globalVariables, { assetsBasePath: el.getAttribute('assets-base-path') });
-app.use(router);
+app.use(globalVariables);
 app.use(i18n);
-app.use(pinia)
+app.use(pinia);
 
-app.mount(el);
+// Add mount in DOMContentLoaded listener to be sure JS is executed first before prerendering
+document.addEventListener("DOMContentLoaded", function () {
+  app.mount("#app");
+});
+

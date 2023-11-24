@@ -1,4 +1,6 @@
+// const PrerenderSPAPlugin = require("prerender-spa-plugin-next");
 const webpack = require("webpack");
+const path = require("path");
 
 module.exports = {
   publicPath: process.env.VUE_APP_PATH,
@@ -10,16 +12,32 @@ module.exports = {
         __VUE_I18N_FULL_INSTALL__: true,
         __VUE_I18N_LEGACY_API__: true,
         __INTLIFY_PROD_DEVTOOLS__: true,
-      })
-    ]
+      }),
+    ],
+    optimization: {
+      splitChunks: false,
+    },
+    output: {
+      filename: "js/app.[hash].js",
+    },
   },
   // To load sass files, you have to use this config:
   css: {
+    extract: false,
     loaderOptions: {
       sass: {
         additionalData: `
-        @import "@/assets/scss/reset.scss";`,
+        @import "@/assets/scss/reset.scss"; @import "@/assets/scss/styles.scss";`,
       },
     },
   },
+  productionSourceMap: false,
+  configureWebpack: {
+    optimization: {
+      splitChunks: false,
+    },
+    output: {
+      filename: "js/app.[hash].js"
+    }
+  }
 };

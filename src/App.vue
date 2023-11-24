@@ -1,50 +1,34 @@
 <template>
   <div :class="[$tvaMq]" :version="version.version">
-    <!-- Metatags -->
-    <teleport to="head"
-      ><title>{{ $tm('metaContent').title }}</title>
-      <meta name="description" :content="$tm('metaContent').description" />
-      <!-- FACEBOOK -->
-      <meta property="og:title" :content="$tm('metaContent').title" />
-      <meta property="og:description" :content="$tm('metaContent').description" />
-      <meta property="og:type" content="website" />
-      <meta
-        property="og:image"
-        :content="$tm('metaContent').image"
-      />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <!-- TWITTER -->
-      <meta name="twitter:site" :content="$tm('metaContent').title" />
-      <meta name="twitter:title" :content="$tm('metaContent').title" />
-      <meta name="twitter:description" :content="$tm('metaContent').description" />
-      <meta
-        name="twitter:image"
-        :content="$tm('metaContent').image"
-      />
-      /></teleport
-    >
-    <!-- Routes -->
-    <router-view></router-view>
+    <Header class="header" :sections="$tm('header.sections')" />
+    <div class="container">
+
   </div>
+</div>
 </template>
 
 <script setup>
 import version from "@/../package.json";
-import { onMounted, provide, watch } from "@vue/runtime-core";
+import { onMounted, provide, ref } from "@vue/runtime-core";
 import useTvaMq from "./plugins/tvaMq.js";
-import { useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";
+import { useStateStore } from "@/utilities/store/store";
+import { onClickOutside } from '@vueuse/core'
+import Header from "@/components/header.vue";
 
 const { $tvaMq } = useTvaMq();
-const route = useRoute();
 const i18n = useI18n();
 
 provide("$tvaMq", $tvaMq);
 provide("version", version);
 
+const modal = ref(null);
+const stateModal = useStateStore();
+// const isMobile = ref();
+
 // Calling this here is equivalent to calling it in
 // beforeCreated / create in Options API
+// const instanceAttrs = getCurrentInstance().attrs;
 setLanguage();
 
 onMounted(() => {
@@ -53,19 +37,19 @@ onMounted(() => {
   window.addEventListener("orientationchange", setVHProperty);
 });
 
-watch(
-  () => route.params.lang,
-  () => {
-    if (route.params.lang) {
-      i18n.locale.value = route.params.lang.toLowerCase();
-    }
-  }
-);
+// watch($tvaMq, () => {
+//   if ($tvaMq.value === "mobile") isMobile.value = $tvaMq.value;
+//   else {
+//     isMobile.value = '';
+//   }
+// });
+
+onClickOutside(modal, () => { if (stateModal.isOpen) { stateModal.changeState(false) } });
 
 function setLanguage() {
   const defaultLang = "it";
   let lang;
-  const routerLang = route && route.params ? route.params.lang : null;
+  const routerLang = null;
   let langFromOutside =
     routerLang ||
     process.env.VUE_APP_LANG ||
@@ -75,7 +59,6 @@ function setLanguage() {
     lang = langFromOutside;
   } else {
     lang = defaultLang;
-    route.params.lang = defaultLang;
   }
 
   i18n.locale.value = lang.toLowerCase();
@@ -100,8 +83,8 @@ function setVHProperty() {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
+
+
+
 </style>

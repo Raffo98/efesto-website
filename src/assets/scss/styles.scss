@@ -1,0 +1,43 @@
+@font-face {
+  font-family: 'WorkSans';
+  src: url("~@/assets/fonts/WorkSans-VariableFont_wght.ttf");
+}
+// @font-face {
+//   font-family: 'Open Sans';
+//   font-style: italic;
+//   src: url("~@/assets/fonts/OpenSans-Italic.ttf");
+// }
+@mixin paragraph-m {
+  font-family: 'WorkSans';
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.32px;
+  text-transform: uppercase; 
+}
+
+* {
+  --color-black: rgba(23, 23, 23, 1);
+  --color-white: rgba(247, 247, 247, 1);
+  --color-white-border: rgb(255, 254, 250, 1);
+  --color-yellow: rgba(255, 211, 0, 1);
+  --color-gray: rgba(214, 214, 214, 1);
+  ;
+}
+
+$color-black: var(--color-black);
+$color-white: var(--color-white);
+$color-white-border: var(--color-white-border);
+$color-yellow: var(--color-yellow);
+$color-gray: var(--color-gray);
+
+// @mixin effect-style-shadow-btn {
+//   box-shadow: 0px 18px 88px -4px rgba(24, 39, 75, 0.08);
+//   box-shadow: 0px 8px 28px -6px rgba(24, 39, 75, 0.08);
+// }
+
+// @mixin effect-style-shadow-btn-hover {
+//   box-shadow: 0px 18px 88px -4px rgba(24, 39, 75, 0.08);
+//   box-shadow: 0px 8px 28px -6px rgba(24, 39, 75, 0.3);
+// }

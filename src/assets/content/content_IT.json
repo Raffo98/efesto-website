@@ -1,8 +1,18 @@
 {
-  "pippo": "Tva Web Template in italiano",
-  "metaContent": {
-    "title": "Titolo",
-    "description": "Descrizione",
-    "image": "Absolute-url.jpg"
-  }
+ "header": {
+  "sections": [
+    {
+      "title": "azienda",
+      "subsections": ["chi siamo", "qualità e certificazioni", "contatti"]
+    },
+    {
+      "title": "servizi",
+      "subsections": ["impianti", "laboratorio"]
+    },
+    {
+      "title": "news",
+      "subsections": []
+    }
+  ]
+ }
 }

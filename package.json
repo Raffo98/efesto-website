@@ -1,28 +1,32 @@
 {
-  "name": "tva-div-template",
-  "version": "0.3.0",
+  "name": "eni-dist-welfare",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "serve-it": "export VUE_APP_LANG=it && vue-cli-service serve",
-    "serve-en": "export VUE_APP_LANG=en && vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "build-staging": "vue-cli-service build --mode staging",
-    "build-staging-it": "vue-cli-service build --mode staging-it",
-    "build-staging-en": "vue-cli-service build --mode staging-en",
     "build-staging-all": "npm run build-staging-it && npm run build-staging-en",
-    "zip": "rm -rf export-* && zip -r export-$(date '+%Y.%m.%d-%H.%M.%S').zip dist/",
-    "generate-icons": "node generate-icons.js"
+    "build-staging-en": "vue-cli-service build --mode staging-en",
+    "build-staging-it": "vue-cli-service build --mode staging-it",
+    "generate-icons": "node generate-icons.js",
+    "prerender-production": "export VUE_APP_RENDER=prerender && vue-cli-service build --mode production && cd prerendering-node && node script.js production",
+    "prerender-staging": "export VUE_APP_RENDER=prerender && vue-cli-service build --mode staging && cd prerendering-node && node script.js staging",
+    "serve-en": "export VUE_APP_LANG=en && vue-cli-service serve",
+    "serve-it": "export VUE_APP_LANG=it && vue-cli-service serve",
+    "zip": "rm -rf export-* && zip -r export-$(date '+%Y.%m.%d-%H.%M.%S').zip dist/"
   },
   "dependencies": {
+    "@vueuse/components": "^9.12.0",
     "@yzfe/svgicon": "^1.1.0",
     "@yzfe/vue3-svgicon": "^1.0.1",
     "core-js": "^3.6.5",
-    "pinia": "^2.0.27",
+    "pinia": "^2.0.29",
     "vue": "^3.1.0",
     "vue-i18n": "^9.1.10",
-    "vue-router": "^4.0.16"
+    "vue-router": "^4.0.16",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.18.2",
@@ -36,6 +40,7 @@
     "babel-plugin-lodash": "^3.3.4",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^9.1.1",
+    "prerender-spa-plugin-next": "^4.2.0",
     "sass": "^1.52.3",
     "sass-loader": "^13.0.0"
   },
