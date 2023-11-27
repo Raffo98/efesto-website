@@ -19,25 +19,19 @@
 
 * {
   --color-black: rgba(23, 23, 23, 1);
+  --color-grey: rgba(45, 45, 46, 1);
   --color-white: rgba(247, 247, 247, 1);
-  --color-white-border: rgb(255, 254, 250, 1);
-  --color-yellow: rgba(255, 211, 0, 1);
-  --color-gray: rgba(214, 214, 214, 1);
+  --color-orange: rgba(231, 83, 23, 1);
   ;
 }
 
 $color-black: var(--color-black);
+$color-grey: var(--color-grey);
 $color-white: var(--color-white);
-$color-white-border: var(--color-white-border);
-$color-yellow: var(--color-yellow);
-$color-gray: var(--color-gray);
+$color-orange: var(--color-orange);
 
-// @mixin effect-style-shadow-btn {
-//   box-shadow: 0px 18px 88px -4px rgba(24, 39, 75, 0.08);
-//   box-shadow: 0px 8px 28px -6px rgba(24, 39, 75, 0.08);
-// }
 
-// @mixin effect-style-shadow-btn-hover {
-//   box-shadow: 0px 18px 88px -4px rgba(24, 39, 75, 0.08);
-//   box-shadow: 0px 8px 28px -6px rgba(24, 39, 75, 0.3);
-// }
+
+@mixin effect-style-shadow-section-header {
+  box-shadow: 0px 4px 8px 0px rgba(23, 23, 23, 0.50); 
+}

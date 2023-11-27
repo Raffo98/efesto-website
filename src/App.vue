@@ -1,6 +1,6 @@
 <template>
   <div :class="[$tvaMq]" :version="version.version">
-    <Header class="header" :sections="$tm('header.sections')" />
+    <Header class="header" :sections="$tm('header.sections')" :button="$tm('header.button')" />
     <div class="container">
 
   </div>

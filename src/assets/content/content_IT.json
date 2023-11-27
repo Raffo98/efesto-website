@@ -13,6 +13,10 @@
       "title": "news",
       "subsections": []
     }
-  ]
+  ],
+  "button": {
+    "text": "richiedi informazioni",
+    "icon": "arrow-right"
+  }
  }
 }
