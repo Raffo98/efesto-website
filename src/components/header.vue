@@ -68,6 +68,11 @@ const isHoveredEng = ref("");
     background-color: $color-black;
     padding: 0 3rem 0 3rem !important;
 
+    &__logo {
+      display: flex;
+      align-items: center;
+    }
+
     &__sections {
       width: 70%;
       display: flex;

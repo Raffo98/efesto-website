@@ -1,22 +1,74 @@
 {
- "header": {
-  "sections": [
-    {
-      "title": "azienda",
-      "subsections": ["chi siamo", "qualità e certificazioni", "contatti"]
-    },
-    {
-      "title": "servizi",
-      "subsections": ["impianti", "laboratorio"]
-    },
-    {
-      "title": "news",
-      "subsections": []
+  "header": {
+    "sections": [
+      {
+        "title": "azienda",
+        "subsections": [
+          "chi siamo",
+          "qualità e certificazioni",
+          "contatti"
+        ]
+      },
+      {
+        "title": "servizi",
+        "subsections": [
+          "impianti",
+          "laboratorio"
+        ]
+      },
+      {
+        "title": "news",
+        "subsections": []
+      }
+    ],
+    "button": {
+      "text": "richiedi informazioni",
+      "icon": "arrow-right"
     }
-  ],
-  "button": {
-    "text": "richiedi informazioni",
-    "icon": "arrow-right"
+  },
+  "footer": {
+    "info": {
+      "title": "vuoi più informazioni?",
+      "subsections": [
+        "info@efestotrattamenti.com",
+        "+39 335 275978"
+      ]
+    },
+    "sections": [
+      {
+        "title": "azienda",
+        "subsections": [
+          "chi siamo",
+          "qualità e certificazioni",
+          "contatti"
+        ]
+      },
+      {
+        "title": "servizi",
+        "subsections": [
+          "impianti",
+          "laboratorio"
+        ]
+      },
+      {
+        "title": "news",
+        "subsections": ["categoria 1", "categoria 2", "categoria 3"]
+      }
+    ],
+    "social": {
+      "title": "seguici su",
+      "subsections": [
+        "linkedin",
+        "youtube",
+        "facebook",
+        "instagram"
+      ]
+    },
+    "details": {
+      "title": "details",
+      "subsections": [
+        "Efesto SRL P.IVA: 10125490960"
+      ]
+    }
   }
- }
 }

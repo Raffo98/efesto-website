@@ -4,6 +4,7 @@
     <div class="container">
 
   </div>
+  <Footer :sections="$tm('footer')" />
 </div>
 </template>
 
@@ -15,6 +16,8 @@ import { useI18n } from "vue-i18n";
 import { useStateStore } from "@/utilities/store/store";
 import { onClickOutside } from '@vueuse/core'
 import Header from "@/components/header.vue";
+import Footer from "@/components/footer.vue";
+
 
 const { $tvaMq } = useTvaMq();
 const i18n = useI18n();

@@ -7,6 +7,24 @@
 //   font-style: italic;
 //   src: url("~@/assets/fonts/OpenSans-Italic.ttf");
 // }
+@mixin paragraph {
+  font-family: 'WorkSans';
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.32px;
+}
+
+@mixin section-style {
+  font-family: 'WorkSans';
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.32px;
+}
+
 @mixin paragraph-m {
   font-family: 'WorkSans';
   font-size: 1rem;
@@ -15,6 +33,16 @@
   line-height: normal;
   letter-spacing: 0.32px;
   text-transform: uppercase; 
+}
+
+@mixin body-large {
+  font-family: 'WorkSans';
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.32px;
+  // text-transform: uppercase; 
 }
 
 * {
