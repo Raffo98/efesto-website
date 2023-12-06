@@ -1,11 +1,12 @@
 <template>
   <div :class="[$tvaMq]" :version="version.version">
-    <Header class="header" :sections="$tm('header.sections')" :button="$tm('header.button')" />
+    <Header class="header" :sections="$tm('header.sections')" :button="$tm('header.button')"
+      @set-lang="setLanguage" />
     <div class="container">
-
+      <router-view></router-view>
+    </div>
+    <Footer :sections="$tm('footer')" />
   </div>
-  <Footer :sections="$tm('footer')" />
-</div>
 </template>
 
 <script setup>
@@ -19,11 +20,15 @@ import Header from "@/components/header.vue";
 import Footer from "@/components/footer.vue";
 
 
+
 const { $tvaMq } = useTvaMq();
 const i18n = useI18n();
 
+console.log(i18n.tm);
+
 provide("$tvaMq", $tvaMq);
 provide("version", version);
+
 
 const modal = ref(null);
 const stateModal = useStateStore();
@@ -34,10 +39,22 @@ const stateModal = useStateStore();
 // const instanceAttrs = getCurrentInstance().attrs;
 setLanguage();
 
+function logScroll() {
+  stateModal.updateScroll(window.scrollY);
+}
+
+
 onMounted(() => {
   setVHProperty();
   window.addEventListener("resize", setVHProperty);
   window.addEventListener("orientationchange", setVHProperty);
+  const body = document.body;
+  if (body) {
+    window.addEventListener('scroll', logScroll)
+  }
+
+
+
 });
 
 // watch($tvaMq, () => {
@@ -47,13 +64,16 @@ onMounted(() => {
 //   }
 // });
 
+
+
 onClickOutside(modal, () => { if (stateModal.isOpen) { stateModal.changeState(false) } });
 
-function setLanguage() {
+function setLanguage(value) {
   const defaultLang = "it";
   let lang;
   const routerLang = null;
   let langFromOutside =
+    value ||
     routerLang ||
     process.env.VUE_APP_LANG ||
     document.querySelector("#app").getAttribute("lang");
@@ -86,8 +106,17 @@ function setVHProperty() {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+
 }
 
+.container {
+  margin-top: 70px !important;
+  display: flex;
+  flex-direction: column;
+}
 
-
+body {
+  overflow-y: scroll;
+}
 </style>

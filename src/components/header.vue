@@ -1,17 +1,19 @@
 <template>
   <div class="header">
     <div class="header__box">
-      <div class="header__box__logo">
-        <img :src="`${$assetsBasePath}icons/logo.svg`">
-      </div>
+      <router-link to='/'>
+        <div class="header__box__logo">
+          <img :src="`${$assetsBasePath}icons/logo.svg`">
+        </div>
+      </router-link>
       <div class="header__box__sections">
         <sectionHeader v-for="(section, idx) in props.sections" :key="idx" :content="section" />
         <div class="header__box__sections__buttons">
           <div class="header__box__sections__buttons__lang">
-            <button @mouseover="isHoveredIta = true" @mouseleave="isHoveredIta = false"
-              :style="{ color: isHoveredIta ? 'rgba(231, 83, 23, 1)' : 'rgba(247, 247, 247, 1)' }">ita</button>/<button
-              @mouseover="isHoveredEng = true" @mouseleave="isHoveredEng = false"
-              :style="{ color: isHoveredEng ? 'rgba(231, 83, 23, 1)' : 'rgba(247, 247, 247, 1)' }">eng</button>
+            <button @mouseover="isHoveredIta = true" @mouseleave="isHoveredIta = false" @click="$emit('setLang', 'it'); isClickedLang = 'it'"
+              :style="{ color: isHoveredIta || isClickedLang == 'it' ? 'rgba(231, 83, 23, 1)' : 'rgba(247, 247, 247, 1)' }">ita</button>/<button
+              @mouseover="isHoveredEng = true" @mouseleave="isHoveredEng = false" @click="$emit('setLang', 'en'); isClickedLang = 'en'"
+              :style="{ color: isHoveredEng || isClickedLang == 'en' ? 'rgba(231, 83, 23, 1)' : 'rgba(247, 247, 247, 1)' }">eng</button>
           </div>
           <ctaButtonM :info="props.button" />
         </div>
@@ -38,6 +40,7 @@ const { $tvaMq } = useTvaMq();
 provide("$tvaMq", $tvaMq);
 const isHoveredIta = ref("");
 const isHoveredEng = ref("");
+const isClickedLang = ref("it");
 
 // const stateModal = useStateStore();
 // const selectedId = stateModal.activeId;
@@ -56,7 +59,9 @@ const isHoveredEng = ref("");
 <style lang="scss" scoped>
 .header {
   width: 100%;
-  position: sticky;
+  position: fixed;
+  top: 0;
+  z-index: 3;
 
   &__box {
     display: flex;

@@ -7,6 +7,16 @@
 //   font-style: italic;
 //   src: url("~@/assets/fonts/OpenSans-Italic.ttf");
 // }
+@mixin h1 {
+  font-family: 'WorkSans';
+  font-size: 4.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 96.722%;
+  letter-spacing: -2.16px;
+  text-transform: uppercase; 
+}
+
 @mixin paragraph {
   font-family: 'WorkSans';
   font-size: 1.25rem;

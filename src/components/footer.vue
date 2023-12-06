@@ -46,8 +46,6 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .footer {
-    position: absolute;
-    bottom: 0;
     background-color: $color-black;
     height: auto;
     width: 100%;

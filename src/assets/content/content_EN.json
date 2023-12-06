@@ -1,130 +1,80 @@
 {
-  "title": "Our range",
-  "subtitle": "From health protection to pension plans, from recreational and educational to financial and insurance services, from mobility to catering.",
-  "sections": [
-    {
-      "id": "persona",
-      "title": "personal health and well-being",
-      "items": [
-        {
-          "title": "Prevention",
-          "text": "<p>In partnership with qualified facilities across the country, we promote <b>prevention</b> and <b>information</b> initiatives, as part of our commitment to creating a culture of care for our people’s health.</p><p>The voluntary disease prevention screenings that we offer in Italy include:</p><ul><li><b>Early Diagnosis Plan</b>: an annual calendar of cancer prevention visits by age group and gender, provided nationally in cooperation with the Italian League for the Fight against Cancer.</li><li><b>Prevent with Eni</b>: a two-yearly check-up (with cancer and cardiovascular screenings) carried out in partnership with qualified organisations throughout the country. The project, which is already active in some locations, is gradually being extended throughout Italy.</li></ul><p>Support for health also extends to listening and providing information on specific issues, such as the provision of an information desk that cancer patients can contact for <b>psychological support</b>, <b>guidance</b> and <b>information</b>. This was created in collaboration with AIMaC (Italian Association of Cancer Patients).</p><p>&nbsp;</p>"
-        },
-        {
-          "title": "Agreements with health centres and clinics",
-          "text": "<p>All our people, in both Milan and Rome, have access to <b>health centres</b> for first aid and medical examinations. In addition, some of our production sites in Italy have a number of on-site occupational medicine and health protection centres.&nbsp;</p><p>&nbsp;</p>"
-        },
-        {
-          "title": " ‘Più Salute’ digital and home care assistance",
-          "text": "<p>In October 2022, we launched the pilot project ‘Più Salute’, allowing employees and their families to access <b>new health services</b>, including remote/video consultations with a GP, home visits and nursing services, home deliveries of drugs and medical devices, appointment and test booking services, remote monitoring and alert services.</p><p>&nbsp;</p>"
-        },
-        {
-          "title": "Smart working",
-          "text": "<p>Our people can adopt Smart Working. This tool promotes a better <b>balance</b> between professional and personal needs and saves on travelling time, also generating benefits from an <b>environmental perspective</b>.</p><p>&nbsp;</p>"
-        },
-        {
-          "title": "Flexible hours",
-          "text": "<p>We provide flexible working hours on a weekly and seasonal basis to promote our employees’ work-life <b>balance</b>.</p><p>&nbsp;</p>"
-        },
-        {
-          "title": "Everyday wellness",
-          "text": "<p>We invest specifically in promoting <b>behavioural styles</b> and models fostering the everyday well-being of our people. This attention has led to the care and quality of our <b>company catering</b> services and the possibility for all employees and their families to access a platform and sign up to discounted subscriptions in a network of around 2,000 sports centres in Italy.</p><p>&nbsp;</p>"
-        },
-        {
-          "title": "Museums and theatres",
-          "text": "<p>We offer a special <b>discounted ticket</b> service for theatre performances, concerts, visits to museums and exhibitions.</p><p>&nbsp;</p>"
-        }
+  "header": {
+    "sections": [
+      {
+        "title": "azienda",
+        "subsections": [
+          "chi siamo",
+          "qualità e certificazioni",
+          "contatti"
+        ]
+      },
+      {
+        "title": "servizi",
+        "subsections": [
+          "impianti",
+          "laboratorio"
+        ]
+      },
+      {
+        "title": "news",
+        "subsections": []
+      }
+    ],
+    "button": {
+      "text": "richiedi informazioni",
+      "icon": "arrow-right"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "trattamenti termici\nper la metalmeccanica",
+      "cta": "scopri di più"
+    } 
+  },
+  "footer": {
+    "info": {
+      "title": "vuoi più informazioni?",
+      "subsections": [
+        "info@efestotrattamenti.com",
+        "+39 335 275978"
       ]
     },
-    {
-      "id": "soldi",
-      "title": "finance and pensions",
-      "items": [
-        {
-          "title": "Remuneration",
-          "text": "<p>Our remuneration policies are defined according to a global, integrated model. Salary progression is linked exclusively to meritocratic criteria based on the <b>skills</b> required by the role, annual <b>performance</b> and benchmarking within the local salary <b>market</b>. Since 2011, as part of its policies, Eni has monitored the salaries of employees according to gender on an annual basis, noting that salaries are substantially <b>aligned</b>.</p><p><b>International mobility</b> is essential to the development of our business and our people. Therefore, we offer remuneration policies in line with international standards that compensate for the potential inconvenience of moving abroad, such as providing support for accommodation, children's education, return travel and family reunification, consistently with international standards.</p><p>&nbsp;</p>"
-        },
-        {
-          "title": "Flexible Benefits",
-          "text": "<p>We offer our employees the possibility to convert a part of their profit-sharing bonuses into <b>welfare</b> goods and services, taking advantage of the <b>tax and national insurance opportunities</b> provided by law.</p><p>The personal basket of flexible benefits can be freely selected according to individual and family needs, on a specific web platform – ENI FLEX, which gives access to a wide range of agreements for purchasing products and services at discounted prices.</p><p>&nbsp;</p>"
-        },
-        {
-          "title": "Supplementary Healthcare",
-          "text": "<p>The&nbsp;<b>Healthcare funds</b>&nbsp;our people can sign up to provide supplementary health services in addition to those of the National Healthcare Service, with the option of extending them to their family members. Subscription to the Funds is <b>voluntary</b>&nbsp;and employees can take advantage of the contributions paid by the company on their behalf.</p><p>&nbsp;</p>"
-        },
-        {
-          "title": "Supplementary pension funds",
-          "text": "<p>Our people can voluntarily sign up to <b>contractual pension funds</b> (Fondenergia, Fopdire) providing supplementary pensions in addition to those offered by the public pension system. When signing up, members take advantage of the contributions paid by the company to the Fund on their behalf.</p><p>Helping all new recruits to understand the value of supplementary pensions and fostering voluntary and aware access to these funds, specific training sessions are organised, including the introduction of a subscription incentive, consisting in the payment by the company of the ordinary contribution amount normally paid by the employee for the first two years.</p><p>&nbsp;</p>"
-        },
-        {
-          "title": "Insurance cover",
-          "text": "<p>We offer our people&nbsp;insurance cover against death and permanent invalidity, occupational and non-occupational accidents and diseases. Specific agreements are also in place for taking out policies at <b>discounted conditions</b> with selected insurance companies.</p><p>&nbsp;</p>"
-        },
-        {
-          "title": "Company loans, generic loans and first home loan",
-          "text": "<b>Company loans</b><br><p>We give our people the opportunity to access&nbsp;loans at <b>special conditions</b>, in terms of financed amounts, interest rates, loan duration and the guarantees required.</p><p>&nbsp;</p><b>Generic loans</b><br><p>Increasing the range of discounted loans has allowed all our employees to access generic loans for unlimited purposes. Moreover, to facilitate access to credit by younger employees with fewer possibilities to provide guarantees, the company can integrate the maximum guarantee the employee can provide.&nbsp;</p><p>&nbsp;</p><b>First home loan</b><br><p>Within the third quarter of 2023, all employees will be entitled to request also a <b>loan </b>for purchasing a property in Italy to be used as <b>their primary residence.</b></p><p>&nbsp;</p><p>&nbsp;</p>"
-        },
-        {
-          "title": "Corporate credit cards",
-          "text": "<p>Through <b>agreements</b> with leading sector operators, our employees can apply for credit cards (Corporate Cards) at special conditions. The card can be used in Italy and abroad to pay for work-related and personal expenses.&nbsp;</p><p>&nbsp;</p>"
-        },
-        {
-          "title": "Accommodation scouting",
-          "text": "<p>Starting from January 2023, we will provide support and incentives to facilitate the search for accommodation at the place of work, privileging young new recruits from other locations, with an accommodation <b>scouting</b> service, covering the <b>agency fees</b> and guaranteeing the possibility to live in <b>residences</b> for the first 3 months from hiring, pending the completion of the house search.</p><p>&nbsp;</p>"
-        },
-        {
-          "title": "Support for gas and electricity payments",
-          "text": ""
-        },
-        {
-          "title": "ICT benefits",
-          "text": "<p>This initiative, valid for 2023, is intended for employees with Eni Plenitude utilities linked to the “Per Noi” contract.&nbsp;</p><p>&nbsp;</p>"
-        }
+    "sections": [
+      {
+        "title": "azienda",
+        "subsections": [
+          "chi siamo",
+          "qualità e certificazioni",
+          "contatti"
+        ]
+      },
+      {
+        "title": "servizi",
+        "subsections": [
+          "impianti",
+          "laboratorio"
+        ]
+      },
+      {
+        "title": "news",
+        "subsections": ["categoria 1", "categoria 2", "categoria 3"]
+      }
+    ],
+    "social": {
+      "title": "seguici su",
+      "subsections": [
+        "linkedin",
+        "youtube",
+        "facebook",
+        "instagram"
       ]
     },
-    {
-      "id": "energia",
-      "title": "energy transition",
-      "items": [
-        {
-          "title": "Mobility Management services",
-          "text": "<p>We have introduced a new professional figure, the <b>Mobility Manager</b>. Their task is to draft intervention plans to support commuting, favouring the use of public transport and the company’s Carpooling service,<b>&nbsp;contributing to the reduction of pollutant emissions</b>.&nbsp; Our people have the chance to use services, free of charge or at advantageous conditions, including company shuttle buses, bike sharing, annual public transport travel cards and car hire with some of the major companies.</p><p>Furthermore, from the first quarter of 2023, we will be running an experimental <b>electric and</b> <b>plug-in hybrid vehicle charging service</b> for employees in San Donato Milanese and Rome, free of charge for 2023. The charging services is offered with a view to promoting virtuous and sustainable conduct and as a fuel contribution for commuter journeys.</p><p><b>&nbsp;</b></p>"
-        }
-      ]
-    },
-    {
-      "id": "famiglia",
-      "title": "family",
-      "items": [
-        {
-          "title": "Parenting",
-          "text": "<p>Since 2015, we have ensured that the <b>minimum</b> maternity standards set by the International Labour Organization (ILO) apply to all our people, everywhere in the world.&nbsp;Our employees throughout the world, where the parental leave guaranteed by local law is lower than the ILO standard, are entitled to a minimum of 14 weeks of leave with payment of an allowance equal to at least two thirds of their recent salary. In addition, in September 2017, Eni adopted a comprehensive internal procedure to introduce a minimum standard for <b>paternity leave</b> (10 working days with 100% pay).&nbsp;</p><p>&nbsp;</p>"
-        },
-        {
-          "title": "Eni 0-6 nursery school",
-          "text": "<p>The Eni nursery was founded in 2010 in San Donato Milanese, and since 2019 the services has also been available in Rome. This initiative is devoted to <b>families</b>, aiming to improve personal well-being by providing major support in reconciling the demands of private and working life.</p><p>&nbsp;</p>"
-        },
-        {
-          "title": "Supporto alle famiglie",
-          "text": "<b>Babysitter support</b><br><p>By April 2023, we will make available to our employees with children aged 0-13 a <b>qualified babysitting service search and selection portal</b> covering the whole country, offering a package of hours recognised by Eni.</p><p>&nbsp;</p><p>&nbsp;</p><b>Support to new parents on educational issues</b><br><p>By April 2023, we will offer new parents a <b>training and information service</b>, helping them to understand and define their new parental role, interacting and discussing educational topics relating to the 0-6 age group with <b>experts</b>.</p><p>&nbsp;</p><p>&nbsp;</p><b>Support to new parents on educational issues</b><br><p>By April 2023, we will offer new parents a <b>training and information service</b>, helping them to understand and define their new parental role, interacting and discussing educational topics relating to the 0-6 age group with <b>experts</b>.</p><p>&nbsp;</p><p>&nbsp;</p><b>Support for children’s expenses</b><br><p>From birth up to the child’s fourth birthday, we offer <b>financial contributions</b> for each child, refunding expenses incurred for education. The initiative will be launched in the first four months of 2023.</p><p>&nbsp;</p><p>&nbsp;</p><b>Support to school and career guidance</b><br><p>To support families tackling important choices linked to their children’s school or careers, we offer a series of initiatives to facilitate <b>aware decision-making</b> and enhance the children’s skills set. We also offer programmes and instruments supporting children in their studies and for preparing for university entrance exams. Among those, ‘Think About Tomorrow’, an initiative for our employees’ families (and also open to the outside) enrolled in 10th, 11th and 12th grade. Students are supported in their educational and professional orientation, with the goal of guiding them toward a conscious after-diploma choice, beyond gender stereotypes, and stimulating the interest for STEM subjects.</p><p>&nbsp;</p><b>Support to caregivers</b><br><p>New service lines have been launched to support employees facing <b>specific challenges</b> including care giving for elderly parents and dependent family members.</p><p>&nbsp;</p><p>&nbsp;</p>"
-        },
-        {
-          "title": "Summer stays",
-          "text": "<p>We organise summer stays in seaside and mountain resorts for <b>children aged from 6 to 14</b>. In addition to running workshops, sports, play and recreational activities, the holidays also offer workshops on <b>environmental topics</b> including recycling, energy saving and the principles of the circular economy, fostering a culture of environmental awareness.</p><p>&nbsp;</p>"
-        },
-        {
-          "title": "Summer camp",
-          "text": "<p>Summer camps are intended for <b>children aged 15 and 16</b>. These are mainly held in English and include sports, cultural and naturalistic activities. The activity plan also includes opportunities for discussion and dialogue on <b >environmental</b> and sustainability issues linked to the Agenda 2030 as well as training and information sessions aiming to raise awareness among young people on <b >intercultural issues</b> and <b >respect for human rights</b>.</p><p>&nbsp;</p>"
-        },
-        {
-          "title": "'Fragibilità'",
-          "text": "<p>Based on a national network and integrated by qualified operators,&nbsp;‘<b>Fragibilità’</b>&nbsp;is a service that, both through a contact centre and on a web platform, provides information, guidance and support to families tackling problems linked to non-self-sufficiency and disability. ‘Fragibilità’ also provides training and information for caregivers built around <b>video pills</b> published on MyEni and made by experts and professionals in order to enhance pension-related and economic management skills.</p><p>&nbsp;</p>"
-        },
-        {
-          "title": "Holiday stays for employees’ parents aged 65+",
-          "text": "<p>We offer holiday stays in <b>seaside and mountain resorts</b>, featuring a rich programme of social and entertainment activities and excursions. The chosen locations have 24-hour medical support available nearby.</p><p>&nbsp;</p>"
-        }
+    "details": {
+      "title": "details",
+      "subsections": [
+        "Efesto SRL P.IVA: 10125490960"
       ]
     }
-  ]
+  }
 }

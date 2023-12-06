@@ -26,6 +26,12 @@
       "icon": "arrow-right"
     }
   },
+  "home": {
+    "hero": {
+      "title": "trattamenti termici\nper la metalmeccanica",
+      "cta": "scopri di più"
+    } 
+  },
   "footer": {
     "info": {
       "title": "vuoi più informazioni?",

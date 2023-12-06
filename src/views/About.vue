@@ -1,6 +1,13 @@
 <template>
   <div>
     ABOUT
-    <img :src="`${$baseUrl}images/test.png`" />
   </div>
 </template>
+
+<script setup>
+
+</script>
+
+<style lang="scss" scoped>
+
+</style>
