@@ -3,7 +3,7 @@
     <Header class="header" :sections="$tm('header.sections')" :button="$tm('header.button')"
       @set-lang="setLanguage" />
     <div class="container">
-      <router-view></router-view>
+      <router-view :content="$tm('home')"></router-view>
     </div>
     <Footer :sections="$tm('footer')" />
   </div>
@@ -23,8 +23,6 @@ import Footer from "@/components/footer.vue";
 
 const { $tvaMq } = useTvaMq();
 const i18n = useI18n();
-
-console.log(i18n.tm);
 
 provide("$tvaMq", $tvaMq);
 provide("version", version);
@@ -111,6 +109,7 @@ function setVHProperty() {
 }
 
 .container {
+  // margin: 70px 3rem 0 3rem !important;
   margin-top: 70px !important;
   display: flex;
   flex-direction: column;

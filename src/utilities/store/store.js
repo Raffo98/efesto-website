@@ -11,14 +11,5 @@ export const useStateStore = defineStore("state", {
     updateScroll(scrollIncrement) {
       this.scrollState = scrollIncrement;
     }
-    // changeActiveId(num) {
-    //   this.activeId = num;
-    // },
-    // changeState(bool) {
-    //   this.isOpen = bool;
-    // },
-    // changeStateHover(bool) {
-    //   this.onHover = bool;
-    // },
   },
 });

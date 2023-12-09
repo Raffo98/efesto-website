@@ -51,7 +51,7 @@
       @mouseleave="stateSection.changeSectionId('')"
       v-if="props.content.subsections.length > 0"
     >
-      <router-link to="/about">
+      <router-link :to="{name: `${idSub}`}">
         <button
           class="sectionHeader__dropdown__btn"
           v-for="(sub, idx) in props.content.subsections"
@@ -59,7 +59,7 @@
           @mouseover="
             {
               isHoverSub = true;
-              idSub = sub;
+              idSub = sub.id;
             }
           "
           @mouseleave="
@@ -68,20 +68,19 @@
               idSub = '';
             }
           "
-          @click="navigateToPage"
           :style="{
             backgroundColor:
-              isHoverSub && idSub == sub && idSection == props.content.title
+              isHoverSub && idSub == sub.id && idSection == props.content.title
                 ? 'rgba(45, 45, 46, 1)'
                 : 'rgba(23, 23, 23, 1)',
           }"
         >
           <p
             class="sectionHeader__dropdown__btn__text"
-            v-html="sub"
+            v-html="sub.title"
             :style="{
               color:
-                isHoverSub && idSub == sub
+                isHoverSub && idSub == sub.id
                   ? 'rgba(231, 83, 23, 1)'
                   : 'rgba(247, 247, 247, 1)',
             }"
@@ -89,19 +88,18 @@
         </button>
       </router-link>
     </div>
-    <!-- <router-view></router-view> -->
   </div>
 </template>
 <script setup>
 import { provide, ref, watch } from "@vue/runtime-core";
 import useTvaMq from "@/plugins/tvaMq.js";
 import { useStateStore } from "@/utilities/store/store";
-import { useRouter } from 'vue-router';
+// import { useRouter } from 'vue-router';
 
 // const bookmark = ref(0);
 const stateSection = useStateStore();
 
-const router = useRouter();
+// const router = useRouter();
 // const route = useRoute();
 
 const props = defineProps({
@@ -126,9 +124,7 @@ function dropdown() {
   stateSection.changeSectionId(props.content.title);
 }
 
-function navigateToPage() {
-  router.push('/about');
-}
+
 </script>
 <style lang="scss" scoped>
 .sectionHeader {

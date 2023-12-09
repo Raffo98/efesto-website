@@ -14,18 +14,24 @@ import '@yzfe/svgicon/lib/svgicon.css'
 
 import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
+import Contacts from "@/views/Contacts.vue";
 
 const routes = [
   {
     path: "/",
-    name: "Home",
+    name: "home",
     component: Home,
     alias: ''
   },
   {
     path: "/about",
-    name: "About",
+    name: "about",
     component: About,
+  },
+  {
+    path: "/contacts",
+    name: "contacts",
+    component: Contacts,
   },
 ];
 
