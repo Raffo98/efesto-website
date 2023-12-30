@@ -3,7 +3,8 @@
     <Header class="header" :sections="$tm('header.sections')" :button="$tm('header.button')"
       @set-lang="setLanguage" />
     <div class="container">
-      <router-view :content="$tm('home')"></router-view>
+      <router-view :content="$tm(`${idPage}`)"></router-view>
+      <!-- <router-view :content="$tm('home')"></router-view> -->
     </div>
     <Footer :sections="$tm('footer')" />
   </div>
@@ -11,7 +12,7 @@
 
 <script setup>
 import version from "@/../package.json";
-import { onMounted, provide, ref } from "@vue/runtime-core";
+import { onMounted, provide, ref, watch } from "@vue/runtime-core";
 import useTvaMq from "./plugins/tvaMq.js";
 import { useI18n } from "vue-i18n";
 import { useStateStore } from "@/utilities/store/store";
@@ -30,6 +31,8 @@ provide("version", version);
 
 const modal = ref(null);
 const stateModal = useStateStore();
+
+const idPage = ref(stateModal.pageSection);
 // const isMobile = ref();
 
 // Calling this here is equivalent to calling it in
@@ -62,6 +65,9 @@ onMounted(() => {
 //   }
 // });
 
+watch(stateModal, (id) => {
+  idPage.value = id.pageSection;
+});
 
 
 onClickOutside(modal, () => { if (stateModal.isOpen) { stateModal.changeState(false) } });
@@ -83,6 +89,8 @@ function setLanguage(value) {
   }
 
   i18n.locale.value = lang.toLowerCase();
+
+
 
   // Set html language attribute
   const htmlEl = document.querySelector("html");

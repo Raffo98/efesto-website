@@ -34,8 +34,9 @@ import ctaButtonL from "@/components/ctaButtonL.vue";
 
 
 const props = defineProps({
-    content: Object,
+    content: Object
 });
+
 
 const isScrolling = useStateStore();
 const scrollIncrement = ref(0);

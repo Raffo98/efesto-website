@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="header__box">
-      <router-link to='/'>
+      <router-link :to="{name: 'home', params: { lang: isClickedLang }}">
         <div class="header__box__logo">
           <img :src="`${$assetsBasePath}icons/logo.svg`">
         </div>

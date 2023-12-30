@@ -68,6 +68,7 @@
               idSub = '';
             }
           "
+          @click="setIdPage(sub)"
           :style="{
             backgroundColor:
               isHoverSub && idSub == sub.id && idSection == props.content.title
@@ -122,6 +123,11 @@ watch(stateSection, () => {
 
 function dropdown() {
   stateSection.changeSectionId(props.content.title);
+}
+
+function setIdPage(id) {
+  console.log(id.id);
+  stateSection.updatePage(id.id);
 }
 
 
