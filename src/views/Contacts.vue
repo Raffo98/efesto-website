@@ -1,10 +1,32 @@
 <template>
     <div class="contacts">
-        {{ props.content }}
+        <div class="contacts__title">
+            <h1 v-html="props.content.title"></h1>
+        </div>
+        <div class="contacts__text" v-html="props.content.text">
+        </div>
+        <div class="contacts__subtitle">
+            <h2 v-html="props.content.info.title"></h2>
+        </div>
+        <div class="contacts__details">
+            <div class="contacts__details__map"></div>
+            <div class="contacts__details__info">
+                <div class="contacts__details__info__wrapper" v-for="detail, id in props.content.info.details" :key="id">
+                    <div class="contacts__details__info__wrapper__title" v-html="detail.title"></div>
+                    <div class="contacts__details__info__wrapper__detail" v-html="detail.content"></div>
+                </div>
+            </div>
+        </div>
+        <div class="contacts__cta">
+            <h3 v-html="props.content.cta.title"></h3>
+            <ctaButtonL :content="props.content.cta.button" />
+        </div>
     </div>
 </template>
 
 <script setup>
+import ctaButtonL from "@/components/ctaButtonL.vue";
+
 const props = defineProps({
     content: Object,
 });
@@ -12,5 +34,80 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
+.contacts {
+    width: 100%;
+    padding: 0 3rem 0 3rem !important;
 
+    &__title {
+        padding-bottom: 2rem !important;
+
+        h1 {
+            @include h1;
+            color: $color-black;
+        }
+    }
+
+    &__text {
+        padding-bottom: 3rem !important;
+
+        @include paragraph;
+        color: $color-black;
+    }
+
+    &__subtitle {
+        h2 {
+            @include h2;
+            color: $color-black;
+            text-transform: lowercase;
+
+            &::first-letter {
+                text-transform: capitalize;
+            }
+        }
+    }
+
+    &__details {
+        padding-bottom: 3rem !important;
+
+        &__map {}
+
+        &__info {
+            &__wrapper {
+                padding-bottom: 1.56rem !important;
+                &__title {
+                    @include text;
+                    color: $color-orange;
+                    text-transform: uppercase;
+
+                }
+
+                &__detail {
+                    @include paragraph;
+                    color: $color-black;
+                }
+            }
+        }
+    }
+
+    &__cta {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 42vh;
+
+        h3 {
+            @include h2;
+            color: $color-lightgrey;
+            text-transform: lowercase;
+            padding-bottom: 2rem !important;
+
+
+            &::first-letter {
+                text-transform: capitalize;
+            }
+        }
+
+    }
+}
 </style>

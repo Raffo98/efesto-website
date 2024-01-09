@@ -22,6 +22,8 @@
     "@vueuse/core": "^10.6.1",
     "@yzfe/svgicon": "^1.1.0",
     "@yzfe/vue3-svgicon": "^1.0.1",
+    "airtable": "^0.12.2",
+    "axios": "^1.6.5",
     "core-js": "^3.6.5",
     "pinia": "^2.0.29",
     "vue": "^3.1.0",

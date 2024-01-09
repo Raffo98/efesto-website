@@ -17,12 +17,8 @@ import '@yzfe/svgicon/lib/svgicon.css'
 
 import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
+import Quality from "@/views/Quality.vue";
 import Contacts from "@/views/Contacts.vue";
-
-
-
-
-// i18n.global.locale.value = lang.lang;
 
 
 const routes = [
@@ -39,6 +35,12 @@ const routes = [
 
   },
   {
+    path: "/quality",
+    name: "quality",
+    component: Quality
+
+  },
+  {
     path: '/contacts',
     name: "contacts",
     component: Contacts
@@ -51,7 +53,6 @@ const router = createRouter({
   routes,
 });
 
-console.log(i18n.global.tm(`routes`))
 
 
 // const app = createApp(App).use(VueSvgIconPlugin, { tagName: 'icon' });
