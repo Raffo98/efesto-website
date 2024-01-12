@@ -81,6 +81,7 @@
     "image": "about_ph",
     "sections": [
       {
+        "id": "certificate",
         "title": "abbiamo prodotti di qualità certificata",
         "text": "Sempre di più il trattamento termico richiede competenze ed esperienza per poter fornire non solo un prodotto di qualità ma anche un servizio in linea con le esigenze di certificazione delle filiere e dei prodotti. I nostri trattamenti sono certificati per rispettare anche gli standard più elevati per i mercati più esigenti.",
         "button": {
@@ -89,10 +90,15 @@
         }
       },
       {
+        "id": "team",
         "title": "siamo una squadra competente",
-        "text": "In EFESTO diamo valore alle persone che danno valore al nostro servizio e qualità ai nostri prodotti di trattamento. Per questo investiamo in formazione e crescita costanti e di altissimo livello."
+        "text": "In EFESTO diamo valore alle persone che danno valore al nostro servizio e qualità ai nostri prodotti di trattamento. Per questo investiamo in formazione e crescita costanti e di altissimo livello.",
+        "cards": {
+          "titles": ["email", "telefono"]
+        }
       },
       {
+        "id": "cvsender",
         "title": "lavora con noi",
         "text": "In EFESTO crediamo profondamente che una buona squadra sia fatta di persone appassionate, coinvolte e formate. Per questo investiamo nella costruzione di un ambiente di lavoro accogliente e nella formazione di tutto il personale ognuno secondo le sue attitudini e potenzialità. Siamo sempre alla ricerca di personale tecnico e amministrativo."
       }

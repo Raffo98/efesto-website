@@ -11,8 +11,8 @@
           <h2 v-html="section.title"></h2>
         </div>
         <div class="about__sections__section__text" v-html="section.text"></div>
-        <div class="about__sections__section__team">
-          
+        <div class="about__sections__section__team" v-if="section.id == 'team'">
+          <teamCard v-for="(person, idx) in teamDb" :key="idx" :content="person" :titles="props.content.sections[1].cards.titles" />
         </div>
       </div>
     </div>
@@ -23,6 +23,9 @@
 // import airtable from "@/plugins/airtable.js";
 import { ref } from "@vue/runtime-core";
 import axios from 'axios';
+
+import teamCard from "@/components/teamCard.vue";
+
 
 const props = defineProps({
   content: Object,
