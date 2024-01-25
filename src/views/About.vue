@@ -4,11 +4,14 @@
       <h1 v-html="props.content.title"></h1>
     </div>
     <div class="about__text" v-html="props.content.text"></div>
-    <div class="about__image"></div>
+    <div class="about__image">
+      <img :src="`${$assetsBasePath}about/${props.content.image}.jpg`">
+    </div>
     <div class="about__sections" v-for="section, id in props.content.sections" :key="id">
       <div class="about__sections__section">
         <div class="about__sections__section__subtitle">
-          <h2 v-html="section.title" :style="{ textTransform: section.id === 'cvsender' ? 'uppercase' : 'lowercase' }"></h2>
+          <h2 v-html="section.title" :style="{ textTransform: section.id === 'cvsender' ? 'uppercase' : 'lowercase' }">
+          </h2>
         </div>
         <div class="about__sections__section__text" v-html="section.text"></div>
         <div class="about__sections__section__team" v-if="section.id == 'team'">
@@ -16,6 +19,12 @@
             :titles="props.content.sections[1].cards.titles" />
         </div>
       </div>
+    </div>
+    <div class="about__cta">
+      <div class="about__cta__title">
+        <p v-html="props.content.cta.title"></p>
+      </div>
+      <ctaButtonL :content="props.content.cta.button" />
     </div>
   </div>
 </template>
@@ -26,11 +35,14 @@ import { ref } from "@vue/runtime-core";
 // import axios from 'axios';
 
 import teamCard from "@/components/teamCard.vue";
+import ctaButtonL from "@/components/ctaButtonL.vue";
+
 
 
 const props = defineProps({
   content: Object,
 });
+
 
 // var app_id = "appVMoyb4khjMiISW";
 // var api_key = "keyZ04O2juXZ975sl";
@@ -61,7 +73,6 @@ const props = defineProps({
 // console.log(teamDb.value);
 const teamDb = ref([]);
 
-console.log("wniwd")
 const fetchTeamData = () => {
   airtable.base('team').select({}).eachPage(function page(records, fetchNextPage) {
     records.forEach(async function (record) {
@@ -101,7 +112,15 @@ fetchTeamData();
   }
 
   &__image {
-    // Your styles for the image here
+    width: 100%;
+    padding-bottom: 3rem !important;
+
+    img {
+      object-fit: cover;
+      min-width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
   }
 
   &__sections {
@@ -131,9 +150,26 @@ fetchTeamData();
         flex-direction: row;
         flex-wrap: wrap;
         gap: 1rem;
-
+        padding-bottom: 3rem !important;
       }
     }
   }
-}
-</style>
+
+  &__cta {
+    padding: 2.25rem 0 12rem 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p {
+      @include h2;
+      color: $color-lightgrey;
+      text-align: center;
+      text-transform: none;
+      padding-bottom: 2rem !important;
+
+      &::first-letter {
+        text-transform: capitalize;
+      }
+    }
+  }
+}</style>
