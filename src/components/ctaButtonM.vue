@@ -5,12 +5,12 @@
             cta__button: true,
         }">
             <div class="cta__button__box">
-                <p class="cta__button__box__text" v-html="props.info.text"
+                <p class="cta__button__box__text" v-html="props.content.text"
                     :style="[isHover ? { color: 'rgba(231, 83, 23, 1)' } : { color: 'rgba(247, 247, 247, 1)' }]"></p>
             </div>
             <div class="cta__button__box__icon"
                 :style="[isHover ? { backgroundColor: 'rgba(231, 83, 23, 1)' } : { backgroundColor: 'rgba(247, 247, 247, 1)' }]">
-                <img :src="`${$assetsBasePath}icons/${props.info.icon}.svg`" :class="{ 'onHover': isHover }" />
+                <img :src="`${$assetsBasePath}icons/${props.content.icon}.svg`" :class="{ 'onHover': isHover }" />
             </div>
         </button>
     </div>
@@ -20,7 +20,7 @@
 import { ref } from "@vue/runtime-core";
 
 const props = defineProps({
-    info: Object,
+    content: Object,
 });
 
 const isHover = ref(false);

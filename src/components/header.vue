@@ -15,7 +15,7 @@
               @mouseover="isHoveredEng = true" @mouseleave="isHoveredEng = false" @click="$emit('setLang', 'en'); isClickedLang = 'en'"
               :style="{ color: isHoveredEng || isClickedLang == 'en' ? 'rgba(231, 83, 23, 1)' : 'rgba(247, 247, 247, 1)' }">eng</button>
           </div>
-          <ctaButtonM :info="props.button" />
+          <ctaButtonM :content="props.button" />
         </div>
       </div>
     </div>

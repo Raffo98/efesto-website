@@ -14,6 +14,9 @@
           </h2>
         </div>
         <div class="about__sections__section__text" v-html="section.text"></div>
+        <div class="about__sections__section__certificate" v-if="section.id == 'certificate'">
+          <ctaButtonM :content="section.button" />
+        </div>
         <div class="about__sections__section__team" v-if="section.id == 'team'">
           <teamCard v-for="(person, idx) in teamDb" :key="idx" :content="person"
             :titles="props.content.sections[1].cards.titles" />
@@ -35,6 +38,7 @@ import { ref } from "@vue/runtime-core";
 // import axios from 'axios';
 
 import teamCard from "@/components/teamCard.vue";
+import ctaButtonM from "@/components/ctaButtonM.vue";
 import ctaButtonL from "@/components/ctaButtonL.vue";
 
 
@@ -144,6 +148,15 @@ fetchTeamData();
         @include paragraph;
         color: $color-black;
       }
+      
+      &__certificate {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 3rem !important;
+
+      }
 
       &__team {
         display: flex;
@@ -160,6 +173,7 @@ fetchTeamData();
     display: flex;
     flex-direction: column;
     align-items: center;
+
     p {
       @include h2;
       color: $color-lightgrey;
@@ -172,4 +186,5 @@ fetchTeamData();
       }
     }
   }
-}</style>
+}
+</style>

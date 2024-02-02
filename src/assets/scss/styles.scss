@@ -46,7 +46,16 @@
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  line-height: 140%;
+  letter-spacing: 0.32px;
+}
+
+@mixin paragraph-bold {
+  font-family: 'WorkSans';
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%;
   letter-spacing: 0.32px;
 }
 
@@ -90,16 +99,20 @@
 * {
   --color-black: rgba(23, 23, 23, 1);
   --color-grey: rgba(45, 45, 46, 1);
+  --color-softgrey: rgb(217, 217, 217, 1);
   --color-lightgrey: rgba(111, 111, 113, 1);
-  --color-white: rgba(247, 247, 247, 1);
+  --color-white: rgb(247, 247, 247, 1);
+  --color-purewhite: rgb(255, 255, 255, 1);
   --color-orange: rgba(231, 83, 23, 1);
   ;
 }
 
 $color-black: var(--color-black);
 $color-grey: var(--color-grey);
+$color-softgrey: var(--color-softgrey);
 $color-lightgrey: var(--color-lightgrey);
 $color-white: var(--color-white);
+$color-purewhite: var(--color-purewhite);
 $color-orange: var(--color-orange);
 
 

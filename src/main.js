@@ -19,6 +19,7 @@ import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
 import Quality from "@/views/Quality.vue";
 import Contacts from "@/views/Contacts.vue";
+import Plants from "@/views/Plants.vue";
 
 
 const routes = [
@@ -44,6 +45,12 @@ const routes = [
     path: '/contacts',
     name: "contacts",
     component: Contacts
+  
+  },
+  {
+    path: '/plants',
+    name: "plants",
+    component: Plants
   
   },
 ];
