@@ -32,6 +32,15 @@
   text-transform: uppercase; 
 }
 
+@mixin services-text {
+  font-family: 'WorkSans';
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135%;
+  letter-spacing: -0.36px;
+}
+
 @mixin text {
   font-family: 'WorkSans';
   font-size: 1.56rem;

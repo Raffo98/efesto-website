@@ -176,23 +176,47 @@
       {
         "name": "forno aichelin",
         "description": "impianto Aichelin da 1000 kg/h in atmosfera controllata con tappeto a maglie fuse tecnologicamente avanzato e completamente automatizzato, concepito per il trattamento di bonifica e carbonitrurazione di particolari automotive secondo specifica CQi9 dal D. 4 al D. 18, grande uniformità di temperatura e nessun sbalzo termico in quanto il nastro rimane sempre all’interno forno, sistema di analisi del CO/CO2 e doppio controllo della % C , sono solo alcune delle peculiarità del nostro impianto. Inoltre disponiamo di una lavatrice a 4 fasi di lavaggio per la defosfatazione di tutti i particolari.",
-        "details": [
-          {"name": "forno", "description": "per preriscaldo e rinvenimento fino max 490°"},
-          {"name": "forno monocamera da cementazione e bonifica", "description": "a carico/scarico anteriore frontale con dimensioni utili del vano di carico: 910x1220x760"},
-          {"name": "sgrassatrice monocamera - riscaldo a gas con asciugatura della carica", "description": "disoleazione del bagno a skimmer"},
-          {"name": "sistema automatico movimentazione", "description": ""},
-          {"name": "sistema di analisi del co/co2", "description": "analisi temperatura C° in camera di trattamento per la misura del potenziale di carbonio dinamico"},
-          {"name": "sistema di misura", "description": "programmazione e regolazione dell’atmosfera e cicli di processo per esercizio manuale o automatico tramite sistema <b>IPSEN AUTOMAG</b>."}
-        ],
-        "processes": [
-          {"name": "cementazione"},
-          {"name": "bonifica"}
-        ]
-      },
-      {
-
+        "accordion": {
+          "header": "dettagli tecnici",
+          "details": [
+            {
+              "name": "forno",
+              "description": "per preriscaldo e rinvenimento fino max 490°"
+            },
+            {
+              "name": "forno monocamera da cementazione e bonifica",
+              "description": "a carico/scarico anteriore frontale con dimensioni utili del vano di carico: 910x1220x760"
+            },
+            {
+              "name": "sgrassatrice monocamera - riscaldo a gas con asciugatura della carica",
+              "description": "disoleazione del bagno a skimmer"
+            },
+            {
+              "name": "sistema automatico movimentazione",
+              "description": ""
+            },
+            {
+              "name": "sistema di analisi del co/co2",
+              "description": "analisi temperatura C° in camera di trattamento per la misura del potenziale di carbonio dinamico"
+            },
+            {
+              "name": "sistema di misura",
+              "description": "programmazione e regolazione dell’atmosfera e cicli di processo per esercizio manuale o automatico tramite sistema <strong>IPSEN AUTOMAG</strong>."
+            }
+          ],
+          "processes": {
+            "header": "lavorazioni disponibili",
+            "items": [
+              {
+                "name": "cementazione"
+              },
+              {
+                "name": "bonifica"
+              }
+            ]
+          }
+        }
       }
-
     ]
   },
   "footer": {
