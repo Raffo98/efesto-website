@@ -97,6 +97,15 @@
   // text-transform: uppercase; 
 }
 
+@mixin news-details {
+  font-family: 'IBMPlexMono';
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px; /* 137.5% */
+  text-transform: uppercase; 
+}
+
 @mixin card-role {
   font-family: 'IBMPlexMono';
   font-size: 0.8rem;

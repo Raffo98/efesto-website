@@ -216,8 +216,27 @@
             ]
           }
         }
+
       }
-    ]
+    ],
+    "cta": {
+      "title": "ancora non sai quale sia l’impianto più adatto alle tue esigenze?",
+      "button": {
+        "text": "contattaci",
+        "icon": "arrow-right"
+      }
+    }
+  },
+  "news": {
+    "title": "news",
+    "button": {
+      "text": "cerca",
+      "icon": "lens"
+    },
+    "filter": {
+      "icon": "filter"
+    }
+
   },
   "footer": {
     "info": {

@@ -20,6 +20,7 @@ import About from "@/views/About.vue";
 import Quality from "@/views/Quality.vue";
 import Contacts from "@/views/Contacts.vue";
 import Plants from "@/views/Plants.vue";
+import News from "@/views/News.vue";
 
 
 const routes = [
@@ -51,6 +52,12 @@ const routes = [
     path: '/plants',
     name: "plants",
     component: Plants
+  
+  },
+  {
+    path: '/news',
+    name: "news",
+    component: News
   
   },
 ];

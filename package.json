@@ -42,7 +42,7 @@
     "@yzfe/vue-cli-plugin-svgicon": "~1.1.0",
     "babel-plugin-lodash": "^3.3.4",
     "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^9.1.1",
+    "eslint-plugin-vue": "^9.21.1",
     "prerender-spa-plugin-next": "^4.2.0",
     "sass": "^1.52.3",
     "sass-loader": "^13.0.0"

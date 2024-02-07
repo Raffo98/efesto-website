@@ -1,6 +1,7 @@
 <template>
   <!-- @click="dropdown()" -->
   <div class="sectionHeader">
+    <router-link :to="{name: `${idSection == 'news' ? idSection : ''}`}">
     <button
       class="sectionHeader__text"
       @mouseover="
@@ -29,6 +30,7 @@
         ></span>
       </p>
     </button>
+  </router-link>
     <div
       class="sectionHeader__arrow"
       v-if="props.content.subsections.length > 0"
@@ -99,6 +101,7 @@ import { useStateStore } from "@/utilities/store/store";
 // const bookmark = ref(0);
 const stateSection = useStateStore();
 
+
 // const router = useRouter();
 // const route = useRoute();
 
@@ -113,6 +116,7 @@ const idSection = ref("");
 const isHover = ref(false);
 const isHoverSub = ref(false);
 const idSub = ref("");
+
 
 watch(stateSection, () => {
   if (stateSection.activeSectionId != idSection.value) {
