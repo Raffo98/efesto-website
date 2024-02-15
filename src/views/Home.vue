@@ -87,7 +87,7 @@ watch(isScrolling, () => {
         width: 100%;
         background-color: $color-black;
         background-size: 100%;
-        height: 44.7vh;
+        height: auto;
 
         &__title {
             @include h2;
@@ -101,7 +101,7 @@ watch(isScrolling, () => {
             flex-wrap: wrap;
             gap: 1rem;
             justify-content: space-between;
-            padding: 1rem 3rem 0 3rem !important;
+            padding: 1rem 3rem 3rem 3rem !important;
 
         }
     }
