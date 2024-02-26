@@ -1,29 +1,33 @@
 <template>
     <div class="search">
         <label class="input-lb" @mouseover="isHover = true" @mouseleave=" isHover = false">
-            <input class="input-box" type="text" :placeholder="props.content.text" @focusin="isFocused = true" @focusout="isFocused = false"
-                :style="[isHover || isFocused ? { backgroundPosition: 'left bottom' } : { backgroundPosition: 'right bottom' }]" />
+            <input class="input-box" ref="el" type="text" :placeholder="props.content.text" v-model="inputText" @focusin="isFocused = true" @focusout="isFocused = false"
+                :style="[isHover || isFocused || inputText.length > 0 ? { backgroundPosition: 'left bottom' } : { backgroundPosition: 'right bottom' }]" />
         </label>
     </div>
 </template>
 
 <script setup>
 import { ref, watch } from "@vue/runtime-core";
+import { defineEmits } from 'vue';
 
 const props = defineProps({
     content: Object,
 });
 
+const emit = defineEmits(['update-input']);
+
 // const inputBox = document.querySelector('.input-box');
 const isHover = ref(false);
 const isFocused = ref(false);
 
+const inputText = ref('');
 
 
-
-watch(isFocused, (e) => {
-    console.log(e);
+watch(inputText, (e) => {
+ emit('update-input', e);
 });
+
 
 
 </script>
@@ -45,6 +49,12 @@ watch(isFocused, (e) => {
         text-transform: lowercase !important;
 
         &:hover {
+            &::placeholder {
+                color: $color-orange;
+            }
+        }
+
+        &:focus {
             &::placeholder {
                 color: $color-orange;
             }
