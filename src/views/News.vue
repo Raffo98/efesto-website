@@ -137,8 +137,7 @@ const updateTags = (tags) => {
         console.log(selectedNews.value)
     }
 }
-// selectedNews.value = selectedNews.value.map(tags.forEach(tag => selectedNews.value.filter(data => data.tag.includes(tag)))
-// { data.tag.forEach(tag => tag.includes(tags.forEach(tagList => tagList)))
+
 </script>
 
 <style lang="scss" scoped>
@@ -171,6 +170,7 @@ const updateTags = (tags) => {
         flex-direction: row;
         gap: 1.5rem;
         padding-bottom: 6rem !important;
+        flex-wrap: wrap;
     }
 }
 </style>

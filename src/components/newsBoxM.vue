@@ -43,7 +43,10 @@ const textRef = ref(props.content.text);
 
 <style lang="scss" scoped>
 .box {
-    width: 49%;
+    // min-width: 150px;
+    // max-width: 32.3%;
+    flex: 1 1 min(300px, 30%); /* Larghezza minima di 200px, ma flessibile fino al 100% */
+  box-sizing: border-box;
     border: 1px solid $color-black !important;
     padding: 1rem !important;
 
