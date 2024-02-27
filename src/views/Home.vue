@@ -4,7 +4,8 @@
             home__hero: true,
             reduce_size: scrollIncrement > 2,
         }">
-            <img class="home__hero__img" :src="`${$assetsBasePath}backgrounds/asuka.jpg`">
+            <!-- <img class="home__hero__img" :src="`${$assetsBasePath}backgrounds/asuka.jpg`"> -->
+            <img class="home__hero__img" :src="`${$assetsBasePath}backgrounds/placeholder1.jpg`">
         </div>
         <div class="home__h1">
             <h1 v-html="props.content.hero.title"></h1>
