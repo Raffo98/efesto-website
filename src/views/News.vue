@@ -48,6 +48,9 @@ const newsDb = ref([]);
 //tags list
 const tagsList = ref([]);
 
+//backup temp array for selected news filtered and/or ordered
+const selectedBk = ref([]);
+
 
 const fetchNewsData = async () => {
     return new Promise((resolve, reject) => {
@@ -71,6 +74,7 @@ const fetchNewsData = async () => {
                 } else {
                     newsDb.value = newsDb.value.sort((a, b) => new Date(b.date) - new Date(a.date));
                     selectedNews.value = newsDb.value;
+                    selectedBk.value = selectedNews.value;
                     resolve(newsDb.value);
                 }
             }
@@ -90,7 +94,7 @@ const fetchData = async () => {
                 }
             })
         });
-        
+
     } catch (error) {
         console.error(error);
     }
@@ -107,6 +111,7 @@ const updateInput = (inputText) => {
     selectedNews.value = newsDb.value.filter(text => {
         return text.text.toLowerCase().includes(inputText)
     });
+    selectedBk.value = selectedNews.value;
 }
 
 //order by date
@@ -116,15 +121,24 @@ const updateChoice = (choice) => {
     }
     else {
         selectedNews.value = selectedNews.value.sort((a, b) => new Date(a.date) - new Date(b.date));
-
     }
+    selectedBk.value = selectedNews.value;
 }
 
 //filter by tag
 const updateTags = (tags) => {
-    console.log(tags);
+    if (tags.length == 0) {
+        selectedNews.value = selectedBk.value;
+    }
+    else {
+        selectedNews.value = selectedBk.value.filter(data => data.tag.some(tag => {
+            return tags.includes(tag);
+        }));
+        console.log(selectedNews.value)
+    }
 }
-
+// selectedNews.value = selectedNews.value.map(tags.forEach(tag => selectedNews.value.filter(data => data.tag.includes(tag)))
+// { data.tag.forEach(tag => tag.includes(tags.forEach(tagList => tagList)))
 </script>
 
 <style lang="scss" scoped>

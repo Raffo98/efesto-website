@@ -53,7 +53,7 @@ watch(orderChoice, (e) => {
     position: relative;
     box-sizing: border-box;
     height: 41px;
-    width: 160px;
+    width: fit-content;
     border: 1.5px solid $color-orange !important;
     cursor: pointer;
 
@@ -66,7 +66,7 @@ watch(orderChoice, (e) => {
         width: 100%;
         height: 100%;
         background: linear-gradient(to right, $color-white 50%, $color-orange 50%);
-        background-size: 200% 100%;
+        background-size: 205% 100%;
         padding: 8px 16px !important;
         transition: all 0.8s ease;
 
@@ -85,6 +85,9 @@ watch(orderChoice, (e) => {
             @include paragraph-m;
             color: $color-white;
             transition: color 0.5s ease;
+            padding-right: 1.25rem !important;
+
+
 
         }
 

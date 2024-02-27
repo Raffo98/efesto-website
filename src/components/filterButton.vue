@@ -3,7 +3,7 @@
         <div class="filter__box" @mouseover="isHover = true" @mouseleave=" isHover = false" @click="isClicked = !isClicked"
             :style="[isHover ? { backgroundPosition: 'left bottom' } : { backgroundPosition: 'right bottom' }]">
             <p class="filter__box__text" v-html="props.content.text"></p>
-            <img :src="`${$assetsBasePath}icons/news/${isClicked ? 'arrow-down-S' : 'arrow-up-S'}.svg`" />
+            <img :src="`${$assetsBasePath}icons/news/${props.content.icon}.svg`" />
         </div>
         <fieldset class="filter__checkbox" v-if="isClicked">
             <div class="filter__checkbox__check" v-for="tag in props.tags" :key="tag">
@@ -24,7 +24,7 @@ const props = defineProps({
     tags: Array
 });
 
-const emit = defineEmits(['update-checks']);
+const emit = defineEmits(['update-tags']);
 
 const isHover = ref(false);
 const checkedTags = ref([]);
@@ -84,6 +84,7 @@ watch(checkedTags, (e) => {
             @include paragraph-m;
             color: $color-white;
             transition: color 0.5s ease;
+            padding-right: 1.25rem !important;
 
         }
 
