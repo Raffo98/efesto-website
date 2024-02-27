@@ -7,7 +7,7 @@
         </div>
         <fieldset class="order__checkbox" v-if="isClicked">
             <div class="order__checkbox__check" v-for="choice in props.content.subtext" :key="choice.id">
-                <input type="radio" ref="el" name="date" :value="choice.id" :checked="choice.id == 'recent'"
+                <input type="radio" ref="el" name="date" :value="choice.id" :checked="choice.id == orderChoice"
                     v-model="orderChoice" />
                 <label :for="choice.text" v-html="choice.text"></label>
             </div>
@@ -28,12 +28,12 @@ const emit = defineEmits(['update-choice']);
 
 const isHover = ref(false);
 const isClicked = ref(false);
-const orderChoice = ref();
+const orderChoice = ref(props.content.subtext[0].id);
 const order = ref(null);
 
 
-onClickOutside(order, log => {
-    if (log) {
+onClickOutside(order, e => {
+    if (e) {
         isClicked.value = false;
     }
 
