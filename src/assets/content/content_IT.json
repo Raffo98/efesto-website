@@ -216,7 +216,6 @@
             ]
           }
         }
-
       }
     ],
     "cta": {
@@ -229,14 +228,31 @@
   },
   "news": {
     "title": "news",
-    "button": {
-      "text": "cerca",
-      "icon": "lens"
-    },
-    "filter": {
-      "icon": "filter"
-    }
-
+    "buttons": [
+      {
+        "text": "cerca",
+        "icon": "lens"
+      },
+      {
+        "text": "ordina per",
+        "icon": "arrow-up-S",
+        "icon-active": "arrow-down-S",
+        "subtext": [
+          {
+            "id": "recent",
+            "text": "dal più recente"
+          },
+          {
+            "id": "oldest",
+            "text": "dal meno recente"
+          }
+        ]
+      },
+      {
+        "text": "filtra",
+        "icon": "filter"
+      }
+    ]
   },
   "footer": {
     "info": {

@@ -71,7 +71,6 @@ const isHover = ref(false);
                 img {
                     filter: invert(45%) sepia(50%) saturate(2400%) hue-rotate(360deg) brightness(81%) contrast(99%);
                     transition: filter 0.3s ease;
-
                 }
             }
         }

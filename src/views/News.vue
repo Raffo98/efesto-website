@@ -8,12 +8,18 @@
 
             <div class="news__header__buttons">
                 <div class="news__header__buttons__search">
-                    <searchButton :content="props.content.button" @update-input="updateInput" />
+                    <searchButton :content="props.content.buttons[0]" @update-input="updateInput" />
+                </div>
+                <div class="news__header__buttons__order">
+                    <orderButton :content="props.content.buttons[1]" @update-choice="updateChoice" />
+                </div>
+                <div class="news__header__buttons__filter">
+                    <filterButton :content="props.content.buttons[2]" :tags="tagsList" @update-tags="updateTags" />
                 </div>
             </div>
         </div>
         <div class="news__wrapper">
-            <newsBoxM v-for="(news, index) in searchDb" :key='index' :content="news" />
+            <newsBoxM v-for="(news, index) in selectedNews" :key='index' :content="news" />
         </div>
 
     </div>
@@ -22,6 +28,8 @@
 <script setup>
 import newsBoxM from "@/components/newsBoxM.vue";
 import searchButton from "@/components/searchButton.vue";
+import orderButton from "@/components/orderButton.vue";
+import filterButton from "@/components/filterButton.vue";
 
 import { ref } from "@vue/runtime-core";
 import airtable from "@/plugins/airtable.js";
@@ -32,12 +40,13 @@ const props = defineProps({
 });
 
 //array with filtered news by search bar input
-const searchDb = ref([]);
-
+const selectedNews = ref([]);
 
 // loads all the news
 const newsDb = ref([]);
 
+//tags list
+const tagsList = ref([]);
 
 
 const fetchNewsData = async () => {
@@ -60,7 +69,8 @@ const fetchNewsData = async () => {
                     console.error(err);
                     reject(err);
                 } else {
-                    searchDb.value = newsDb.value;
+                    newsDb.value = newsDb.value.sort((a, b) => new Date(b.date) - new Date(a.date));
+                    selectedNews.value = newsDb.value;
                     resolve(newsDb.value);
                 }
             }
@@ -72,6 +82,15 @@ const fetchNewsData = async () => {
 const fetchData = async () => {
     try {
         await fetchNewsData();
+        //get tags
+        newsDb.value.forEach(news => {
+            news.tag.map(tag => {
+                if (!tagsList.value.includes(tag)) {
+                    tagsList.value.push(tag);
+                }
+            })
+        });
+        
     } catch (error) {
         console.error(error);
     }
@@ -80,13 +99,30 @@ const fetchData = async () => {
 fetchData();
 
 
+//filter by input searchbar
 const updateInput = (inputText) => {
-    if(inputText == null) {
+    if (inputText == null) {
         return newsDb.value;
     }
-    searchDb.value = newsDb.value.filter(text => {
+    selectedNews.value = newsDb.value.filter(text => {
         return text.text.toLowerCase().includes(inputText)
     });
+}
+
+//order by date
+const updateChoice = (choice) => {
+    if (choice == 'recent') {
+        selectedNews.value = selectedNews.value.sort((a, b) => new Date(b.date) - new Date(a.date));
+    }
+    else {
+        selectedNews.value = selectedNews.value.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+    }
+}
+
+//filter by tag
+const updateTags = (tags) => {
+    console.log(tags);
 }
 
 </script>
@@ -111,6 +147,7 @@ const updateInput = (inputText) => {
 
         &__buttons {
             display: flex;
+            gap: 1.375rem;
 
         }
     }
