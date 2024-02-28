@@ -31,11 +31,11 @@ const props = defineProps({
 
 const textRef = ref(props.content.text);
 
-  const maxLength = 220;
-  const textElement = ref(textRef.value);
-  if (textElement.value.length > maxLength) {
+const maxLength = 220;
+const textElement = ref(textRef.value);
+if (textElement.value.length > maxLength) {
     textElement.value = textElement.value.substring(0, maxLength) + '...';
-  }
+}
 
 
 
@@ -43,10 +43,8 @@ const textRef = ref(props.content.text);
 
 <style lang="scss" scoped>
 .box {
-    // min-width: 150px;
-    // max-width: 32.3%;
-    flex: 1 1 min(300px, 30%); /* Larghezza minima di 200px, ma flessibile fino al 100% */
-  box-sizing: border-box;
+    flex: 0 0 calc(33.83% - 1.5rem);
+    box-sizing: border-box;
     border: 1px solid $color-black !important;
     padding: 1rem !important;
 
@@ -65,7 +63,8 @@ const textRef = ref(props.content.text);
     &__details {
         display: flex;
         flex-direction: row;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
+
         padding: .75rem !important;
         @include news-details;
 

@@ -166,11 +166,10 @@ const updateTags = (tags) => {
     }
 
     &__wrapper {
-        display: flex;
         flex-direction: row;
-        gap: 1.5rem;
         padding-bottom: 6rem !important;
+        display: flex;
         flex-wrap: wrap;
+        gap: 1.5rem;
     }
-}
-</style>
+}</style>
