@@ -21,6 +21,7 @@ import Quality from "@/views/Quality.vue";
 import Contacts from "@/views/Contacts.vue";
 import Plants from "@/views/Plants.vue";
 import News from "@/views/News.vue";
+import NewsId from "@/views/NewsId.vue";
 
 
 const routes = [
@@ -60,6 +61,11 @@ const routes = [
     component: News
   
   },
+  {
+    path: '/news/:id',
+    name: 'newsId',
+    component: NewsId
+  }
 ];
 
 const router = createRouter({

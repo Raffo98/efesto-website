@@ -1,5 +1,5 @@
 <template>
-    <div class="box">
+    <div class="box" @click="emitId">
         <div class="box__img">
             <img :src="props.content.img">
         </div>
@@ -24,6 +24,9 @@
 
 <script setup>
 import { ref } from 'vue';
+import { defineEmits } from 'vue';
+
+const emit = defineEmits('update-id');
 
 const props = defineProps({
     content: Object,
@@ -37,16 +40,21 @@ if (textElement.value.length > maxLength) {
     textElement.value = textElement.value.substring(0, maxLength) + '...';
 }
 
+function emitId() {
+    emit('update-id', props.content.id);
+}
+
 
 
 </script>
 
 <style lang="scss" scoped>
 .box {
-    flex: 0 0 calc(33.83% - 1.5rem);
+    flex: 0 0 calc(33.33% - 1rem);
     box-sizing: border-box;
     border: 1px solid $color-black !important;
     padding: 1rem !important;
+    cursor: pointer;
 
     &__img {
         padding-bottom: 1.75rem !important;

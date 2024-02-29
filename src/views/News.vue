@@ -19,7 +19,9 @@
             </div>
         </div>
         <div class="news__wrapper">
-            <newsBoxM v-for="(news, index) in selectedNews" :key='index' :content="news" />
+            <router-link :to="{ name: 'newsId', params: { id: `${newsId.value}` }}">
+                <newsBoxM v-for="(news, index) in selectedNews" :key='index' :content="news" @update-id="updateId" />
+            </router-link>
         </div>
 
     </div>
@@ -51,6 +53,8 @@ const tagsList = ref([]);
 //backup temp array for selected news filtered and/or ordered
 const selectedBk = ref([]);
 
+const newsId = ref('');
+
 
 const fetchNewsData = async () => {
     return new Promise((resolve, reject) => {
@@ -58,6 +62,7 @@ const fetchNewsData = async () => {
             (records, fetchNextPage) => {
                 records.forEach(async (record) => {
                     newsDb.value.unshift({
+                        id: record.fields.id,
                         title: record.fields.title,
                         text: record.fields.text,
                         tag: record.fields.tag,
@@ -134,8 +139,12 @@ const updateTags = (tags) => {
         selectedNews.value = selectedBk.value.filter(data => data.tag.some(tag => {
             return tags.includes(tag);
         }));
-        console.log(selectedNews.value)
     }
+}
+
+//retrieve id news for the news page
+const updateId = (id) => {
+    newsId.value = id;
 }
 
 </script>
@@ -165,11 +174,15 @@ const updateTags = (tags) => {
         }
     }
 
-    &__wrapper {
+    &__wrapper > a  {
         flex-direction: row;
         padding-bottom: 6rem !important;
+        justify-content: space-between;
+        place-content: flex-start;
         display: flex;
         flex-wrap: wrap;
         gap: 1.5rem;
     }
-}</style>
+
+}
+</style>
