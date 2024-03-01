@@ -1,32 +1,31 @@
 <template>
-    <div class="box" @click="emitId">
-        <div class="box__img">
-            <img :src="props.content.img">
-        </div>
-        <div class="box__details">
-            <div class="box__details__tag">
-                <p v-html="props.content.tag"></p>
+    <div class="box">
+        <router-link :to="{ name: 'newsId', params: { id: `${props.content.id}` }, query: { content: `${JSON.stringify(props.content)}` } }">
+            <div class="box__img">
+                <img :src="props.content.img">
             </div>
-            <p class="box__details__split">•</p>
-            <div class="box__details__date">
-                <p v-html="props.content.date"></p>
+            <div class="box__details">
+                <div class="box__details__tag">
+                    <p v-html="props.content.tag"></p>
+                </div>
+                <p class="box__details__split">•</p>
+                <div class="box__details__date">
+                    <p v-html="props.content.date"></p>
+                </div>
             </div>
-        </div>
-        <div class="box__title">
-            <p v-html="props.content.title"></p>
-        </div>
-        <div class="box__text">
-            <p v-html="textElement"></p>
-        </div>
-
+            <div class="box__title">
+                <p v-html="props.content.title"></p>
+            </div>
+            <div class="box__text">
+                <p v-html="textElement"></p>
+            </div>
+        </router-link>
     </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
-import { defineEmits } from 'vue';
 
-const emit = defineEmits('update-id');
 
 const props = defineProps({
     content: Object,
@@ -40,9 +39,6 @@ if (textElement.value.length > maxLength) {
     textElement.value = textElement.value.substring(0, maxLength) + '...';
 }
 
-function emitId() {
-    emit('update-id', props.content.id);
-}
 
 
 
@@ -55,6 +51,7 @@ function emitId() {
     border: 1px solid $color-black !important;
     padding: 1rem !important;
     cursor: pointer;
+    
 
     &__img {
         padding-bottom: 1.75rem !important;
@@ -98,5 +95,7 @@ function emitId() {
         padding: .75rem !important;
 
     }
+
+
 }
 </style>

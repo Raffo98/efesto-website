@@ -19,6 +19,7 @@ import { useStateStore } from "@/utilities/store/store";
 import { onClickOutside } from '@vueuse/core';
 import { useRoute } from 'vue-router'
 import { computed } from 'vue'
+
 import Header from "@/components/header.vue";
 import Footer from "@/components/footer.vue";
 
@@ -26,7 +27,12 @@ const { $tvaMq } = useTvaMq();
 const i18n = useI18n();
 const route = useRoute();
 
-const path = computed(() => route.name)
+const path = computed(() => {
+  if(route.params.id) {
+    return route.params.id
+  }
+  return route.name
+})
 
 provide("$tvaMq", $tvaMq);
 provide("version", version);
@@ -68,8 +74,8 @@ onMounted(() => {
 //   }
 // });
 
-// watch(stateModal, (id) => {
-//   idPage.value = id.pageSection;
+// watch(propsNews, (test) => {
+//   console.log(test);
 // });
 
 

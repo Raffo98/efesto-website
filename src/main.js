@@ -58,7 +58,8 @@ const routes = [
   {
     path: '/news',
     name: "news",
-    component: News
+    component: News,
+    // children: [{ path: ':id', name: 'newsId', component: NewsId }],
   
   },
   {

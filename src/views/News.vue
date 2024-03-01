@@ -19,9 +19,8 @@
             </div>
         </div>
         <div class="news__wrapper">
-            <router-link :to="{ name: 'newsId', params: { id: `${newsId.value}` }}">
-                <newsBoxM v-for="(news, index) in selectedNews" :key='index' :content="news" @update-id="updateId" />
-            </router-link>
+            <!-- <router-link :to="{ name: 'newsId', params: { id: `${newsId.value}` } }"> -->
+             <newsBoxM v-for="(news, index) in selectedNews" :key='index' :content="news" />
         </div>
 
     </div>
@@ -52,9 +51,6 @@ const tagsList = ref([]);
 
 //backup temp array for selected news filtered and/or ordered
 const selectedBk = ref([]);
-
-const newsId = ref('');
-
 
 const fetchNewsData = async () => {
     return new Promise((resolve, reject) => {
@@ -142,11 +138,6 @@ const updateTags = (tags) => {
     }
 }
 
-//retrieve id news for the news page
-const updateId = (id) => {
-    newsId.value = id;
-}
-
 </script>
 
 <style lang="scss" scoped>
@@ -174,7 +165,7 @@ const updateId = (id) => {
         }
     }
 
-    &__wrapper > a  {
+    &__wrapper {
         flex-direction: row;
         padding-bottom: 6rem !important;
         justify-content: space-between;
