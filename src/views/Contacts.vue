@@ -43,6 +43,7 @@ const props = defineProps({
 
         h1 {
             @include h1;
+            text-transform: uppercase;
             color: $color-black;
         }
     }
@@ -74,6 +75,7 @@ const props = defineProps({
         &__info {
             &__wrapper {
                 padding-bottom: 1.56rem !important;
+
                 &__title {
                     @include text;
                     color: $color-orange;

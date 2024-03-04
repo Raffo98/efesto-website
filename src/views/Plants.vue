@@ -43,6 +43,7 @@ const props = defineProps({
 
         &__title {
             @include h1;
+            text-transform: uppercase;
         }
 
         &__text {
@@ -80,6 +81,7 @@ const props = defineProps({
         justify-content: center;
         flex-direction: column;
         align-items: center;
+
         p {
             @include h2;
             color: $color-lightgrey;

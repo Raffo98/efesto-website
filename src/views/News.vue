@@ -2,25 +2,26 @@
     <div class="news">
         <div class="news__header">
             <div class="news__header__title">
-                <h1 v-html="props.content.title">
+                <h1 v-html="props.content.static.title">
                 </h1>
             </div>
 
             <div class="news__header__buttons">
                 <div class="news__header__buttons__search">
-                    <searchButton :content="props.content.buttons[0]" @update-input="updateInput" />
+                    <searchButton :content="props.content.static.buttons[0]" @update-input="updateInput" />
                 </div>
                 <div class="news__header__buttons__order">
-                    <orderButton :content="props.content.buttons[1]" @update-choice="updateChoice" />
+                    <orderButton :content="props.content.static.buttons[1]" @update-choice="updateChoice" />
                 </div>
                 <div class="news__header__buttons__filter">
-                    <filterButton :content="props.content.buttons[2]" :tags="tagsList" @update-tags="updateTags" />
+                    <filterButton :content="props.content.static.buttons[2]" :tags="props.content.tags"
+                        @update-tags="updateTags" />
                 </div>
             </div>
         </div>
         <div class="news__wrapper">
             <!-- <router-link :to="{ name: 'newsId', params: { id: `${newsId.value}` } }"> -->
-             <newsBoxM v-for="(news, index) in selectedNews" :key='index' :content="news" />
+            <newsBoxM v-for="(news, index) in selectedNews" :key='index' :content="news" />
         </div>
 
     </div>
@@ -33,83 +34,94 @@ import orderButton from "@/components/orderButton.vue";
 import filterButton from "@/components/filterButton.vue";
 
 import { ref } from "@vue/runtime-core";
-import airtable from "@/plugins/airtable.js";
+// import airtable from "@/plugins/airtable.js";
 
 
 const props = defineProps({
     content: Object,
 });
 
+
 //array with filtered news by search bar input
-const selectedNews = ref([]);
+const selectedNews = ref(props.content.dinamic);
+
 
 // loads all the news
-const newsDb = ref([]);
-
-//tags list
-const tagsList = ref([]);
+// const newsDb = ref([]);
 
 //backup temp array for selected news filtered and/or ordered
 const selectedBk = ref([]);
-
-const fetchNewsData = async () => {
-    return new Promise((resolve, reject) => {
-        airtable.base('news').select({}).eachPage(
-            (records, fetchNextPage) => {
-                records.forEach(async (record) => {
-                    newsDb.value.unshift({
-                        id: record.fields.id,
-                        title: record.fields.title,
-                        text: record.fields.text,
-                        tag: record.fields.tag,
-                        date: record.fields.date,
-                        img: record.fields.img[0].url
-                    });
-                });
-                fetchNextPage();
-            },
-            (err) => {
-                if (err) {
-                    console.error(err);
-                    reject(err);
-                } else {
-                    newsDb.value = newsDb.value.sort((a, b) => new Date(b.date) - new Date(a.date));
-                    selectedNews.value = newsDb.value;
-                    selectedBk.value = selectedNews.value;
-                    resolve(newsDb.value);
-                }
-            }
-        );
-    });
-};
+selectedBk.value = selectedNews.value;
 
 
-const fetchData = async () => {
-    try {
-        await fetchNewsData();
-        //get tags
-        newsDb.value.forEach(news => {
-            news.tag.map(tag => {
-                if (!tagsList.value.includes(tag)) {
-                    tagsList.value.push(tag);
-                }
-            })
-        });
+// const fetchNewsData = async () => {
+//     return new Promise((resolve, reject) => {
+//         airtable.base('news').select({}).eachPage(
+//             (records, fetchNextPage) => {
+//                 records.forEach(async (record) => {
+//                     newsDb.value.unshift({
+//                         id: record.fields.id,
+//                         title: record.fields.title,
+//                         text: record.fields.text,
+//                         tag: record.fields.tag,
+//                         date: record.fields.date,
+//                         img: record.fields.img[0].url
+//                     });
+//                 });
+//                 fetchNextPage();
+//             },
+//             (err) => {
+//                 if (err) {
+//                     console.error(err);
+//                     reject(err);
+//                 } else {
+//                     newsDb.value = newsDb.value.sort((a, b) => new Date(b.date) - new Date(a.date));
+//                     selectedNews.value = newsDb.value;
+//                     selectedBk.value = selectedNews.value;
+//                     resolve(newsDb.value);
+//                 }
+//             }
+//         );
+//     });
+// };
 
-    } catch (error) {
-        console.error(error);
-    }
-};
 
-fetchData();
+// const fetchData = async () => {
+//     try {
+//         await fetchNewsData();
+//         //get tags
+//         newsDb.value.forEach(news => {
+//             news.tag.map(tag => {
+//                 if (!tagsList.value.includes(tag)) {
+//                     tagsList.value.push(tag);
+//                 }
+//             })
+//         });
 
+//     } catch (error) {
+//         console.error(error);
+//     }
+// };
+
+// fetchData();
+console.log(props.content.static.title)
+const newsArr = props.content.dinamic;
+
+
+// newsArr.forEach(news => {
+//     news.tag.map(tag => {
+//         if (!tagsList.value.includes(tag)) {
+//             tagsList.value.push(tag);
+//         }
+//     }) 
+// })
 
 //filter by input searchbar
 const updateInput = (inputText) => {
     if (inputText == null) {
-        return newsDb.value;
+        return newsArr;
     }
-    selectedNews.value = newsDb.value.filter(text => {
+    selectedNews.value = newsArr.filter(text => {
         return text.text.toLowerCase().includes(inputText)
     });
     selectedBk.value = selectedNews.value;
@@ -132,6 +144,7 @@ const updateTags = (tags) => {
         selectedNews.value = selectedBk.value;
     }
     else {
+        console.log("we");
         selectedNews.value = selectedBk.value.filter(data => data.tag.some(tag => {
             return tags.includes(tag);
         }));
@@ -154,6 +167,7 @@ const updateTags = (tags) => {
         &__title {
             h1 {
                 @include h1;
+                text-transform: uppercase;
                 color: $color-black;
             }
         }

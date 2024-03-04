@@ -38,6 +38,8 @@ const props = defineProps({
     content: Object
 });
 
+console.log("HOME", props.content.services)
+
 
 const isScrolling = useStateStore();
 const scrollIncrement = ref(0);
@@ -74,6 +76,7 @@ watch(isScrolling, () => {
     &__h1 {
         width: 100%;
         @include h1;
+        text-transform: uppercase;
         color: $color-black;
         margin: 0 3rem 0 3rem !important;
     }
@@ -95,6 +98,7 @@ watch(isScrolling, () => {
             color: $color-white;
             padding: 3rem 3rem 0 3rem !important;
         }
+
         &__cards {
             width: 100%;
             display: flex;
@@ -106,6 +110,7 @@ watch(isScrolling, () => {
 
         }
     }
+
     &__contacts {
         width: 100%;
         height: 39vh;
@@ -113,6 +118,7 @@ watch(isScrolling, () => {
         display: flex;
         flex-direction: column;
         align-items: center;
+
         &__title {
             @include h2;
             color: $color-lightgrey;
@@ -121,8 +127,8 @@ watch(isScrolling, () => {
             padding-bottom: 2rem !important;
 
             &::first-letter {
-                        text-transform: capitalize;
-                    }
+                text-transform: capitalize;
+            }
 
 
 
@@ -132,5 +138,4 @@ watch(isScrolling, () => {
 
 .reduce_size {
     height: calc(70vh - 70px);
-}
-</style>
+}</style>

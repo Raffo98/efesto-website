@@ -1,5 +1,3 @@
-console.log("we")
-
 const config = {
     // Uses the PORT variable declared here, the path is defined in code
     port: 8080,

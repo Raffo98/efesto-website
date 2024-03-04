@@ -62,6 +62,7 @@ const props = defineProps({
         &__title {
             h1 {
                 @include h1;
+                text-transform: uppercase;
                 color: $color-black;
             }
         }

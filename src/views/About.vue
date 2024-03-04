@@ -83,7 +83,6 @@ const fetchTeamData = () => {
       await teamDb.value.push({ "name": record.fields.name, "role": record.fields.role, "mail": record.fields.mail, "phone": record.fields.phone, "pic": record.fields.pic[0].url, });
     });
 
-    console.log(teamDb.value)
     fetchNextPage();
   }, function done(err) {
     if (err) { console.error(err); return; }
@@ -104,6 +103,7 @@ fetchTeamData();
   &__title {
     h1 {
       @include h1;
+      text-transform: uppercase;
       color: $color-black;
 
     }
@@ -148,7 +148,7 @@ fetchTeamData();
         @include paragraph;
         color: $color-black;
       }
-      
+
       &__certificate {
         width: 100%;
         display: flex;

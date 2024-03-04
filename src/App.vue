@@ -1,9 +1,9 @@
 <template>
   <div :class="[$tvaMq]" :version="version.version">
-    <Header class="header" :sections="$tm('header.sections')" :button="$tm('header.button')"
-      @set-lang="setLanguage" />
-    <div class="container">
-      <router-view :content="$tm(`${path}`)"></router-view>
+    <Header class="header" :sections="$tm('header.sections')" :button="$tm('header.button')" @set-lang="setLanguage" />
+    <div class="container" v-if="dataReady">
+      <!-- <router-view :content="$tm(`${path}`)"></router-view> -->
+      <router-view :content="content"></router-view>
       <!-- <router-view :content="$tm('home')"></router-view> -->
     </div>
     <Footer :sections="$tm('footer')" />
@@ -12,13 +12,15 @@
 
 <script setup>
 import version from "@/../package.json";
-import { onMounted, provide, ref } from "@vue/runtime-core";
+import { onMounted, provide, ref, watchEffect } from "@vue/runtime-core";
 import useTvaMq from "./plugins/tvaMq.js";
 import { useI18n } from "vue-i18n";
 import { useStateStore } from "@/utilities/store/store";
 import { onClickOutside } from '@vueuse/core';
 import { useRoute } from 'vue-router'
 import { computed } from 'vue'
+import airtable from "@/plugins/airtable.js";
+
 
 import Header from "@/components/header.vue";
 import Footer from "@/components/footer.vue";
@@ -28,11 +30,10 @@ const i18n = useI18n();
 const route = useRoute();
 
 const path = computed(() => {
-  if(route.params.id) {
-    return route.params.id
-  }
-  return route.name
+  return route.name;
 })
+
+const dataReady = ref(false);
 
 provide("$tvaMq", $tvaMq);
 provide("version", version);
@@ -49,6 +50,60 @@ const stateModal = useStateStore();
 // const instanceAttrs = getCurrentInstance().attrs;
 setLanguage();
 
+const newsDb = ref([]);
+const tagsList = ref([]);
+const content = ref({});
+
+
+const fetchNewsData = async () => {
+  return new Promise((resolve, reject) => {
+    airtable.base('news').select({}).eachPage(
+      (records, fetchNextPage) => {
+        records.forEach(async (record) => {
+          newsDb.value.unshift({
+            id: record.fields.id,
+            title: record.fields.title,
+            text: record.fields.text,
+            tag: record.fields.tag,
+            date: record.fields.date,
+            img: record.fields.img[0].url
+          });
+        });
+        fetchNextPage();
+      },
+      (err) => {
+        if (err) {
+          console.error(err);
+          reject(err);
+        } else {
+          newsDb.value = newsDb.value.sort((a, b) => new Date(b.date) - new Date(a.date));
+          resolve(newsDb.value);
+        }
+      }
+    );
+  });
+};
+
+//NEWS SECTION
+const fetchData = async () => {
+  try {
+    await fetchNewsData();
+    newsDb.value.forEach(news => {
+    news.tag.map(tag => {
+        if (!tagsList.value.includes(tag)) {
+            tagsList.value.push(tag);
+        }
+    }) 
+})
+    dataReady.value = true;
+
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+fetchData();
+
 function logScroll() {
   stateModal.updateScroll(window.scrollY);
 }
@@ -62,10 +117,25 @@ onMounted(() => {
   if (body) {
     window.addEventListener('scroll', logScroll)
   }
-
-
-
 });
+
+
+watchEffect(() => {
+  // Aggiorna content solo quando newsDb.value è definito
+  if (dataReady.value) {
+    if(path.value === 'news') {
+      content.value = { static: i18n.tm(path.value), dinamic: newsDb.value, tags: tagsList.value };
+    }
+    else if(path.value === 'newsId') {
+      const newsId = newsDb.value.filter(data => data.id == route.params.id);
+      content.value = { dinamic: newsId[0] }
+    }
+    else {
+      i18n.tm(path.value);
+    }
+  }
+});
+
 
 // watch($tvaMq, () => {
 //   if ($tvaMq.value === "mobile") isMobile.value = $tvaMq.value;

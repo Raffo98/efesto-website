@@ -1,6 +1,6 @@
 <template>
     <div class="box">
-        <router-link :to="{ name: 'newsId', params: { id: `${props.content.id}` }, query: { content: `${JSON.stringify(props.content)}` } }">
+        <router-link :to="{ name: 'newsId', params: { id: `${props.content.id}` } }">
             <div class="box__img">
                 <img :src="props.content.img">
             </div>
