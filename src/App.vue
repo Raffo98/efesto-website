@@ -131,8 +131,10 @@ watchEffect(() => {
       content.value = { dinamic: newsId[0] }
     }
     else {
+      console.log("WATCH 1: ", content.value, "i18n: ", i18n.tm(path.value), "path: ", path.value);
       content.value = i18n.tm(path.value);
-      console.log("watch effect", content.value);
+      console.log("WATCH 2: ", content.value, "i18n: ", i18n.tm(path.value), "path: ", path.value);
+
     }
   }
 });
