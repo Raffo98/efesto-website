@@ -77,7 +77,6 @@ const routes = [
 const router = createRouter({
   history: createWebHistory('/efesto-website/'),
   routes,
-  mode : 'hash'
 });
 
 
