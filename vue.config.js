@@ -12,6 +12,7 @@ module.exports = {
         __VUE_I18N_FULL_INSTALL__: true,
         __VUE_I18N_LEGACY_API__: true,
         __INTLIFY_PROD_DEVTOOLS__: true,
+        __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'false',
       }),
     ],
     optimization: {

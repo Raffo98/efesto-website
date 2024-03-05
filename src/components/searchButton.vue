@@ -9,7 +9,6 @@
 
 <script setup>
 import { ref, watch } from "@vue/runtime-core";
-import { defineEmits } from 'vue';
 
 const props = defineProps({
     content: Object,

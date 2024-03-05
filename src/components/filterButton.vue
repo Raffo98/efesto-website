@@ -17,7 +17,6 @@
 <script setup>
 import { ref, watch } from "@vue/runtime-core";
 import { onClickOutside } from '@vueuse/core';
-import { defineEmits } from 'vue';
 
 const props = defineProps({
     content: Object,

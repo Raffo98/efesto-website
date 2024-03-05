@@ -131,7 +131,7 @@ watchEffect(() => {
       content.value = { dinamic: newsId[0] }
     }
     else {
-      i18n.tm(path.value);
+      content.value = i18n.tm(path.value);
     }
   }
 });
