@@ -1,6 +1,6 @@
 // const PrerenderSPAPlugin = require("prerender-spa-plugin-next");
 const webpack = require("webpack");
-const path = require("path");
+// const path = require("path");
 
 module.exports = {
   publicPath: process.env.VUE_APP_PATH,
@@ -32,13 +32,5 @@ module.exports = {
       },
     },
   },
-  productionSourceMap: false,
-  configureWebpack: {
-    optimization: {
-      splitChunks: false,
-    },
-    output: {
-      filename: "js/app.[hash].js"
-    }
-  }
+  productionSourceMap: false
 };
