@@ -77,6 +77,7 @@ const fetchNewsData = async () => {
           reject(err);
         } else {
           newsDb.value = newsDb.value.sort((a, b) => new Date(b.date) - new Date(a.date));
+          console.log("NEWSDB ", newsDb.value);
           resolve(newsDb.value);
         }
       }
@@ -122,6 +123,8 @@ onMounted(() => {
 
 watchEffect(() => {
   // Aggiorna content solo quando newsDb.value è definito
+  console.log("NEWSDB in WATCH ", newsDb.value);
+
   if (dataReady.value) {
     if(path.value === 'news') {
       content.value = { static: i18n.tm(path.value), dinamic: newsDb.value, tags: tagsList.value };
