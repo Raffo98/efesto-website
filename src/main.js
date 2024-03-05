@@ -60,9 +60,10 @@ const routes = [
   
   },
   {
-    path: '/news',
+    path: '/efesto-website/news',
     name: "news",
     component: News,
+    alias: '/news'
     // children: [{ path: ':id', name: 'newsId', component: NewsId }],
   
   },
