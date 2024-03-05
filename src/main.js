@@ -25,12 +25,12 @@ import NewsId from "@/views/NewsId.vue";
 
 
 const routes = [
+  // {
+  //   path: '/',
+  //   redirect: { name: 'home' }
+  // },
   {
-    path: '/',
-    redirect: { name: 'home' }
-  },
-  {
-    path: "/home",
+    path: "/",
     name: "home",
     component: Home,
   },
