@@ -6,6 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "gh-pages-deploy": "node scripts/gh-pages-deploy.js",
     "build-staging": "vue-cli-service build --mode staging",
     "build-staging-all": "npm run build-staging-it && npm run build-staging-en",
     "build-staging-en": "vue-cli-service build --mode staging-en",
@@ -48,7 +49,8 @@
     "prerender-spa-plugin-next": "^4.2.0",
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.52.3",
-    "sass-loader": "^13.0.0"
+    "sass-loader": "^13.0.0",
+    "execa": "8.0.1"
   },
   "eslintConfig": {
     "root": true,
