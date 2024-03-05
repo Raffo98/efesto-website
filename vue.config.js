@@ -3,7 +3,7 @@ const webpack = require("webpack");
 // const path = require("path");
 
 module.exports = {
-  publicPath: 'process.env.VUE_APP_PATH',
+  publicPath: process.env.VUE_APP_PATH,
   outputDir: "dist",
   configureWebpack: {
     plugins: [
