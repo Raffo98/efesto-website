@@ -26,11 +26,13 @@ import NewsId from "@/views/NewsId.vue";
 
 const routes = [
   {
-    path: "/efesto-trattamenti/",
+    path: '/',
+    redirect: { name: 'home' }
+  },
+  {
+    path: "/home",
     name: "home",
     component: Home,
-    alias: '/',
-    redirect: { name: 'home' }
   },
   {
     path: "/about",
