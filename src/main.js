@@ -60,10 +60,9 @@ const routes = [
   
   },
   {
-    path: '/efesto-website/news',
+    path: '/news',
     name: "news",
     component: News,
-    alias: '/news'
     // children: [{ path: ':id', name: 'newsId', component: NewsId }],
   
   },
@@ -78,6 +77,7 @@ const routes = [
 const router = createRouter({
   history: createWebHistory('/efesto-website/'),
   routes,
+  mode : 'hash'
 });
 
 
