@@ -29,7 +29,8 @@ const routes = [
     path: "/efesto-trattamenti/",
     name: "home",
     component: Home,
-    alias: '/'
+    alias: '/',
+    redirect: { name: 'home' }
   },
   {
     path: "/about",
