@@ -126,6 +126,8 @@ watchEffect(() => {
   console.log("NEWSDB in WATCH ", newsDb.value);
 
   if (dataReady.value) {
+    console.log("dataREADY ", dataReady.value);
+
     if(path.value === 'news') {
       content.value = { static: i18n.tm(path.value), dinamic: newsDb.value, tags: tagsList.value };
     }
