@@ -132,6 +132,7 @@ watchEffect(() => {
     }
     else {
       content.value = i18n.tm(path.value);
+      console.log("watch effect", content.value);
     }
   }
 });
