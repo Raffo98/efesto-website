@@ -26,10 +26,10 @@ import NewsId from "@/views/NewsId.vue";
 
 const routes = [
   {
-    path: "/",
+    path: "/efesto-trattamenti/",
     name: "home",
     component: Home,
-    alias: ''
+    alias: '/'
   },
   {
     path: "/about",
