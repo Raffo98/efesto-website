@@ -104,7 +104,6 @@ selectedBk.value = selectedNews.value;
 // };
 
 // fetchData();
-console.log(props.content.static.title)
 const newsArr = props.content.dinamic;
 
 
@@ -144,7 +143,6 @@ const updateTags = (tags) => {
         selectedNews.value = selectedBk.value;
     }
     else {
-        console.log("we");
         selectedNews.value = selectedBk.value.filter(data => data.tag.some(tag => {
             return tags.includes(tag);
         }));

@@ -67,6 +67,13 @@
         }
       ]
     },
+    "news": {
+      "title": "news",
+      "button": {
+        "text": "leggi tutte le news",
+        "icon": "arrow-right"
+      }
+    },
     "contact": {
       "title": "cerchi un partner affidabile per trattamenti termici di qualità?",
       "button": {

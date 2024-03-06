@@ -26,7 +26,6 @@ const props = defineProps({
     content: Object
 });
 
-console.log()
 // import { useRoute, useRouter } from 'vue-router'
 
 // const router = useRouter();

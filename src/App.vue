@@ -3,7 +3,7 @@
     <Header class="header" :sections="$tm('header.sections')" :button="$tm('header.button')" @set-lang="setLanguage" />
     <div class="container" v-if="dataReady">
       <!-- <router-view :content="$tm(`${path}`)"></router-view> -->
-      <router-view :content="content"></router-view>
+      <router-view :content="content" :preview="path == 'home' ? newsPreview : null"></router-view>
       <!-- <router-view :content="$tm('home')"></router-view> -->
     </div>
     <Footer :sections="$tm('footer')" />
@@ -20,6 +20,7 @@ import { onClickOutside } from '@vueuse/core';
 import { useRoute } from 'vue-router'
 import { computed } from 'vue'
 import airtable from "@/plugins/airtable.js";
+
 
 
 import Header from "@/components/header.vue";
@@ -51,6 +52,10 @@ const stateModal = useStateStore();
 setLanguage();
 
 const newsDb = ref([]);
+
+//preview news for homepage
+const newsPreview = ref({});
+
 const tagsList = ref([]);
 const content = ref({});
 
@@ -77,7 +82,7 @@ const fetchNewsData = async () => {
           reject(err);
         } else {
           newsDb.value = newsDb.value.sort((a, b) => new Date(b.date) - new Date(a.date));
-          console.log("NEWSDB ", newsDb.value);
+          // console.log("NEWSDB ", newsDb.value);
           resolve(newsDb.value);
         }
       }
@@ -89,13 +94,20 @@ const fetchNewsData = async () => {
 const fetchData = async () => {
   try {
     await fetchNewsData();
+    //create a list of all tags in news articles from db
     newsDb.value.forEach(news => {
-    news.tag.map(tag => {
+      news.tag.map(tag => {
         if (!tagsList.value.includes(tag)) {
-            tagsList.value.push(tag);
+          tagsList.value.push(tag);
         }
-    }) 
-})
+      })
+    })
+
+    //news preview for homepage
+    const sortNews = newsDb.value.sort((a, b) => new Date(b.date) - new Date(a.date));
+    newsPreview.value = { latest: sortNews[0], recent: sortNews.slice(1, 4) };
+    // console.log("AOOOO:", newsPreview.value)
+ 
     dataReady.value = true;
 
   } catch (error) {
@@ -123,22 +135,22 @@ onMounted(() => {
 
 watchEffect(() => {
   // Aggiorna content solo quando newsDb.value è definito
-  console.log("NEWSDB in WATCH ", newsDb.value);
+  // console.log("NEWSDB in WATCH ", newsDb.value);
 
   if (dataReady.value) {
-    console.log("route: :", route, "name: ", route.name);
+    // console.log("route: :", route, "name: ", route.name);
 
-    if(path.value === 'news') {
+    if (path.value === 'news') {
       content.value = { static: i18n.tm(path.value), dinamic: newsDb.value, tags: tagsList.value };
     }
-    else if(path.value === 'newsId') {
+    else if (path.value === 'newsId') {
       const newsId = newsDb.value.filter(data => data.id == route.params.id);
       content.value = { dinamic: newsId[0] }
     }
     else {
-      console.log("WATCH 1: ", content.value, "i18n: ", i18n.tm(path.value), "path: ", path.value);
+      // console.log("WATCH 1: ", content.value, "i18n: ", i18n.tm(path.value), "path: ", path.value);
       content.value = i18n.tm(path.value);
-      console.log("WATCH 2: ", content.value, "i18n: ", i18n.tm(path.value), "path: ", path.value);
+      // console.log("WATCH 2: ", content.value, "i18n: ", i18n.tm(path.value), "path: ", path.value);
 
     }
   }

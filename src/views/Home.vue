@@ -19,6 +19,44 @@
                 <Card v-for="(service, idx) in props.content.services.service" :key="idx" :content="service" />
             </div>
         </div>
+        <div class="home__news">
+            <div class="home__news__wrapper">
+                <div class="home__news__wrapper__latest">
+                    <div class="home__news__wrapper__latest__textbox">
+                        <h2 class="home__news__wrapper__latest__textbox__title" v-html="props.content.news.title"></h2>
+                        <div class="home__news__wrapper__latest__textbox__newstitle">
+                            <p v-html="props.preview.latest.title"></p>
+                        </div>
+                        <div class="home__news__wrapper__latest__textbox__details">
+                            <div class="home__news__wrapper__latest__textbox__details__tags">
+                                <div class="home__news__wrapper__latest__textbox__details__tags__tag"
+                                    v-for="(tag, index) in props.preview.latest.tag" :key="index" v-html="tag"></div>
+                            </div>
+                            <p class="home__news__wrapper__latest__textbox__details__split">•</p>
+                            <div class="home__news__wrapper__latest__textbox__details__date">
+                                <p v-html="props.preview.latest.date"></p>
+                            </div>
+                        </div>
+                        <div class="home__news__wrapper__latest__textbox__text">
+                            <p v-html="textElement"></p>
+                        </div>
+                    </div>
+                    <div class="home__news__wrapper__latest__cta">
+                        <ctaButtonM :content="props.content.news.button" />
+                    </div>
+                </div>
+                <div class="home__news__wrapper__img">
+                    <img :src="props.preview.latest.img" alt="">
+                </div>
+            </div>
+            <div class="home__news__recents">
+                <newsBoxS v-for="news, index in props.preview.recent" :key="index" :content="news" />
+            </div>
+
+        </div>
+        <div class="home__carousel">
+            <galleryImages />
+        </div>
         <div class="home__contacts">
             <h2 class="home__contacts__title" v-html="props.content.contact.title"></h2>
             <ctaButtonL :content="props.content.contact.button" />
@@ -29,20 +67,32 @@
 <script setup>
 import { useStateStore } from "@/utilities/store/store";
 import { ref, watch } from "@vue/runtime-core";
+
 import Card from "@/components/card.vue";
 import ctaButtonL from "@/components/ctaButtonL.vue";
+import ctaButtonM from "@/components/ctaButtonM.vue";
+import newsBoxS from "@/components/newsBoxS.vue";
+import GalleryImages from "@/components/galleryImages.vue";
+
 
 
 
 const props = defineProps({
-    content: Object
+    content: Object,
+    preview: Object
 });
-
-console.log("HOME", props.content.services)
-
 
 const isScrolling = useStateStore();
 const scrollIncrement = ref(0);
+const textRef = ref(props.preview.latest.text);
+
+//maxlength for preview news
+const maxLength = 300;
+const textElement = ref(textRef.value);
+if (textElement.value.length > maxLength) {
+    textElement.value = textElement.value.substring(0, maxLength) + '...';
+}
+
 
 watch(isScrolling, () => {
     scrollIncrement.value = isScrolling.scrollState;
@@ -111,6 +161,99 @@ watch(isScrolling, () => {
         }
     }
 
+    &__news {
+        width: 100%;
+        padding: 0 3rem 0 3rem !important;
+        height: 100vh;
+
+
+        &__wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            min-height: 58%;
+            gap: 1rem;
+
+
+            &__latest {
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                &__textbox {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    // justify-content: space-between;
+                    gap: 1rem;
+                    height: 100%;
+
+                    &__title {
+                        @include h2;
+                        text-transform: uppercase;
+                        color: $color-lightgrey;
+                        line-height: 100%;
+                    }
+
+                    &__newstitle {
+                        @include h1;
+                        line-height: 100%;
+
+                    }
+
+                    &__details {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        @include news-details;
+
+                        &__tags {
+                            color: $color-orange;
+                        }
+
+                        &__split {
+                            padding: 0 .25rem !important;
+                        }
+
+                        &__date {}
+                    }
+
+                    &__text {
+                        @include paragraph;
+                    }
+                }
+
+                &__cta {
+                    width: fit-content;
+                }
+            }
+
+            &__img {
+                width: 50%;
+                min-height: 100%;
+                overflow: hidden;
+
+                & img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+
+                }
+            }
+
+        }
+
+        &__recents {
+            padding: 3rem 0 0 0 !important;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
     &__contacts {
         width: 100%;
         height: 39vh;
@@ -138,4 +281,5 @@ watch(isScrolling, () => {
 
 .reduce_size {
     height: calc(70vh - 70px);
-}</style>
+}
+</style>
