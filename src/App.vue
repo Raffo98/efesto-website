@@ -12,7 +12,7 @@
 
 <script setup>
 import version from "@/../package.json";
-import { onMounted, provide, ref, watchEffect } from "@vue/runtime-core";
+import { onMounted, provide, ref, watchEffect, watch } from "@vue/runtime-core";
 import useTvaMq from "./plugins/tvaMq.js";
 import { useI18n } from "vue-i18n";
 import { useStateStore } from "@/utilities/store/store";
@@ -44,7 +44,7 @@ const modal = ref(null);
 const stateModal = useStateStore();
 
 // const idPage = ref(stateModal.pageSection);
-// const isMobile = ref();
+const isMobile = ref('');
 
 // Calling this here is equivalent to calling it in
 // beforeCreated / create in Options API
@@ -157,12 +157,12 @@ watchEffect(() => {
 });
 
 
-// watch($tvaMq, () => {
-//   if ($tvaMq.value === "mobile") isMobile.value = $tvaMq.value;
-//   else {
-//     isMobile.value = '';
-//   }
-// });
+watch($tvaMq, () => {
+  if ($tvaMq.value === "mobile") isMobile.value = $tvaMq.value;
+  else {
+    isMobile.value = '';
+  }
+});
 
 // watch(propsNews, (test) => {
 //   console.log(test);

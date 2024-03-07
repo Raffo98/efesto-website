@@ -1,29 +1,38 @@
 <template>
   <div class="carousel">
-    <div class="carousel__main">
+    <div class="carousel__main" ref="rectMain">
       <div class="carousel__main__overlay">
-        <div class="carousel__main__overlay__arrows" v-for="arrow, index in props.content.button.icons" :key="index"
-          @mouseover="handleArrowHover(arrow)" @mouseleave="isHover = false, activeArrow = ''"
+        <button class="carousel__main__overlay__arrows" v-for="arrow, index in props.content.button.icons" :key="index"
+          @mouseover="handleArrowHover(arrow)" @mouseleave="isHover = false, activeArrow = ''" @click="slideTo(arrow)"
           :style="[isHover ? { backgroundPosition: 'left bottom' } : { backgroundPosition: 'right bottom' }]">
-          <button class="carousel__main__overlay__arrows__button">
+          <div class="carousel__main__overlay__arrows__button">
             <div class="carousel__main__overlay__arrows__button__icon"
               :style="[isHover && activeArrow == arrow ? { backgroundColor: 'rgba(247, 247, 247, 1)' } : { backgroundColor: 'rgba(231, 83, 23, 1)' }]">
-              <img :src="`${$assetsBasePath}icons/gallery/${arrow}.svg`" :class="{ 'onHover': isHover && activeArrow == arrow }" />
+              <img :src="`${$assetsBasePath}icons/gallery/${arrow}.svg`"
+                :class="{ 'onHover': isHover && activeArrow == arrow }" />
             </div>
-          </button>
+          </div>
+        </button>
+      </div>
+      <div class="carousel__main__strip" ref="strip">
+        <div class="carousel__main__strip__box" v-for="image, index in props.content.length" :key="index">
+          {{ index + 1 }}
+          <img :src="`${$assetsBasePath}gallery/${props.content.filename}-${image}.jpg`" alt="">
         </div>
       </div>
-      <div class="carousel__main__strip">
-        <img v-for="image, index in props.content.length" :key="index"
-          :src="`${$assetsBasePath}gallery/${props.content.filename}-${image}.jpg`" alt="">
+    </div>
+    <div class="carousel__thumbnail">
+      <div class="carousel__thumbnail__box" :style="'color: red'">
+        <img v-for="index in 2" :key="index"
+          :src="`${$assetsBasePath}gallery/${props.content.filename}-${currentSlide + index + 1 > props.content.length ? props.content.length - index - 1 : currentSlide + index + 1 }.jpg`"
+          alt="">
       </div>
     </div>
-    <div class="carousel__thumbnail"></div>
   </div>
 </template>
 
 <script setup>
-import { ref } from "@vue/runtime-core";
+import { ref, onMounted } from "@vue/runtime-core";
 
 const props = defineProps({
   content: Object
@@ -31,11 +40,51 @@ const props = defineProps({
 
 const isHover = ref(false);
 const activeArrow = ref('');
+const rectMain = ref(null);
+const strip = ref(null);
+const currentSlide = ref(0);
 
 const handleArrowHover = (arrow) => {
   isHover.value = true;
   activeArrow.value = arrow;
 };
+
+const updateStripWidth = () => {
+  if (strip.value) {
+    strip.value.style.transform = `translateX(${-currentSlide.value * strip.value.offsetWidth}px)`;
+    // strip.value.style.transform = `translateX(${-currentSlide.value * rectMain.value.offsetWidth}px)`;
+  }
+};
+
+
+const slideTo = (arrow) => {
+  const totalImages = props.content.length;
+
+  if (arrow === 'slide-right') {
+    currentSlide.value = (currentSlide.value + 1) % totalImages;
+  } else {
+    currentSlide.value = (currentSlide.value - 1 + totalImages) % totalImages;
+  }
+
+  const transitionEndHandler = () => {
+    strip.value.style.transition = 'none';
+    strip.value.style.transform = `translateX(${-currentSlide.value * strip.value.offsetWidth}px)`;
+    void strip.value.offsetWidth; // Trigger reflow
+    strip.value.style.transition = ''; // Re-enable transition
+    strip.value.removeEventListener('transitionend', transitionEndHandler);
+  };
+
+  strip.value.addEventListener('transitionend', transitionEndHandler);
+  strip.value.style.transition = 'transform 0.5s ease';
+  strip.value.style.transform = `translateX(${-currentSlide.value * strip.value.offsetWidth}px)`;
+};
+
+
+onMounted(() => {
+  updateStripWidth();
+  window.addEventListener("resize", updateStripWidth);
+});
+
 
 
 </script>
@@ -44,9 +93,13 @@ const handleArrowHover = (arrow) => {
 .carousel {
   height: 100%;
   padding: 3rem !important;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+
 
   &__main {
-    max-width: 60%;
+    max-width: 70%;
     height: 100%;
     overflow: hidden;
     position: relative;
@@ -60,6 +113,8 @@ const handleArrowHover = (arrow) => {
       width: 100%;
       height: auto;
       padding: 0 1rem !important;
+      z-index: 1;
+
 
       &__arrows {
         border: 1.5px solid $color-white !important;
@@ -100,15 +155,51 @@ const handleArrowHover = (arrow) => {
       display: flex;
       flex-direction: row;
       height: 100%;
+      width: 100%;
+      // position: absolute;
+      transition: transform .5s ease;
 
-      img {
-        width: 100%;
+
+      &__box {
+        min-width: 100%;
+        height: 100%;
+        overflow: hidden;
+        color: red;
+
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover; // Adatta l'immagine senza deformarla
+        }
       }
 
     }
   }
 
-  &__thumbnail {}
+  &__thumbnail {
+    min-width: 30%;
+    max-height: 100%;
+
+
+    &__box {
+      min-width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+      height: 100%;
+      overflow: hidden;
+
+      img {
+        height: 50%;
+        width: 100%;
+        object-fit: cover; // Adatta l'immagine senza deformarla
+      }
+
+
+    }
+  }
 }
 
 .onHover {
