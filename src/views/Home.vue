@@ -55,7 +55,7 @@
 
         </div>
         <div class="home__carousel">
-            <galleryImages />
+            <galleryImages :content="props.content.carousel" />
         </div>
         <div class="home__contacts">
             <h2 class="home__contacts__title" v-html="props.content.contact.title"></h2>
@@ -128,7 +128,7 @@ watch(isScrolling, () => {
         @include h1;
         text-transform: uppercase;
         color: $color-black;
-        margin: 0 3rem 0 3rem !important;
+        padding: 0 3rem 0 3rem !important;
     }
 
     &__discover {
@@ -252,6 +252,11 @@ watch(isScrolling, () => {
             flex-direction: row;
             justify-content: space-between;
         }
+    }
+    &__carousel {
+        width: 100%;
+        height: 70vh;
+        background-color: $color-black;
     }
 
     &__contacts {

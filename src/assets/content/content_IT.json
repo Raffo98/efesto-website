@@ -74,6 +74,13 @@
         "icon": "arrow-right"
       }
     },
+    "carousel": {
+      "filename": "gallery",
+      "length": 4,
+      "button": {
+        "icons": ["slide-left", "slide-right"]
+      }
+    },
     "contact": {
       "title": "cerchi un partner affidabile per trattamenti termici di qualità?",
       "button": {
