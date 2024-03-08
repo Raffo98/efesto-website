@@ -16,15 +16,14 @@
       </div>
       <div class="carousel__main__strip" ref="strip">
         <div class="carousel__main__strip__box" v-for="image, index in props.content.length" :key="index">
-          {{ index + 1 }}
-          <img :src="`${$assetsBasePath}gallery/${props.content.filename}-${image}.jpg`" alt="">
+          <img :src="`${$assetsBasePath}gallery/${props.content.filename}-${index}.jpg`" alt="">
         </div>
       </div>
     </div>
     <div class="carousel__thumbnail">
       <div class="carousel__thumbnail__box" :style="'color: red'">
         <img v-for="index in 2" :key="index"
-          :src="`${$assetsBasePath}gallery/${props.content.filename}-${currentSlide + index + 1 > props.content.length ? props.content.length - index - 1 : currentSlide + index + 1 }.jpg`"
+          :src="`${$assetsBasePath}gallery/${props.content.filename}-${currentSlide + index >= props.content.length ? currentSlide % index : currentSlide + index }.jpg`"
           alt="">
       </div>
     </div>
