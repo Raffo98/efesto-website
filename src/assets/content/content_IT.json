@@ -41,7 +41,11 @@
       "icon": "arrow-right"
     }
   },
+  "breadcrumbs": {
+    "path": "home"
+  },
   "home": {
+    "path": ["home"],
     "hero": {
       "title": "trattamenti termici<br>per la metalmeccanica.",
       "cta": "scopri di più"
@@ -90,6 +94,7 @@
     }
   },
   "about": {
+    "path": ["home", "chi siamo"],
     "title": "chi siamo",
     "text": "Efesto è nata dall’idea di fornire un servizio di trattamento termico a tutto tondo e di altissima qualità.<br>Sappiamo bene che perché questo sia possibile non bastano impianti efficaci ed ordinati ma servono competenza e preparazione in tutti gli aspetti del trattamento termico. Conosciamo i processi di trattamento e le loro certificazioni per poter garantire risultati eccellenti nel rispetto dei requisiti dei diversi settori applicativi. Abbiamo le competenze e gli strumenti di laboratorio per fornire la massima qualità in ogni lavorazione. Curiamo attentamente l’efficienza della nostra filiera per poter garantire rapidità e precisione e siamo sempre attenti alle nuove esigenze dei nostri clienti.<br>In Efesto non siamo solo trattamentisti ma consulenti e partner dei nostri clienti per il trattamento termico.",
     "image": "placeholder1",
@@ -129,6 +134,7 @@
     }
   },
   "quality": {
+    "path": ["home", "qualità e certificazioni"],
     "title": "qualità e certificazioni",
     "text": "Sempre di più il trattamento termico richiede competenze ed esperienza per poter fornire non solo un prodotto di qualità ma anche un servizio in linea con le esigenze di certificazione delle filiere e dei prodotti. I nostri trattamenti sono certificati per rispettare anche gli standard più elevati per i mercati più esigenti. La nostra lista di certificazioni è in continuo aggiornamento in modo da potersi adattare costantemente all’evoluzione delle filiere.",
     "certificate": {
@@ -152,6 +158,7 @@
     }
   },
   "contacts": {
+    "path": ["home", "contatti"],
     "title": "contatti",
     "text": "La volontà dell’Organizzazione è divenire interlocutore principale dei propri clienti in merito alla gestione di tutte le problematiche relative ai trattamenti termici, mirando a soddisfarne tutte le esigenze e garantendo un servizio di elevata qualità, in tempi brevi e nel rispetto dei requisiti applicabili.",
     "info": {
@@ -184,6 +191,7 @@
     }
   },
   "plants": {
+    "path": ["home", "impianti"],
     "title": "impianti",
     "text": "I nostri impianti sono il cuore pulsante di EFESTO e garantiscono l’elevata qualità dei nostri servizi.",
     "sections": [
@@ -236,11 +244,12 @@
       "title": "ancora non sai quale sia l’impianto più adatto alle tue esigenze?",
       "button": {
         "text": "contattaci",
-        "icon": "arrow-right"
+        "icon": "arrow-right-L"
       }
     }
   },
   "news": {
+    "path": ["home", "news"],
     "title": "news",
     "buttons": [
       {

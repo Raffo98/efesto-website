@@ -119,6 +119,7 @@ const toggleAccordion = () => {
 
             &__processes {
                 width: 100%;
+                padding-bottom: 3rem !important;
 
                 &__header {
                     @include text;

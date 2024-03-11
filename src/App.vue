@@ -1,6 +1,10 @@
 <template>
   <div :class="[$tvaMq]" :version="version.version">
     <Header class="header" :sections="$tm('header.sections')" :button="$tm('header.button')" @set-lang="setLanguage" />
+    <div class="breadcrumbs">
+      
+    </div>
+
     <div class="container" v-if="dataReady">
       <!-- <router-view :content="$tm(`${path}`)"></router-view> -->
       <router-view :content="content" :preview="path == 'home' ? newsPreview : null"></router-view>
@@ -17,11 +21,9 @@ import useTvaMq from "./plugins/tvaMq.js";
 import { useI18n } from "vue-i18n";
 import { useStateStore } from "@/utilities/store/store";
 import { onClickOutside } from '@vueuse/core';
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { computed } from 'vue'
 import airtable from "@/plugins/airtable.js";
-
-
 
 import Header from "@/components/header.vue";
 import Footer from "@/components/footer.vue";
@@ -29,8 +31,25 @@ import Footer from "@/components/footer.vue";
 const { $tvaMq } = useTvaMq();
 const i18n = useI18n();
 const route = useRoute();
+const router = useRouter();
+
+//breadcrumbs
+const pathList = ref([]);
+
+function updateBreadcrumbs(path) {
+  pathList.value.push(path);
+
+}
 
 const path = computed(() => {
+  if(!pathList.value.includes(route.name)) {
+    updateBreadcrumbs(route.name);
+  }
+  else {
+    pathList.value.slice(0, pathList.value.indexOf(route.name))
+  }
+  console.log(route.fullPath, router)
+  console.log(pathList.value)
   return route.name;
 })
 
@@ -58,7 +77,6 @@ const newsPreview = ref({});
 
 const tagsList = ref([]);
 const content = ref({});
-
 
 const fetchNewsData = async () => {
   return new Promise((resolve, reject) => {
