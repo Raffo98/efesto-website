@@ -37,6 +37,10 @@ const isHover = ref(false);
     transition: all 0.8s ease;
     width: 30vw;
 
+    .mobile & {
+        width: 100%;
+    }
+
 
     &__button {
         display: flex;

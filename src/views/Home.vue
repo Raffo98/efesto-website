@@ -2,7 +2,7 @@
     <div class="home">
         <div :class="{
             home__hero: true,
-            reduce_size: scrollIncrement > 2,
+            reduce_size: (scrollIncrement > 2) && ($tvaMq !== 'mobile'),
         }">
             <!-- <img class="home__hero__img" :src="`${$assetsBasePath}backgrounds/asuka.jpg`"> -->
             <img class="home__hero__img" :src="`${$assetsBasePath}backgrounds/placeholder1.jpg`">
@@ -49,7 +49,7 @@
                     <img :src="props.preview.latest.img" alt="">
                 </div>
             </div>
-            <div class="home__news__recents">
+            <div class="home__news__recents" v-if="$tvaMq !== 'mobile'">
                 <newsBoxS v-for="news, index in props.preview.recent" :key="index" :content="news" />
             </div>
 
@@ -66,7 +66,8 @@
 
 <script setup>
 import { useStateStore } from "@/utilities/store/store";
-import { ref, watch } from "@vue/runtime-core";
+import { ref, watch, provide } from "@vue/runtime-core";
+import useTvaMq from "@/plugins/tvaMq.js";
 
 import Card from "@/components/card.vue";
 import ctaButtonL from "@/components/ctaButtonL.vue";
@@ -75,7 +76,8 @@ import newsBoxS from "@/components/newsBoxS.vue";
 import GalleryImages from "@/components/galleryImages.vue";
 
 
-
+const { $tvaMq } = useTvaMq();
+provide("$tvaMq", $tvaMq);
 
 const props = defineProps({
     content: Object,
@@ -116,10 +118,16 @@ watch(isScrolling, () => {
         transform-origin: bottom center;
         overflow: hidden;
 
-
+        .mobile & {
+            padding: 1rem !important;
+            max-height: 59vh;
+            height: 59vh;
+        }
 
         &__img {
-            max-width: 100%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
 
@@ -129,6 +137,12 @@ watch(isScrolling, () => {
         text-transform: uppercase;
         color: $color-black;
         padding: 0 3rem 0 3rem !important;
+
+        .mobile & {
+            padding: 0 1rem 0 1rem !important;
+            @include h1-m;
+            word-wrap: break-word;
+        }
     }
 
     &__discover {
@@ -147,6 +161,10 @@ watch(isScrolling, () => {
             @include h2;
             color: $color-white;
             padding: 3rem 3rem 0 3rem !important;
+
+            .mobile & {
+                padding: 1rem 1rem 0 1rem !important;
+            }
         }
 
         &__cards {
@@ -158,6 +176,11 @@ watch(isScrolling, () => {
             justify-content: space-between;
             padding: 1rem 3rem 3rem 3rem !important;
 
+            .mobile & {
+                padding: 1rem 1rem 3rem 1rem !important;
+                flex-direction: column;
+            }
+
         }
     }
 
@@ -165,6 +188,10 @@ watch(isScrolling, () => {
         width: 100%;
         padding: 0 3rem 0 3rem !important;
         height: 100vh;
+
+        .mobile & {
+            padding: 0 1rem 0 1rem !important;
+        }
 
 
         &__wrapper {
@@ -175,12 +202,21 @@ watch(isScrolling, () => {
             min-height: 58%;
             gap: 1rem;
 
+            .mobile & {
+                flex-direction: column;
+            }
+
 
             &__latest {
                 width: 50%;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
+
+                .mobile & {
+                    width: 100%;
+                    order: 2;
+                }
 
                 &__textbox {
                     width: 100%;
@@ -227,6 +263,9 @@ watch(isScrolling, () => {
 
                 &__cta {
                     width: fit-content;
+                    .mobile & {
+                        padding-top: 3rem !important;
+                    }
                 }
             }
 
@@ -234,11 +273,19 @@ watch(isScrolling, () => {
                 width: 50%;
                 min-height: 100%;
                 overflow: hidden;
+                
+                .mobile & {
+                    width: 100%;
+                }
 
                 & img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
+
+                    .mobile & {
+                        width: auto;
+                    }
 
                 }
             }
@@ -266,6 +313,10 @@ watch(isScrolling, () => {
         display: flex;
         flex-direction: column;
         align-items: center;
+        
+        .mobile & {
+            padding: 1rem 1rem 0 1rem !important;
+        }
 
         &__title {
             @include h2;

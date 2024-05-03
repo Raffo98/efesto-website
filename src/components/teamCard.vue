@@ -39,13 +39,26 @@ const props = defineProps({
     padding: 1rem !important;
     display: flex;
     flex-direction: row;
+
+    .mobile & {
+        width: 100%;
+        flex-direction: column;
+    }
     &__image {
         width: 36%;
+
+        .mobile & {
+            width: 100%;
+        }
         img  {
             object-fit: cover;
             float: left;
             max-width: 100%;
             height: auto; 
+
+            .mobile & {
+                float: none;
+            }
 
         }
     }
@@ -53,6 +66,12 @@ const props = defineProps({
     &__info {
         width: 64%;
         margin-left: 1rem !important;
+        
+        .mobile & {
+            width: 100%;
+            margin-left: 0 !important;
+
+        }
 
         &__role {
             @include card-role;

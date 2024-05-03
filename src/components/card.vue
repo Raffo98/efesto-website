@@ -34,6 +34,11 @@ const props = defineProps({
     outline-offset: -1px;
     cursor: pointer !important;
 
+    .mobile & {
+        width: 100%;
+        padding: 1rem !important;
+    }
+
     
     &__btn {
         width: 100%;

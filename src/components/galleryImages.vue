@@ -20,7 +20,7 @@
         </div>
       </div>
     </div>
-    <div class="carousel__thumbnail">
+    <div class="carousel__thumbnail" v-if="$tvaMq !== 'mobile'">
       <div class="carousel__thumbnail__box" :style="'color: red'">
         <img v-for="index in 2" :key="index"
           :src="`${$assetsBasePath}gallery/${props.content.filename}-${currentSlide + index >= props.content.length ? currentSlide % index : currentSlide + index }.jpg`"
@@ -31,11 +31,15 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "@vue/runtime-core";
+import { ref, onMounted, provide } from "@vue/runtime-core";
+import useTvaMq from "@/plugins/tvaMq.js";
 
 const props = defineProps({
   content: Object
 });
+
+const { $tvaMq } = useTvaMq();
+provide("$tvaMq", $tvaMq);
 
 const isHover = ref(false);
 const activeArrow = ref('');
@@ -96,12 +100,21 @@ onMounted(() => {
   flex-direction: row;
   gap: 1rem;
 
+  .mobile & {
+    padding: 1rem !important;
+
+  }
+
 
   &__main {
     max-width: 70%;
     height: 100%;
     overflow: hidden;
     position: relative;
+    
+    .mobile & {
+      max-width: 100%;
+    }
 
     &__overlay {
       display: flex;

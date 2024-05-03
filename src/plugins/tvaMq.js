@@ -3,7 +3,8 @@ import { computed, onBeforeMount, ref } from "vue";
 const install = function (options) {
   const device = ref("");
   const breakpoints = ref({
-    mobile: 1000,
+    mobile: 720,
+    tablet: 1000,
     desktop: 1280,
     large: Infinity,
   });

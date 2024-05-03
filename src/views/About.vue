@@ -100,11 +100,20 @@ fetchTeamData();
   width: 100%;
   padding: 0 3rem 0 3rem !important;
 
+  .mobile & {
+    padding: 0 1rem 0 1rem !important;
+  }
+
   &__title {
     h1 {
       @include h1;
       text-transform: uppercase;
       color: $color-black;
+
+      .mobile & {
+        line-height: 100%;
+        padding: 3rem 0rem !important;
+      }
 
     }
   }
@@ -118,12 +127,19 @@ fetchTeamData();
   &__image {
     width: 100%;
     padding-bottom: 3rem !important;
+    height: 50vh;
 
     img {
       object-fit: cover;
       min-width: 100%;
       max-width: 100%;
       height: auto;
+
+      .mobile & {
+        min-width: auto;
+        max-width: auto;
+        height: 100%;
+      }
     }
   }
 

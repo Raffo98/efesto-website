@@ -59,15 +59,32 @@ const props = defineProps({
         justify-content: space-between;
         gap: 3rem;
 
+        .mobile & {
+            padding: 3rem 1rem !important;
+
+        }
+
         &__sections {
             width: 100%;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
 
+            .mobile & {
+                flex-direction: column;
+
+            }
+
             &__info {
                 width: 38.2%;
                 border-right: 1px solid $color-white !important;
+
+                .mobile & {
+                    width: 100%;
+                    padding-bottom: 1rem !important;
+                    border-right: none !important;
+                    border-bottom: 1px solid $color-white !important;
+                }
 
                 &__title {
                     @include body-large;
@@ -98,8 +115,12 @@ const props = defineProps({
                 flex-direction: row;
                 justify-content: space-around;
 
-                &__section {
+                .mobile & {
+                 flex-direction: column;
+                 padding: 1rem 0 0 0 !important;
+                }
 
+                &__section {
 
                     &__title {
                         @include paragraph-m;
