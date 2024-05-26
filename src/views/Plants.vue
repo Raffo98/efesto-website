@@ -36,10 +36,18 @@ const props = defineProps({
 .plants {
     padding: 3rem 3rem 0 3rem !important;
 
+    .mobile & {
+        padding: 1rem 1rem 0 1rem !important;
+    }
+
     &__wrapper {
         width: 100%;
         background-color: $color-softgrey;
         padding: 3rem 9rem !important;
+
+        .mobile & {
+            padding: 1rem 1rem !important;
+        }
 
         &__title {
             @include h1;
@@ -48,6 +56,10 @@ const props = defineProps({
 
         &__text {
             @include services-text;
+
+            .mobile & {
+                @include paragraph;
+            }
         }
     }
 
@@ -60,15 +72,28 @@ const props = defineProps({
                 flex-direction: row;
                 padding-bottom: 2rem !important;
 
+                .mobile & {
+                    flex-direction: column;
+                }
+
                 &__name {
                     width: 30%;
                     @include h2;
                     text-transform: capitalize;
+
+                    .mobile & {
+                        width: 100%;
+                        padding-bottom: 1rem !important;
+                    }
                 }
 
                 &__description {
                     width: 70%;
                     @include paragraph;
+
+                    .mobile & {
+                        width: 100%;
+                    }
                 }
             }
         }

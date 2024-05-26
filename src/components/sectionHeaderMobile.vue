@@ -38,9 +38,13 @@
 import { provide, ref, watch } from "@vue/runtime-core";
 import useTvaMq from "@/plugins/tvaMq.js";
 import { useStateStore } from "@/utilities/store/store";
+// import { useRoute } from 'vue-router';
+
+// const route = useRoute();
 
 // const bookmark = ref(0);
 const stateSection = useStateStore();
+
 
 const props = defineProps({
   content: Object,
@@ -67,6 +71,10 @@ watch(stateSection, () => {
     isOpen.value = false;
   }
 });
+
+// watch(route, () => {
+//   isOpen.value = false;
+// });
 
 // function dropdown() {
 //   stateSection.changeSectionId(props.content.title);

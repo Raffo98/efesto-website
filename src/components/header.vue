@@ -43,13 +43,16 @@
   </div>
 </template>
 <script setup>
-import { provide } from "@vue/runtime-core";
+import { provide, watch } from "@vue/runtime-core";
 import useTvaMq from "@/plugins/tvaMq.js";
 import { ref } from "@vue/reactivity";
 // import { useStateStore } from '@/utilities/store/store';
 import sectionHeader from "@/components/sectionHeader.vue";
 import sectionHeaderMobile from "@/components/sectionHeaderMobile.vue";
 import ctaButtonM from "@/components/ctaButtonM.vue";
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
 
 
 // const bookmark = ref(0);
@@ -72,6 +75,9 @@ function dropdownMenu() {
 // const stateModal = useStateStore();
 // const selectedId = stateModal.activeId;
 
+watch(route, () => {
+  isOpenMobile.value = false;
+});
 
 
 

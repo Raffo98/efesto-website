@@ -63,6 +63,10 @@ const toggleAccordion = () => {
             align-items: center;
             padding: 2.25rem 3rem 2.25rem 3rem !important;
 
+            .mobile & {
+                padding: 1rem 2rem 1rem 2rem !important;
+            }
+
 
             &__title {
                 @include text;
@@ -89,6 +93,10 @@ const toggleAccordion = () => {
             padding: 0 3rem 0 3rem !important;
             gap: 1rem;
 
+            .mobile & {
+                padding: 0 1rem 0 1rem !important;
+
+            }
 
 
             &__item {
@@ -96,6 +104,12 @@ const toggleAccordion = () => {
                 height: 180px;
                 padding: 1rem 1rem 1rem 1rem !important;
                 border: 1px solid $color-purewhite !important;
+
+                .mobile & {
+                    width: 100%;
+                    height: 210px;
+
+                }
 
                 &__detail {
                     &__subtitle {
@@ -125,11 +139,13 @@ const toggleAccordion = () => {
                     @include text;
                     color: $color-purewhite;
                     text-transform: uppercase;
+                    .mobile & {
+                        padding-bottom: 1rem !important;
+                    }
                 }
 
                 &__process {
                     width: 100%;
-
                     display: flex;
                     flex-direction: row;
                     flex-flow: wrap;
@@ -146,6 +162,10 @@ const toggleAccordion = () => {
                         width: 49%;
                         height: 180px;
                         border: 1px solid $color-purewhite !important;
+
+                        .mobile & {
+                            width: 100%;
+                        }
                     }
                 }
 
@@ -157,6 +177,6 @@ const toggleAccordion = () => {
 }
 
 .slideDown {
-    max-height: 1200px;
+    max-height: 5000px;
 }
 </style>

@@ -68,6 +68,7 @@ const props = defineProps({
             gap: .5rem;
             padding: 1.5rem 0 1.5rem 0 !important;
 
+
             &__tag {
                 @include news-details;
                 padding: .5rem !important;

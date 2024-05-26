@@ -6,7 +6,7 @@
                 </h1>
             </div>
 
-            <div class="news__header__buttons">
+            <div class="news__header__buttons" v-if="$tvaMq == 'desktop'">
                 <div class="news__header__buttons__search">
                     <searchButton :content="props.content.static.buttons[0]" @update-input="updateInput" />
                 </div>
@@ -17,6 +17,18 @@
                     <filterButton :content="props.content.static.buttons[2]" :tags="props.content.tags"
                         @update-tags="updateTags" />
                 </div>
+            </div>
+            <div class="news__header__buttons" v-else>
+                <div class="news__header__buttons__search">
+                    <searchButton :content="props.content.static.buttons[0]" @update-input="updateInput" />
+                </div>
+                <!-- <div class="news__header__buttons__order">
+                    <orderButton :content="props.content.static.buttons[1]" @update-choice="updateChoice" />
+                </div>
+                <div class="news__header__buttons__filter">
+                    <filterButton :content="props.content.static.buttons[2]" :tags="props.content.tags"
+                        @update-tags="updateTags" />
+                </div> -->
             </div>
         </div>
         <div class="news__wrapper">
@@ -32,9 +44,13 @@ import newsBoxM from "@/components/newsBoxM.vue";
 import searchButton from "@/components/searchButton.vue";
 import orderButton from "@/components/orderButton.vue";
 import filterButton from "@/components/filterButton.vue";
+import useTvaMq from "@/plugins/tvaMq.js";
 
-import { ref } from "@vue/runtime-core";
+import { ref, provide } from "@vue/runtime-core";
 // import airtable from "@/plugins/airtable.js";
+
+const { $tvaMq } = useTvaMq();
+provide("$tvaMq", $tvaMq);
 
 
 const props = defineProps({
@@ -156,6 +172,10 @@ const updateTags = (tags) => {
     width: 100%;
     padding: 0 3rem 0 3rem !important;
 
+    .mobile & {
+        padding: 0 1rem 0 1rem !important;
+    }
+
     &__header {
         display: flex;
         flex-direction: row;
@@ -185,6 +205,10 @@ const updateTags = (tags) => {
         display: flex;
         flex-wrap: wrap;
         gap: 1.5rem;
+
+        .mobile & {
+            flex-direction: column;
+        }
     }
 
 }

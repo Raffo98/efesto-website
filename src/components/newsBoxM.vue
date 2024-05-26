@@ -66,12 +66,15 @@ if (textElement.value.length > maxLength) {
     }
 
     &__details {
+        @include news-details;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-
         padding: .75rem !important;
-        @include news-details;
+
+        .mobile & {
+            padding: .5rem !important;
+        }
 
         &__tag {
             color: $color-orange;
@@ -87,12 +90,18 @@ if (textElement.value.length > maxLength) {
     &__title {
         @include text;
         padding: .75rem !important;
+        .mobile & {
+            padding: .5rem !important;
+        }
 
     }
 
     &__text {
         @include paragraph;
         padding: .75rem !important;
+        .mobile & {
+            padding: .5rem !important;
+        }
 
     }
 
