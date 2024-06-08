@@ -1,7 +1,7 @@
 const config = {
     // Uses the PORT variable declared here, the path is defined in code
-    port: 8080,
-    redirectUri: 'http://localhost:8080/',
+    port: 8000,
+    redirectUri: 'http://localhost:8000/',
     clientId: "91ab5d0b-d989-4e6e-9784-c7d161dd72d0",
     // If you're not using a client secret, set to the empty string: ""
     clientSecret: "",
