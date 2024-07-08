@@ -2,7 +2,7 @@
     <div class="order" ref="order">
         <div class="order__box" @mouseover="isHover = true" @mouseleave=" isHover = false" @click="isClicked = !isClicked"
             :style="[isHover ? { backgroundPosition: 'left bottom' } : { backgroundPosition: 'right bottom' }]">
-            <p class="order__box__text" v-html="props.content.text"></p>
+            <p class="order__box__text" v-html="props.content.text" v-if="$tvaMq == 'desktop' || $tvaMq == 'large'"></p>
             <img :src="`${$assetsBasePath}icons/news/${isClicked ? 'arrow-down-S' : 'arrow-up-S'}.svg`" />
         </div>
         <fieldset class="order__checkbox" v-if="isClicked">

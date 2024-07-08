@@ -2,7 +2,7 @@
     <div class="filter" ref="filter">
         <div class="filter__box" @mouseover="isHover = true" @mouseleave=" isHover = false" @click="isClicked = !isClicked"
             :style="[isHover ? { backgroundPosition: 'left bottom' } : { backgroundPosition: 'right bottom' }]">
-            <p class="filter__box__text" v-html="props.content.text"></p>
+            <p class="filter__box__text" v-html="props.content.text" v-if="$tvaMq == 'desktop' || $tvaMq == 'large'"></p>
             <img :src="`${$assetsBasePath}icons/news/${props.content.icon}.svg`" />
         </div>
         <fieldset class="filter__checkbox" v-if="isClicked">

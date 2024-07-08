@@ -6,7 +6,7 @@
           <img :src="`${$assetsBasePath}icons/logo.svg`">
         </div>
       </router-link>
-      <div class="header__box__sections" v-if="$tvaMq == 'desktop'">
+      <div class="header__box__sections" v-if="$tvaMq == 'desktop' || $tvaMq == 'large'">
         <sectionHeader v-for="(section, idx) in props.sections" :key="idx" :content="section" />
         <div class="header__box__sections__buttons">
           <div class="header__box__sections__buttons__lang">

@@ -6,7 +6,7 @@
                 </h1>
             </div>
 
-            <div class="news__header__buttons" v-if="$tvaMq == 'desktop'">
+            <div class="news__header__buttons">
                 <div class="news__header__buttons__search">
                     <searchButton :content="props.content.static.buttons[0]" @update-input="updateInput" />
                 </div>
@@ -17,18 +17,6 @@
                     <filterButton :content="props.content.static.buttons[2]" :tags="props.content.tags"
                         @update-tags="updateTags" />
                 </div>
-            </div>
-            <div class="news__header__buttons" v-else>
-                <div class="news__header__buttons__search">
-                    <searchButton :content="props.content.static.buttons[0]" @update-input="updateInput" />
-                </div>
-                <!-- <div class="news__header__buttons__order">
-                    <orderButton :content="props.content.static.buttons[1]" @update-choice="updateChoice" />
-                </div>
-                <div class="news__header__buttons__filter">
-                    <filterButton :content="props.content.static.buttons[2]" :tags="props.content.tags"
-                        @update-tags="updateTags" />
-                </div> -->
             </div>
         </div>
         <div class="news__wrapper">
@@ -56,8 +44,6 @@ provide("$tvaMq", $tvaMq);
 const props = defineProps({
     content: Object,
 });
-
-
 //array with filtered news by search bar input
 const selectedNews = ref(props.content.dinamic);
 
@@ -182,6 +168,11 @@ const updateTags = (tags) => {
         justify-content: space-between;
         align-items: center;
 
+        .mobile & {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
         &__title {
             h1 {
                 @include h1;
@@ -193,6 +184,11 @@ const updateTags = (tags) => {
         &__buttons {
             display: flex;
             gap: 1.375rem;
+
+            .mobile & {
+                gap: 1rem;
+                padding-bottom: 1rem !important;
+            }
 
         }
     }
