@@ -134,6 +134,7 @@ watch(isScrolling, () => {
     &__h1 {
         width: 100%;
         @include h1;
+        line-height: 200% !important;
         text-transform: uppercase;
         color: $color-black;
         padding: 0 3rem 0 3rem !important;

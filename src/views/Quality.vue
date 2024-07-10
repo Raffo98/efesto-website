@@ -56,14 +56,32 @@ const props = defineProps({
     flex-direction: row;
     gap: 1rem;
 
+    .mobile & {
+        flex-direction: column;
+        padding: 1rem 1rem 0 1rem !important;
+    }
+
+    .tablet & {
+        flex-direction: column;
+    }
+
     &__certificates {
         width: 68%;
+
+        .mobile & {
+            width: 100%;
+        }
+
+        .tablet & {
+            width: 100%;
+        }
 
         &__title {
             h1 {
                 @include h1;
                 text-transform: uppercase;
                 color: $color-black;
+                padding-bottom: 2rem !important;
             }
         }
 
@@ -109,6 +127,15 @@ const props = defineProps({
 
     &__policy {
         width: 32%;
+        padding-bottom: 3rem !important;
+
+        .mobile & {
+            width: 100%;
+        }
+
+        .tablet & {
+            width: 100%;
+        }
 
         &__box {
             background-color: $color-orange;

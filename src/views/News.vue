@@ -176,6 +176,7 @@ const updateTags = (tags) => {
         &__title {
             h1 {
                 @include h1;
+                line-height: 200% !important;
                 text-transform: uppercase;
                 color: $color-black;
             }

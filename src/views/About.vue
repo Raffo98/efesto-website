@@ -80,16 +80,27 @@ const teamDb = ref([]);
 const fetchTeamData = () => {
   airtable.base('team').select({}).eachPage(function page(records, fetchNextPage) {
     records.forEach(async function (record) {
-      await teamDb.value.push({ "name": record.fields.name, "role": record.fields.role, "mail": record.fields.mail, "phone": record.fields.phone, "pic": record.fields.pic[0].url, });
+      await teamDb.value.push({ "id": record.fields.order, "name": record.fields.name, "role": record.fields.role, "mail": record.fields.mail, "phone": record.fields.phone, "pic": record.fields.pic ? record.fields.pic[0].url : undefined });
     });
 
     fetchNextPage();
   }, function done(err) {
     if (err) { console.error(err); return; }
 
+    teamDb.value.sort((a, b) => a.id - b.id);
+
+    console.log(teamDb.value)
   });
+
+
+// console.log(teamDb.value)
+
+  
 };
+
 fetchTeamData();
+
+
 
 
 </script>
@@ -104,14 +115,21 @@ fetchTeamData();
     padding: 0 1rem 0 1rem !important;
   }
 
+
+
   &__title {
     h1 {
       @include h1;
+      line-height: 200% !important;
       text-transform: uppercase;
       color: $color-black;
 
       .mobile & {
-        line-height: 100%;
+        line-height: 100% !important;
+        padding: 3rem 0rem !important;
+      }
+      .tablet & {
+        line-height: 100% !important;
         padding: 3rem 0rem !important;
       }
 
@@ -144,7 +162,10 @@ fetchTeamData();
   }
 
   &__sections {
+    width: 100%;
+
     &__section {
+      width: 100%;
       &__subtitle {
         padding-bottom: 2rem !important;
 
@@ -175,6 +196,7 @@ fetchTeamData();
       }
 
       &__team {
+        width: 100%;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
