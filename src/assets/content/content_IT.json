@@ -197,44 +197,119 @@
     "text": "I nostri impianti sono il cuore pulsante di EFESTO e garantiscono l’elevata qualità dei nostri servizi.",
     "sections": [
       {
-        "name": "forno aichelin",
-        "description": "impianto Aichelin da 1000 kg/h in atmosfera controllata con tappeto a maglie fuse tecnologicamente avanzato e completamente automatizzato, concepito per il trattamento di bonifica e carbonitrurazione di particolari automotive secondo specifica CQi9 dal D. 4 al D. 18, grande uniformità di temperatura e nessun sbalzo termico in quanto il nastro rimane sempre all’interno forno, sistema di analisi del CO/CO2 e doppio controllo della % C , sono solo alcune delle peculiarità del nostro impianto. Inoltre disponiamo di una lavatrice a 4 fasi di lavaggio per la defosfatazione di tutti i particolari.",
+        "name": "forno aichelin 1",
+        "description": "Aichelin 1 è il primo impianto Efesto. Ha una capacità di 750 kg/h ed è concepito per il trattamento di bonifica e carbonitrurazione di particolari automotive secondo specifica CQi9 dal D. 4 al D. 18.<br><br>L'impianto comprende, oltre al forno di trattamento, una lavatrice per la defosfatazione di tutti i particolari e un sistema per la brunitura dei pezzi con applicazione di inibitore di corrosione (antiruggine).<br><br>Ottimizziamo il nostro forno di trattamento per la migliore qualità ed efficienza possibili grazie al controllo computerizzato PLC. Garantiamo l'uniformità di temperatura grazie a un nastro trasportatore a movimento esclusivamente interno e 19 bruciatori WS. L'atmosfera interna è monitorata fino al minimo dettaglio grazie a un sosfisticato sistema di controllo che comprende: metano di arricchimento per la regolazione del carbonio, relative sonde ridondanti per il monitoraggio della percentuale di saturazione (%C) e analizzatore 2 gas.",
         "accordion": {
           "header": "dettagli tecnici",
           "details": [
             {
-              "name": "forno",
-              "description": "per preriscaldo e rinvenimento fino max 490°"
+              "name": "lavatrice di defosfatazione",
+              "description": "a quattro stazioni per tutti i particolari"
             },
             {
-              "name": "forno monocamera da cementazione e bonifica",
-              "description": "a carico/scarico anteriore frontale con dimensioni utili del vano di carico: 910x1220x760"
+              "name": "controllo computerizzato",
+              "description": "con sistema PLC"
             },
             {
-              "name": "sgrassatrice monocamera - riscaldo a gas con asciugatura della carica",
-              "description": "disoleazione del bagno a skimmer"
+              "name": "temperatura uniforme",
+              "description": "con sistema di trasporto a nastro interno e 19 bruciatori WS"
             },
             {
-              "name": "sistema automatico movimentazione",
-              "description": ""
+              "name": "atmosfera controllata",
+              "description": "con regolazione di carbonio"
             },
             {
-              "name": "sistema di analisi del co/co2",
-              "description": "analisi temperatura C° in camera di trattamento per la misura del potenziale di carbonio dinamico"
+              "name": "",
+              "description": "sonde a ossigeno ridondanti"
             },
             {
-              "name": "sistema di misura",
-              "description": "programmazione e regolazione dell’atmosfera e cicli di processo per esercizio manuale o automatico tramite sistema <strong>IPSEN AUTOMAG</strong>."
+              "name": "",
+              "description": "analizzatore 3 gas"
             }
           ],
           "processes": {
             "header": "lavorazioni disponibili",
             "items": [
               {
-                "name": "cementazione"
+                "name": "bonifica"
               },
               {
+                "name": "carbonitrurazione"
+              },
+              {
+                "name": "brunitura"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "forno aichelin 2",
+        "description": "Aichelin 2 è la linea gemella di Aichelin 1. Ha la stessa capacità di 750 kg/h e le stesse caratteristiche tecniche che garantiscono un trattamento di alta qualità.<br><br>Aichelin 2 ci permette di aumentare le possibilità di personalizzazione attraverso la fornitura di trattamento senza brunitura finale.",
+        "accordion": {
+          "header": "dettagli tecnici",
+          "details": [
+            {
+              "name": "lavatrice di defosfatazione",
+              "description": "a quattro stazioni per tutti i particolari"
+            },
+            {
+              "name": "controllo computerizzato",
+              "description": "con sistema PLC"
+            },
+            {
+              "name": "temperatura uniforme",
+              "description": "con sistema di trasporto a nastro interno e 19 bruciatori WS"
+            },
+            {
+              "name": "atmosfera controllata",
+              "description": "con regolazione di carbonio"
+            },
+            {
+              "name": "",
+              "description": "sonde a ossigeno ridondanti"
+            },
+            {
+              "name": "",
+              "description": "analizzatore 3 gas"
+            }
+          ],
+          "processes": {
+            "header": "lavorazioni disponibili",
+            "items": [
+              {
                 "name": "bonifica"
+              },
+              {
+                "name": "carbonitrurazione"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "forno ipsen",
+        "description": "Il forno a camera Ipsen è il nostro impianto monocamera per il trattamento di elementi di grandi dimensioni e speciali. Permette un preriscaldo e rinvenimento fino a 630° e ha una capacità di carico di 910 X 1220 X 760 cm che lo rendono adatto al trattamento di moltissimi componenti di tutti i settori industriali.",
+        "accordion": {
+          "header": "dettagli tecnici",
+          "details": [
+            {
+              "name": "temperatura",
+              "description": "preriscaldo e rinvenimento fino a 590°"
+            },
+            {
+              "name": "vano di carico",
+              "description": "dimensioni utili 910 X 1220 X 760 cm"
+            }
+          ],
+          "processes": {
+            "header": "lavorazioni disponibili",
+            "items": [
+              {
+                "name": "bonifica"
+              },
+              {
+                "name": "carbonitrurazione"
               }
             ]
           }
