@@ -80,7 +80,7 @@ const teamDb = ref([]);
 const fetchTeamData = () => {
   airtable.base('team').select({}).eachPage(function page(records, fetchNextPage) {
     records.forEach(async function (record) {
-      await teamDb.value.push({ "id": record.fields.order, "name": record.fields.name, "role": record.fields.role, "mail": record.fields.mail, "phone": record.fields.phone, "pic": record.fields.pic ? record.fields.pic[0].url : undefined });
+      await teamDb.value.push({ "id": record.fields.order, "name": record.fields.name, "role": record.fields.role, "mail": record.fields.mail, "phone": record.fields.phone, "pic": record.fields.pic ? record.fields.pic[0].url : undefined, "certificate": record.fields.certificate });
     });
 
     fetchNextPage();
@@ -151,7 +151,7 @@ fetchTeamData();
       object-fit: cover;
       min-width: 100%;
       max-width: 100%;
-      height: auto;
+      height: 100%;
 
       .mobile & {
         min-width: auto;
@@ -167,6 +167,8 @@ fetchTeamData();
     &__section {
       width: 100%;
       &__subtitle {
+        padding-bottom: 2rem !important;
+
         padding-bottom: 2rem !important;
 
         h2 {

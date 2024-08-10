@@ -75,9 +75,12 @@ const toggleAccordion = () => {
             }
 
             &__arrow {
+                display: flex;
+                align-items: center;
                 top: 30%;
                 bottom: 0;
                 right: 0;
+
             }
         }
 

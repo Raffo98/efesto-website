@@ -187,7 +187,7 @@ watch(isScrolling, () => {
 
     &__news {
         width: 100%;
-        padding: 0 3rem 0 3rem !important;
+        padding: 0 3rem 3rem 3rem !important;
         height: 100vh;
 
         .mobile & {

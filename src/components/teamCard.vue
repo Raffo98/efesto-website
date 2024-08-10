@@ -20,6 +20,10 @@
                     <p class="teamcard__main__info__phone__title" v-html="props.titles[1]"></p>
                     <p v-html="props.content.phone"></p>
                 </div>
+                <div class="teamcard__main__info__certificate" v-if="props.content.certificate">
+                    <p class="teamcard__main__info__certificate__title" v-html="props.titles[2]"></p>
+                    <p v-html="props.content.certificate"></p>
+                </div>
             </div>
         </div>
         <div class="teamcard__second" v-else>
@@ -29,6 +33,10 @@
                 </div>
                 <div class="teamcard__second__info__name">
                     <p v-html="props.content.name"></p>
+                </div>
+                <div class="teamcard__second__info__certificate" v-if="props.content.certificate">
+                    <p class="teamcard__second__info__certificate__title" v-html="props.titles[2]"></p>
+                    <p v-html="props.content.certificate"></p>
                 </div>
             </div>
         </div>
@@ -155,6 +163,24 @@ const props = defineProps({
                 @include section-style;
                 color: $color-black;
                 font-size: 0.8rem !important;
+                padding-bottom: .25rem !important;
+
+
+                &__title {
+                    @include paragraph-m;
+                    color: $color-orange;
+                    text-transform: uppercase;
+                    padding-bottom: .25rem !important;
+
+
+                }
+
+            }
+
+            &__certificate {
+                @include section-style;
+                color: $color-black;
+                font-size: 0.8rem !important;
 
                 &__title {
                     @include paragraph-m;
@@ -191,6 +217,22 @@ const props = defineProps({
                 color: $color-black;
                 text-transform: uppercase;
                 padding-bottom: .25rem !important;
+
+            }
+
+            &__certificate {
+                @include section-style;
+                color: $color-black;
+                font-size: 0.8rem !important;
+
+                &__title {
+                    @include paragraph-m;
+                    color: $color-orange;
+                    text-transform: uppercase;
+                    padding-bottom: .25rem !important;
+
+
+                }
 
             }
 

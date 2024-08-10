@@ -60,6 +60,7 @@ const props = defineProps({
             @include h2;
             color: $color-black;
             text-transform: lowercase;
+            padding-bottom: 1rem !important;
 
             &::first-letter {
                 text-transform: capitalize;
@@ -97,6 +98,7 @@ const props = defineProps({
         align-items: center;
         flex-direction: column;
         height: 42vh;
+        width: 100%;
 
         h3 {
             @include h2;

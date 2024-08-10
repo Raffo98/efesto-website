@@ -75,9 +75,23 @@ const props = defineProps({
 
             }
 
+            .tablet & {
+                flex-direction: column;
+
+            }
+
             &__info {
                 width: 38.2%;
                 border-right: 1px solid $color-white !important;
+                margin-right: 1rem !important;
+                box-sizing: border-box;
+
+                .tablet & {
+                    width: 100%;
+                    padding-bottom: 1rem !important;
+                    border-right: none !important;
+                    border-bottom: 1px solid $color-white !important;
+                }
 
                 .mobile & {
                     width: 100%;
@@ -114,6 +128,11 @@ const props = defineProps({
                 display: flex;
                 flex-direction: row;
                 justify-content: space-around;
+
+                .tablet & {
+                 flex-direction: column;
+                 padding: 1rem 0 0 0 !important;
+                }
 
                 .mobile & {
                  flex-direction: column;

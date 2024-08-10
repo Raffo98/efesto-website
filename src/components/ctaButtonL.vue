@@ -35,7 +35,11 @@ const isHover = ref(false);
     background: linear-gradient(to right, $color-white 50%, $color-orange 50%);
     background-size: 200% 100%;
     transition: all 0.8s ease;
-    width: 30vw;
+    width: 50vw;
+
+    .tablet & {
+        width: 60%;
+    }
 
     .mobile & {
         width: 100%;
@@ -52,8 +56,8 @@ const isHover = ref(false);
 
         &__box {
 
-
             &__text {
+                width: 100%;
                 white-space: nowrap;
                 padding: 8px 16px !important;
                 @include text;

@@ -115,7 +115,8 @@
         "cards": {
           "titles": [
             "email",
-            "telefono"
+            "telefono",
+            "patenti"
           ]
         }
       },
