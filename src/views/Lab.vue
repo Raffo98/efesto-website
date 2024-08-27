@@ -1,20 +1,20 @@
 <template>
-    <div class="plants">
-        <div class="plants__wrapper">
-            <h1 class="plants__wrapper__title" v-html="props.content.title"></h1>
-            <p class="plants__wrapper__text" v-html="props.content.text"></p>
+    <div class="lab">
+        <div class="lab__wrapper">
+            <h1 class="lab__wrapper__title" v-html="props.content.title"></h1>
+            <p class="lab__wrapper__text" v-html="props.content.text"></p>
         </div>
-        <div class="plants__sections">
-            <div class="plants__sections__plant" v-for="(plant, index) in props.content.sections" :key="index">
-                <div class="plants__sections__plant__text">
-                    <h2 class="plants__sections__plant__text__name" v-html="plant.name"></h2>
-                    <div class="plants__sections__plant__text__description" v-html="plant.description"></div>
+        <div class="lab__sections">
+            <div class="lab__sections__tool" v-for="(tool, index) in props.content.sections" :key="index">
+                <div class="lab__sections__tool__text">
+                    <h2 class="lab__sections__tool__text__name" v-html="tool.name"></h2>
+                    <div class="lab__sections__tool__text__description" v-html="tool.description"></div>
                 </div>
-                <servicesAccordion :content="plant.accordion" />
+                <servicesAccordion :content="tool.accordion" />
             </div>
         </div>
-        <div class="plants__cta">
-            <div class="plants__cta__title">
+        <div class="lab__cta">
+            <div class="lab__cta__title">
                 <p v-html="props.content.cta.title"></p>
             </div>
             <ctaButtonL :content="props.content.cta.button" />
@@ -33,7 +33,7 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
-.plants {
+.lab {
     padding: 3rem 3rem 0 3rem !important;
 
     .mobile & {
@@ -67,7 +67,7 @@ const props = defineProps({
     }
 
     &__sections {
-        &__plant {
+        &__tool {
             padding-top: 3rem !important;
 
             &__text {

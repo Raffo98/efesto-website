@@ -22,6 +22,7 @@ import Contacts from "@/views/Contacts.vue";
 import Plants from "@/views/Plants.vue";
 import News from "@/views/News.vue";
 import NewsId from "@/views/NewsId.vue";
+import Lab from "@/views/Lab.vue";
 
 
 const routes = [
@@ -57,6 +58,12 @@ const routes = [
     path: '/plants',
     name: "plants",
     component: Plants
+  
+  },
+  {
+    path: '/lab',
+    name: "lab",
+    component: Lab
   
   },
   {

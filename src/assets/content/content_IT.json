@@ -324,6 +324,74 @@
       }
     }
   },
+  "lab": {
+    "path": ["home", "laboratorio"],
+    "title": "laboratorio",
+    "text": "In EFESTO verifichiamo internamente la qualità di ogni prodotto grazie al nostro laboratorio tecnico.",
+    "sections": [
+      {
+        "name": "microdurometri",
+        "description": "Il nostro laboratorio è attrezzato con una ampia gamma di microdurometri che ci permettono di controllare con precisione la qualità di tutte le nostre lavorazioni e garantiscono tutte le misurazioni necessarie alla certificazione dei nostri trattamenti. Nella nostra attrezzatura annoveriamo i microdurometri: Future Tech FR-X3, Future Tech FV-310, Wolpert 2RC, MAB RBR.",
+        "accordion": {
+          "header": "dettagli tecnici",
+          "details": [
+            {
+              "name": "prove di durezza scala Rockwell (HRA, HRB, HRC)",
+              "description": ""
+            },
+            {
+              "name": "prove di microdurezza scala Vickers (HV 0.3 - 30)",
+              "description": ""
+            },
+            {
+              "name": "generazione report metallografici",
+              "description": ""
+            },
+            {
+              "name": "prove di durezza scala Brinell (HBW)",
+              "description": ""
+            },
+            {
+              "name": "prove manuali di durezza scala Rockwell (HRA, HRB, HRC)",
+              "description": ""
+            }
+          ],
+          "processes": {
+          }
+        }
+      },
+      {
+        "name": "stazione provini metallografici",
+        "description": "Siamo attrezzatti per la preparazione di provini metallografici di alta qualità per le nostre prove di microdurezza. Eseguiamo i tagli dei pezzi, inglobamento e pulizia direttamente nel nostro laboratorio. La stazione include una una taglierina HiTech Europe C321, una pressa inglobatrice HiTech Europe EP50PT e una pulitrice metallografica HiTech Europe TSP mono piatto.",
+        "accordion": {
+          "header": "dettagli tecnici",
+          "details": [
+            {
+              "name": "taglio",
+              "description": ""
+            },
+            {
+              "name": "inglobamento",
+              "description": ""
+            },
+            {
+              "name": "pulitura provini metallografici",
+              "description": ""
+            }
+          ],
+          "processes": {
+          }
+        }
+      }
+    ],
+    "cta": {
+      "title": "ancora non sai quale sia l’impianto più adatto alle tue esigenze?",
+      "button": {
+        "text": "contattaci",
+        "icon": "arrow-right-L"
+      }
+    }
+  },
   "news": {
     "path": ["home", "news"],
     "title": "news",
