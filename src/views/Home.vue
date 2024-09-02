@@ -5,13 +5,15 @@
             reduce_size: (scrollIncrement > 2) && ($tvaMq !== 'mobile'),
         }">
             <!-- <img class="home__hero__img" :src="`${$assetsBasePath}backgrounds/asuka.jpg`"> -->
-            <img class="home__hero__img" :src="`${$assetsBasePath}backgrounds/placeholder1.jpg`">
+            <img class="home__hero__img" :src="`${$assetsBasePath}backgrounds/hero.jpg`">
         </div>
         <div class="home__h1">
             <h1 v-html="props.content.hero.title"></h1>
         </div>
         <div class="home__discover">
             <p v-html="props.content.hero.cta"></p>
+            <img :src="`${$assetsBasePath}icons/home/${props.content.hero.icon}.svg`">
+
         </div>
         <div class="home__services">
             <h2 class="home__services__title" v-html="props.content.services.title"></h2>
@@ -49,7 +51,7 @@
                     <img :src="props.preview.latest.img" alt="">
                 </div>
             </div>
-            <div class="home__news__recents" v-if="$tvaMq !== 'mobile'">
+            <div class="home__news__recents" v-if="$tvaMq !== 'mobile' && $tvaMq !== 'tablet'">
                 <newsBoxS v-for="news, index in props.preview.recent" :key="index" :content="news" />
             </div>
 
@@ -86,18 +88,32 @@ const props = defineProps({
 
 const isScrolling = useStateStore();
 const scrollIncrement = ref(0);
-const textRef = ref(props.preview.latest.text);
+const maxLength = ref();
+const textElement = ref();
 
 //maxlength for preview news
-const maxLength = 300;
-const textElement = ref(textRef.value);
-if (textElement.value.length > maxLength) {
-    textElement.value = textElement.value.substring(0, maxLength) + '...';
+function newsPreview(newsLength, text) {
+    if (text.length > newsLength) {
+        return text = text.substring(0, newsLength) + '...';
+    }
+    else return text;
 }
+
 
 
 watch(isScrolling, () => {
     scrollIncrement.value = isScrolling.scrollState;
+});
+
+watch($tvaMq, () => {
+    if ($tvaMq.value === "mobile") {
+        maxLength.value = 150;
+        textElement.value = newsPreview(maxLength.value, props.preview.latest.text);
+    }
+    else {
+        maxLength.value = 300;
+        textElement.value = newsPreview(maxLength.value, props.preview.latest.text);
+    }
 });
 
 </script>
@@ -188,7 +204,8 @@ watch(isScrolling, () => {
     &__news {
         width: 100%;
         padding: 0 3rem 3rem 3rem !important;
-        height: 100vh;
+        display: flex;
+        flex-direction: column;
 
         .mobile & {
             padding: 0 1rem 0 1rem !important;
@@ -200,7 +217,6 @@ watch(isScrolling, () => {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            min-height: 58%;
             gap: 1rem;
 
             .mobile & {
@@ -264,6 +280,7 @@ watch(isScrolling, () => {
 
                 &__cta {
                     width: fit-content;
+
                     .mobile & {
                         padding-top: 3rem !important;
                     }
@@ -274,7 +291,7 @@ watch(isScrolling, () => {
                 width: 50%;
                 min-height: 100%;
                 overflow: hidden;
-                
+
                 .mobile & {
                     width: 100%;
                 }
@@ -301,6 +318,7 @@ watch(isScrolling, () => {
             justify-content: space-between;
         }
     }
+
     &__carousel {
         width: 100%;
         height: 70vh;
@@ -314,7 +332,7 @@ watch(isScrolling, () => {
         display: flex;
         flex-direction: column;
         align-items: center;
-        
+
         .mobile & {
             padding: 1rem 1rem 0 1rem !important;
         }
