@@ -16,9 +16,12 @@
     "prerender-staging": "export VUE_APP_RENDER=prerender && vue-cli-service build --mode staging && cd prerendering-node && node script.js staging",
     "serve-en": "export VUE_APP_LANG=en && vue-cli-service serve",
     "serve-it": "export VUE_APP_LANG=it && vue-cli-service serve",
-    "zip": "rm -rf export-* && zip -r export-$(date '+%Y.%m.%d-%H.%M.%S').zip dist/"
+    "zip": "rm -rf export-* && zip -r export-$(date '+%Y.%m.%d-%H.%M.%S').zip dist/",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@fawmi/vue-google-maps": "^0.9.79",
     "@vueuse/components": "^9.12.0",
     "@vueuse/core": "^10.6.1",
     "@yzfe/svgicon": "^1.1.0",
@@ -48,6 +51,7 @@
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^9.21.1",
     "execa": "^5.1.1",
+    "gh-pages": "^6.1.1",
     "prerender-spa-plugin-next": "^4.2.0",
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.52.3",

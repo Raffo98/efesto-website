@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div class="accordion__section__list" :class="{ slideDown: item.open }">
-                <div class="accordion__section__list__item" v-for="(sub, index) in item.subsection" :key="index">
+                <div class="accordion__section__list__item" v-for="(sub, index) in props.content" :key="index">
                     <div class="accordion__section__list__item__download" @mouseover="hoverBtn = true"
                         @mouseleave="hoverBtn = false">
                         <img class="accordion__section__list__item__download__rect" :class="{ onHoverRect: hoverBtn }"
@@ -18,10 +18,10 @@
                     </div>
                     <div class="accordion__section__list__item__wrapper">
                         <div class="accordion__section__list__item__wrapper__subtitle">
-                            {{ sub.title }}
+                            {{ sub.name }}
                         </div>
                         <div class="accordion__section__list__item__wrapper__content">
-                            {{ sub.content }}
+                            {{ sub.description }}
                         </div>
                     </div>
                 </div>
@@ -32,6 +32,12 @@
 
 <script setup>
 import { ref } from 'vue';
+
+const props = defineProps({
+    content: Array,
+});
+
+console.log(props.content)
 
 const hoverBtn = ref(false);
 
@@ -91,7 +97,7 @@ const toggleAccordion = () => {
             overflow: hidden;
             background-color: $color-purewhite;
             max-height: 0;
-            transition: max-height .8s ease;
+            transition: max-height 5s ease;
 
             &__item {
                 width: 100%;
@@ -154,6 +160,6 @@ const toggleAccordion = () => {
 
 
 .slideDown {
-    max-height: 400px;
+    max-height: 9999px;
 }
 </style>

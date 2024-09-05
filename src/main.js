@@ -6,13 +6,15 @@ import globalVariables from "./plugins/globalVariables";
 import { createPinia } from 'pinia';
 import { createWebHistory, createRouter } from "vue-router";
 
+
 // import router from '/src/utilities/store/index.js';
 
 
 import i18n from "./utilities/language";
 
 // import { VueSvgIconPlugin } from '@yzfe/vue3-svgicon'
-import '@yzfe/svgicon/lib/svgicon.css'
+import '@yzfe/svgicon/lib/svgicon.css';
+import VueGoogleMaps from '@fawmi/vue-google-maps';
 
 
 import Home from "@/views/Home.vue";
@@ -52,26 +54,26 @@ const routes = [
     path: '/contacts',
     name: "contacts",
     component: Contacts
-  
+
   },
   {
     path: '/plants',
     name: "plants",
     component: Plants
-  
+
   },
   {
     path: '/lab',
     name: "lab",
     component: Lab
-  
+
   },
   {
     path: '/news',
     name: "news",
     component: News,
     // children: [{ path: ':id', name: 'newsId', component: NewsId }],
-  
+
   },
   {
     path: '/news/:id',
@@ -96,6 +98,11 @@ app.use(globalVariables);
 app.use(i18n);
 app.use(pinia);
 app.use(router);
+app.use(VueGoogleMaps, {
+  load: {
+    key: 'YOUR_API_KEY_COMES_HERE',
+  }
+});
 
 
 // Add mount in DOMContentLoaded listener to be sure JS is executed first before prerendering

@@ -86,14 +86,8 @@ const fetchTeamData = () => {
     fetchNextPage();
   }, function done(err) {
     if (err) { console.error(err); return; }
-
     teamDb.value.sort((a, b) => a.id - b.id);
-
-    console.log(teamDb.value)
   });
-
-
-// console.log(teamDb.value)
 
   
 };
