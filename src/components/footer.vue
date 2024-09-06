@@ -15,7 +15,7 @@
                         <p class="footer__box__sections__container__section__title" v-html="section.title"></p>
                         <ul class="footer__box__sections__container__section__list">
                             <li class="footer__box__sections__container__section__list__subsection"
-                                v-for="(sub, idx) in section.subsections" :key="idx" v-html="sub"></li>
+                                v-for="(sub, idx) in section.subsections" :key="idx" v-html="sub.title" @click="handleClick(sub.link)"></li>
                         </ul>
                     </div>
                 </div>
@@ -37,10 +37,17 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
+
+const route = useRouter();
 
 const props = defineProps({
     sections: Object,
 });
+
+const handleClick = (link) => {
+        route.push(link);
+}
 
 </script>
 
@@ -154,8 +161,7 @@ const props = defineProps({
                             @include section-style;
                             color: $color-white;
                             padding-bottom: .5rem !important;
-
-
+                            cursor: pointer;
 
                             &::first-letter {
                                 text-transform: capitalize !important;

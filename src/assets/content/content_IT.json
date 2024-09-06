@@ -38,6 +38,10 @@
     ],
     "button": {
       "text": "richiedi informazioni",
+      "function": {
+        "type": "mail",
+        "link": "mailto:info@efestotrattamenti.com"
+      },
       "icon": "arrow-right"
     }
   },
@@ -76,6 +80,10 @@
       "title": "news",
       "button": {
         "text": "leggi tutte le news",
+        "function": {
+          "type": "page",
+          "link": "/news"
+        },
         "icon": "arrow-right"
       }
     },
@@ -90,6 +98,10 @@
       "title": "cerchi un partner affidabile per trattamenti termici di qualità?",
       "button": {
         "text": "contattaci",
+        "function": {
+          "type": "mail",
+          "link": "mailto:info@efestotrattamenti.com"
+        },
         "icon": "arrow-right-L"
       }
     }
@@ -98,7 +110,7 @@
     "path": ["home", "chi siamo"],
     "title": "siamo i partner per il trattamento termico",
     "text": "Efesto è nata dall’idea di fornire un servizio di trattamento termico a tutto tondo e di altissima qualità.<br>Sappiamo bene che perché questo sia possibile non bastano impianti efficaci ed ordinati ma servono competenza e preparazione in tutti gli aspetti del trattamento termico. Conosciamo i processi di trattamento e le loro certificazioni per poter garantire risultati eccellenti nel rispetto dei requisiti dei diversi settori applicativi. Abbiamo le competenze e gli strumenti di laboratorio per fornire la massima qualità in ogni lavorazione. Curiamo attentamente l’efficienza della nostra filiera per poter garantire rapidità e precisione e siamo sempre attenti alle nuove esigenze dei nostri clienti.<br>In Efesto non siamo solo trattamentisti ma consulenti e partner dei nostri clienti per il trattamento termico.",
-    "image": "hero",
+    "image": "about",
     "sections": [
       {
         "id": "certificate",
@@ -106,6 +118,10 @@
         "text": "Sempre di più il trattamento termico richiede competenze ed esperienza per poter fornire non solo un prodotto di qualità ma anche un servizio in linea con le esigenze di certificazione delle filiere e dei prodotti. I nostri trattamenti sono certificati per rispettare anche gli standard più elevati per i mercati più esigenti.",
         "button": {
           "text": "scopri le nostre certificazioni",
+          "function": {
+            "type": "page",
+            "link": "/quality"
+          },
           "icon": "arrow-right"
         }
       },
@@ -131,6 +147,10 @@
       "title": "vuoi entrare nella squadra?",
       "button": {
         "text": "inviaci il tuo cv",
+        "function": {
+          "type": "mail",
+          "link": "mailto:info@efestotrattamenti.com"
+        },
         "icon": "arrow-right-L"
       }
     }
@@ -155,6 +175,10 @@
     "cta": {
       "button": {
         "text": "scopri la squadra",
+        "function": {
+          "type": "page",
+          "link": "/about"
+        },
         "icon": "arrow-right"
       }
     }
@@ -188,6 +212,10 @@
       "title": "cerchi un partner affidabile per trattamenti termici di qualità?",
       "button": {
         "text": "richiedi informazioni",
+        "function": {
+          "type": "mail",
+          "link": "mailto:info@efestotrattamenti.com"
+        },
         "icon": "arrow-right-L"
       }
     }
@@ -199,6 +227,7 @@
     "sections": [
       {
         "name": "forno aichelin 1",
+        "image":"aichelin1",
         "description": "Aichelin 1 è il primo impianto Efesto. Ha una capacità di 750 kg/h ed è concepito per il trattamento di bonifica e carbonitrurazione di particolari automotive secondo specifica CQi9 dal D. 4 al D. 18.<br><br>L'impianto comprende, oltre al forno di trattamento, una lavatrice per la defosfatazione di tutti i particolari e un sistema per la brunitura dei pezzi con applicazione di inibitore di corrosione (antiruggine).<br><br>Ottimizziamo il nostro forno di trattamento per la migliore qualità ed efficienza possibili grazie al controllo computerizzato PLC. Garantiamo l'uniformità di temperatura grazie a un nastro trasportatore a movimento esclusivamente interno e 19 bruciatori WS. L'atmosfera interna è monitorata fino al minimo dettaglio grazie a un sosfisticato sistema di controllo che comprende: metano di arricchimento per la regolazione del carbonio, relative sonde ridondanti per il monitoraggio della percentuale di saturazione (%C) e analizzatore 2 gas.",
         "accordion": {
           "header": "dettagli tecnici",
@@ -290,6 +319,7 @@
       },
       {
         "name": "forno ipsen",
+        "image":"ipsen",
         "description": "Il forno a camera Ipsen è il nostro impianto monocamera per il trattamento di elementi di grandi dimensioni e speciali. Permette un preriscaldo e rinvenimento fino a 630° e ha una capacità di carico di 910 X 1220 X 760 cm che lo rendono adatto al trattamento di moltissimi componenti di tutti i settori industriali.",
         "accordion": {
           "header": "dettagli tecnici",
@@ -321,6 +351,10 @@
       "title": "ancora non sai quale sia l’impianto più adatto alle tue esigenze?",
       "button": {
         "text": "contattaci",
+        "function": {
+          "type": "mail",
+          "link": "mailto:info@efestotrattamenti.com"
+        },
         "icon": "arrow-right-L"
       }
     }
@@ -332,6 +366,7 @@
     "sections": [
       {
         "name": "microdurometri",
+        "image":"microdurometro",
         "description": "Il nostro laboratorio è attrezzato con una ampia gamma di microdurometri che ci permettono di controllare con precisione la qualità di tutte le nostre lavorazioni e garantiscono tutte le misurazioni necessarie alla certificazione dei nostri trattamenti. Nella nostra attrezzatura annoveriamo i microdurometri: Future Tech FR-X3, Future Tech FV-310, Wolpert 2RC, MAB RBR.",
         "accordion": {
           "header": "dettagli tecnici",
@@ -363,6 +398,7 @@
       },
       {
         "name": "stazione provini metallografici",
+        "image":"provino",
         "description": "Siamo attrezzatti per la preparazione di provini metallografici di alta qualità per le nostre prove di microdurezza. Eseguiamo i tagli dei pezzi, inglobamento e pulizia direttamente nel nostro laboratorio. La stazione include una una taglierina HiTech Europe C321, una pressa inglobatrice HiTech Europe EP50PT e una pulitrice metallografica HiTech Europe TSP mono piatto.",
         "accordion": {
           "header": "dettagli tecnici",
@@ -389,6 +425,10 @@
       "title": "ancora non sai quale sia l’impianto più adatto alle tue esigenze?",
       "button": {
         "text": "contattaci",
+        "function": {
+          "type": "mail",
+          "link": "mailto:info@efestotrattamenti.com"
+        },
         "icon": "arrow-right-L"
       }
     }
@@ -434,24 +474,48 @@
       {
         "title": "azienda",
         "subsections": [
-          "chi siamo",
-          "qualità e certificazioni",
-          "contatti"
+          {
+            "title": "chi siamo",
+            "link": "/about"
+          },
+          {
+            "title": "qualità e certificazioni",
+            "link": "/quality"
+          },
+          {
+            "title": "contatti",
+            "link": "/contacts"
+          }
         ]
       },
       {
         "title": "servizi",
         "subsections": [
-          "impianti",
-          "laboratorio"
+          {
+            "title": "impianti",
+            "link": "/plants"
+          },
+          {
+            "title": "laboratorio",
+            "link": "/lab"
+          }
         ]
       },
       {
         "title": "news",
         "subsections": [
-          "categoria 1",
-          "categoria 2",
-          "categoria 3"
+          {
+            "title": "categoria 1",
+            "link": ""
+          },
+          {
+            "title": "categoria 2",
+            "link": ""
+          },          
+          {
+            "title": "categoria 3",
+            "link": ""
+          }
         ]
       }
     ],

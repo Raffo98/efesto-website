@@ -10,6 +10,9 @@
                     <h2 class="plants__sections__plant__text__name" v-html="plant.name"></h2>
                     <div class="plants__sections__plant__text__description" v-html="plant.description"></div>
                 </div>
+                <div class="plants__sections__plant__img" v-if="plant.image">
+                        <img :src="`${$assetsBasePath}plants/${plant.image}.jpg`">
+                </div>
                 <servicesAccordion :content="plant.accordion" />
             </div>
         </div>
@@ -69,6 +72,17 @@ const props = defineProps({
     &__sections {
         &__plant {
             padding-top: 3rem !important;
+
+            &__img {
+                width: 100%;
+                padding-bottom: 2rem !important;
+
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+
 
             &__text {
                 display: flex;

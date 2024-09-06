@@ -86,6 +86,15 @@ const routes = [
 const router = createRouter({
   history: createWebHistory('/efesto-website/'),
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    // Se c'è una posizione salvata (quando si preme il pulsante "Indietro" del browser)
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      // Altrimenti, scrolla in cima alla pagina
+      return { top: 0 };
+    }
+  }
 });
 
 

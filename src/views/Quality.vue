@@ -18,9 +18,9 @@
                 <div class="quality__sections__licenses__license__accordion">
                     <certificateAccordion :content="licenseDb" />
                 </div>
-                <div class="quality__sections__licenses__certificate__cta">
-                    <ctaButtonM :content="props.content.cta.button" />
-                </div>
+            </div>
+            <div class="quality__sections__cta">
+                <ctaButtonM :content="props.content.cta.button" />
             </div>
         </div>
         <div class="quality__policy">
@@ -58,10 +58,10 @@ const fetchCertificatesData = () => {
     airtable.base('certificates').select({}).eachPage(function page(records, fetchNextPage) {
         records.forEach(async function (record) {
             if (record.fields.type == 'patente') {
-                await licenseDb.value.push({ "name": record.fields.name, "description": record.fields.description, "type": record.fields.type, "member": record.fields.member, "link": record.fields.link });
+                await licenseDb.value.push({ "name": record.fields.name, "description": record.fields.description, "type": record.fields.type, "member": record.fields.member, "link": record.fields.link, "doc": record.fields.doc });
             }
             else {
-                await certificateDb.value.push({ "name": record.fields.name, "description": record.fields.description, "type": record.fields.type, "member": record.fields.member, "link": record.fields.link });
+                await certificateDb.value.push({ "name": record.fields.name, "description": record.fields.description, "type": record.fields.type, "member": record.fields.member, "link": record.fields.link, "doc": record.fields.doc });
             }
         });
 
@@ -100,15 +100,16 @@ fetchCertificatesData();
         flex-direction: column;
 
         .mobile & {
-                width: 100%;
-            }
+            width: 100%;
+        }
 
-            .tablet & {
-                width: 100%;
-            }
+        .tablet & {
+            width: 100%;
+        }
 
         &__certificates {
             width: 100%;
+
             .mobile & {
                 width: 100%;
             }
@@ -159,15 +160,19 @@ fetchCertificatesData();
                     color: $color-black;
                 }
 
-                &__cta {
-                    display: flex;
-                    justify-content: center;
-                    padding: 2rem 0 3rem 0 !important;
-                }
-
             }
         }
+
+
+        &__cta {
+            display: flex;
+            justify-content: center;
+            padding: 2rem 0 3rem 0 !important;
+        }
+
     }
+
+
 
 
 

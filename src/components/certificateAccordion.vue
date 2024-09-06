@@ -9,11 +9,14 @@
             </div>
             <div class="accordion__section__list" :class="{ slideDown: item.open }">
                 <div class="accordion__section__list__item" v-for="(sub, index) in props.content" :key="index">
-                    <div class="accordion__section__list__item__download" @mouseover="hoverBtn = true"
-                        @mouseleave="hoverBtn = false">
-                        <img class="accordion__section__list__item__download__rect" :class="{ onHoverRect: hoverBtn }"
+                    <div class="accordion__section__list__item__download" v-if="sub.doc != null"
+                        @mouseover="(hoverBtn = true, activeElement = index)"
+                        @mouseleave="hoverBtn = false, activeElement = null" @click="openLink(...sub.doc)">
+                        <img class="accordion__section__list__item__download__rect"
+                            :class="{ onHoverRect: hoverBtn && activeElement == index }"
                             :src="`${$assetsBasePath}icons/download/download-rect.svg`">
-                        <img class="accordion__section__list__item__download__arrow" :class="{ onHoverArrow: hoverBtn }"
+                        <img class="accordion__section__list__item__download__arrow"
+                            :class="{ onHoverArrow: hoverBtn && activeElement == index }"
                             :src="`${$assetsBasePath}icons/download/download-arrow.svg`">
                     </div>
                     <div class="accordion__section__list__item__wrapper">
@@ -37,9 +40,9 @@ const props = defineProps({
     content: Array,
 });
 
-console.log(props.content)
 
 const hoverBtn = ref(false);
+const activeElement = ref();
 
 const item = ref(
     { title: "Section 1", subsection: [{ "title": "certificato 01", "content": "Content for cerfiticato 01" }, { "title": "certificato 02", "content": "Content for cerfiticato 02" }], open: ref(false) },
@@ -48,6 +51,11 @@ const item = ref(
 const toggleAccordion = () => {
     item.value.open = !item.value.open;
 };
+
+const openLink = (link) => {
+    console.log(link)
+    window.open(link.url, "_blank");
+}
 
 </script>
 

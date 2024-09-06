@@ -1,5 +1,5 @@
 <template>
-    <div class="cta" @mouseover="isHover = true" @mouseleave=" isHover = false"
+    <div class="cta" @mouseover="isHover = true" @mouseleave=" isHover = false" @click="handleClick"
         :style="[isHover ? { backgroundPosition: 'left bottom' } : { backgroundPosition: 'right bottom' }]">
         <button :class="{
             cta__button: true,
@@ -18,12 +18,24 @@
 
 <script setup>
 import { ref } from "@vue/runtime-core";
+import { useRouter } from 'vue-router';
+
+const route = useRouter();
 
 const props = defineProps({
     content: Object,
 });
 
 const isHover = ref(false);
+
+const handleClick = () => {
+    if(props.content.function.type == 'mail') {
+        window.location.href = props.content.function.link;
+    }
+    else if(props.content.function.type == 'page'){
+        route.push(props.content.function.link);
+    }
+}
 
 </script>
 

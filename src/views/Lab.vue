@@ -10,6 +10,9 @@
                     <h2 class="lab__sections__tool__text__name" v-html="tool.name"></h2>
                     <div class="lab__sections__tool__text__description" v-html="tool.description"></div>
                 </div>
+                <div class="lab__sections__tool__img" v-if="tool.image">
+                    <img :src="`${$assetsBasePath}lab/${tool.image}.jpg`">
+                </div>
                 <servicesAccordion :content="tool.accordion" />
             </div>
         </div>
@@ -52,6 +55,7 @@ const props = defineProps({
         &__title {
             @include h1;
             text-transform: uppercase;
+
             .mobile & {
                 padding-bottom: 1rem !important;
             }
@@ -69,6 +73,17 @@ const props = defineProps({
     &__sections {
         &__tool {
             padding-top: 3rem !important;
+
+            &__img {
+                width: 100%;
+                padding-bottom: 2rem !important;
+
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+
 
             &__text {
                 display: flex;

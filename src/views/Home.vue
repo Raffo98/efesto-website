@@ -4,7 +4,6 @@
             home__hero: true,
             reduce_size: (scrollIncrement > 2) && ($tvaMq !== 'mobile'),
         }">
-            <!-- <img class="home__hero__img" :src="`${$assetsBasePath}backgrounds/asuka.jpg`"> -->
             <img class="home__hero__img" :src="`${$assetsBasePath}backgrounds/hero.jpg`">
         </div>
         <div class="home__h1">
