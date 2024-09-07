@@ -52,6 +52,7 @@
       @mouseover="dropdown()"
       @mouseleave="stateSection.changeSectionId('')"
       v-if="props.content.subsections.length > 0"
+      v-show="idSection == props.content.title || isHover"
     >
       <router-link :to="{name: `${idSub}`}">
         <button
@@ -166,7 +167,7 @@ function dropdown() {
 
   &__dropdown {
     position: absolute;
-    // z-index: -1;
+    z-index: 100;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

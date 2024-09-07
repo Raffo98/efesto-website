@@ -103,7 +103,7 @@ fetchTeamData();
 <style lang="scss" scoped>
 .about {
   width: 100%;
-  padding: 0 3rem 0 3rem !important;
+  padding: 3rem 3rem 0 3rem !important;
 
   .mobile & {
     padding: 0 1rem 0 1rem !important;
@@ -114,9 +114,10 @@ fetchTeamData();
   &__title {
     h1 {
       @include h1;
-      line-height: 200% !important;
+      line-height: 100% !important;
       text-transform: uppercase;
       color: $color-black;
+      padding-bottom: 3rem !important;
 
       .mobile & {
         line-height: 100% !important;

@@ -36,7 +36,7 @@ const props = defineProps({
 <style lang="scss" scoped>
 .contacts {
     width: 100%;
-    padding: 0 3rem 0 3rem !important;
+    padding: 3rem 3rem 0 3rem !important;
 
     &__title {
         padding-bottom: 2rem !important;

@@ -279,6 +279,7 @@ watch($tvaMq, () => {
 
                 &__cta {
                     width: fit-content;
+                    padding-top: 2rem !important;
 
                     .mobile & {
                         padding-top: 3rem !important;
