@@ -7,7 +7,7 @@
                 </div>
                 <div class="quality__sections__certificates__text" v-html="props.content.text"></div>
                 <div class="quality__sections__certificates__accordion">
-                    <certificateAccordion :content="certificateDb" />
+                    <certificateAccordion :content="certificateDb" :type="props.content.accordion.certificate" />
                 </div>
             </div>
             <div class="quality__sections__licenses">
@@ -16,7 +16,8 @@
                 </div>
                 <div class="quality__sections__licenses__license__text" v-html="props.content.certificate.text"></div>
                 <div class="quality__sections__licenses__license__accordion">
-                    <certificateAccordion :content="licenseDb" />
+                    <certificateAccordion :content="licenseDb" :type="props.content.accordion.license" />
+                    <certificateAccordion :content="diplomaDb" :type="props.content.accordion.diploma" />
                 </div>
             </div>
             <div class="quality__sections__cta">
@@ -53,15 +54,19 @@ const props = defineProps({
 
 const certificateDb = ref([]);
 const licenseDb = ref([])
+const diplomaDb = ref([])
 
 const fetchCertificatesData = () => {
     airtable.base('certificates').select({}).eachPage(function page(records, fetchNextPage) {
         records.forEach(async function (record) {
-            if (record.fields.type == 'patente') {
+            if (record.fields.type == 'certificazione') {
+                await certificateDb.value.push({ "name": record.fields.name, "description": record.fields.description, "type": record.fields.type, "member": record.fields.member, "link": record.fields.link, "doc": record.fields.doc });
+            }
+            else if (record.fields.type == 'patente'){
                 await licenseDb.value.push({ "name": record.fields.name, "description": record.fields.description, "type": record.fields.type, "member": record.fields.member, "link": record.fields.link, "doc": record.fields.doc });
             }
             else {
-                await certificateDb.value.push({ "name": record.fields.name, "description": record.fields.description, "type": record.fields.type, "member": record.fields.member, "link": record.fields.link, "doc": record.fields.doc });
+                await diplomaDb.value.push({ "name": record.fields.name, "description": record.fields.description, "type": record.fields.type, "member": record.fields.member, "link": record.fields.link, "doc": record.fields.doc });
             }
         });
 

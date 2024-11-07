@@ -2,7 +2,7 @@
     <div class="accordion">
         <div class="accordion__section" @click="toggleAccordion">
             <div class="accordion__section__header">
-                <div class="accordion__section__header__title" v-html="item.title"></div>
+                <div class="accordion__section__header__title" v-html="props.type"></div>
                 <div class="accordion__section__header__arrow">
                     <img :src="`${$assetsBasePath}icons/${item.open ? 'arrow-down' : 'arrow-up'}.svg`">
                 </div>
@@ -38,6 +38,7 @@ import { ref } from 'vue';
 
 const props = defineProps({
     content: Array,
+    type: Text
 });
 
 
@@ -45,7 +46,7 @@ const hoverBtn = ref(false);
 const activeElement = ref();
 
 const item = ref(
-    { title: "Section 1", subsection: [{ "title": "certificato 01", "content": "Content for cerfiticato 01" }, { "title": "certificato 02", "content": "Content for cerfiticato 02" }], open: ref(false) },
+    { open: ref(false) },
 );
 
 const toggleAccordion = () => {
@@ -87,6 +88,7 @@ const openLink = (link) => {
 
             &__title {
                 @include paragraph-bold;
+                text-transform: capitalize;
 
             }
 

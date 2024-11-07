@@ -158,6 +158,11 @@
   "quality": {
     "path": ["home", "qualità e certificazioni"],
     "title": "qualità e certificazioni",
+    "accordion": {
+      "certificate": "certificazioni",
+      "license": "patenti",
+      "diploma": "attestati"
+    },
     "text": "Sempre di più il trattamento termico richiede competenze ed esperienza per poter fornire non solo un prodotto di qualità ma anche un servizio in linea con le esigenze di certificazione delle filiere e dei prodotti. I nostri trattamenti sono certificati per rispettare anche gli standard più elevati per i mercati più esigenti. La nostra lista di certificazioni è in continuo aggiornamento in modo da potersi adattare costantemente all’evoluzione delle filiere.",
     "certificate": {
       "subtitle": "le patenti del nostro personale",
