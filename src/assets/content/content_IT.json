@@ -192,6 +192,10 @@
     "path": ["home", "contatti"],
     "title": "contatti",
     "text": "La volontà dell’Organizzazione è divenire interlocutore principale dei propri clienti in merito alla gestione di tutte le problematiche relative ai trattamenti termici, mirando a soddisfarne tutte le esigenze e garantendo un servizio di elevata qualità, in tempi brevi e nel rispetto dei requisiti applicabili.",
+    "image": {
+      "name": "map",
+      "link": "https://maps.app.goo.gl/fs15z6w6SkpsuqVv5"
+    },
     "info": {
       "title": "dove trovarci",
       "details": [
