@@ -65,6 +65,7 @@ const openLink = (link) => {
     width: 100%;
     cursor: pointer;
     position: relative;
+    padding-bottom: 1rem !important;
 
     &__section {
         @include paragraph-bold;
