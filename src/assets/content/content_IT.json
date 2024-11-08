@@ -508,29 +508,21 @@
       },
       {
         "title": "news",
-        "subsections": [
-          {
-            "title": "categoria 1",
-            "link": ""
-          },
-          {
-            "title": "categoria 2",
-            "link": ""
-          },          
-          {
-            "title": "categoria 3",
-            "link": ""
-          }
-        ]
+        "link": "/news"
       }
     ],
     "social": {
       "title": "seguici su",
       "subsections": [
-        "linkedin",
-        "youtube",
-        "facebook",
-        "instagram"
+        {
+          "name": "linkedin",
+          "url": "https://www.linkedin.com/company/efesto-trattamenti/"
+        },
+        {
+          "name": "youtube",
+          "url": ""
+        }
+
       ]
     },
     "details": {

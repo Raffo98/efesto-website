@@ -6,16 +6,19 @@
                     <p class="footer__box__sections__info__title" v-html="sections.info.title"></p>
                     <ul class="footer__box__sections__info__list">
                         <li class="footer__box__sections__info__list__contacts"
-                            v-for="(contact, idx) in sections.info.subsections" :key="idx" v-html="contact"></li>
+                            v-for="(contact, idx) in sections.info.subsections" :key="idx" v-html="contact">
+                        </li>
                     </ul>
                 </div>
                 <div class="footer__box__sections__container">
-                    <div class="footer__box__sections__container__section" v-for="(section, idx) in props.sections.sections"
-                        :key="idx">
-                        <p class="footer__box__sections__container__section__title" v-html="section.title"></p>
+                    <div class="footer__box__sections__container__section"
+                        v-for="(section, idx) in props.sections.sections" :key="idx">
+                        <p class="footer__box__sections__container__section__title" v-html="section.title"
+                            @click="section.link ? handleClick(section.link) : ''"></p>
                         <ul class="footer__box__sections__container__section__list">
                             <li class="footer__box__sections__container__section__list__subsection"
-                                v-for="(sub, idx) in section.subsections" :key="idx" v-html="sub.title" @click="handleClick(sub.link)"></li>
+                                v-for="(sub, idx) in section.subsections" :key="idx" v-html="sub.title"
+                                @click="handleClick(sub.link)"></li>
                         </ul>
                     </div>
                 </div>
@@ -25,12 +28,13 @@
                 <div class="footer__box__sections__social__icons">
                     <div class="footer__box__sections__social__icons__icon"
                         v-for="(icon, idx) in props.sections.social.subsections" :key="idx">
-                        <img :src="`${$assetsBasePath}icons/${icon}.svg`">
+                        <a :href="icon.url"><img :src="`${$assetsBasePath}icons/${icon.name}.svg`"></a>
                     </div>
                 </div>
             </div>
             <div class="footer__box__sections__details">
-                <p class="footer__box__sections__details__detail" v-for="(detail, idx) in props.sections.details.subsections" :key="idx" v-html="detail"></p>
+                <p class="footer__box__sections__details__detail"
+                    v-for="(detail, idx) in props.sections.details.subsections" :key="idx" v-html="detail"></p>
             </div>
         </div>
     </div>
@@ -46,7 +50,7 @@ const props = defineProps({
 });
 
 const handleClick = (link) => {
-        route.push(link);
+    route.push(link);
 }
 
 </script>
@@ -137,13 +141,13 @@ const handleClick = (link) => {
                 justify-content: space-around;
 
                 .tablet & {
-                 flex-direction: column;
-                 padding: 1rem 0 0 0 !important;
+                    flex-direction: column;
+                    padding: 1rem 0 0 0 !important;
                 }
 
                 .mobile & {
-                 flex-direction: column;
-                 padding: 1rem 0 0 0 !important;
+                    flex-direction: column;
+                    padding: 1rem 0 0 0 !important;
                 }
 
                 &__section {
@@ -152,6 +156,7 @@ const handleClick = (link) => {
                         @include paragraph-m;
                         color: $color-orange;
                         padding-bottom: .5rem !important;
+                        cursor: pointer;
 
 
                     }
