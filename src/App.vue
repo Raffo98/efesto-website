@@ -1,8 +1,10 @@
 <template>
   <div :class="[$tvaMq]" :version="version.version">
     <Header class="header" :sections="$tm('header.sections')" :button="$tm('header.button')" @set-lang="setLanguage" />
+
+
     <div class="breadcrumbs">
-      
+
     </div>
 
     <div class="container" v-if="dataReady">
@@ -13,6 +15,8 @@
     <Footer :sections="$tm('footer')" />
   </div>
 </template>
+
+
 
 <script setup>
 import version from "@/../package.json";
@@ -42,7 +46,7 @@ function updateBreadcrumbs(path) {
 }
 
 const path = computed(() => {
-  if(!pathList.value.includes(route.name)) {
+  if (!pathList.value.includes(route.name)) {
     updateBreadcrumbs(route.name);
   }
   else {
@@ -125,7 +129,7 @@ const fetchData = async () => {
     const sortNews = newsDb.value.sort((a, b) => new Date(b.date) - new Date(a.date));
     newsPreview.value = { latest: sortNews[0], recent: sortNews.slice(1, 4) };
     // console.log("AOOOO:", newsPreview.value)
- 
+
     dataReady.value = true;
 
   } catch (error) {
