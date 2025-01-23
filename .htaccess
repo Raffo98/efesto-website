@@ -1,0 +1,6 @@
+<Files "get-api-key.php">
+    Require all denied
+    <If "%{HTTP_REFERER} =~ m#^https?://(www\.)?efestotrattamenti\.com#">
+        Require all granted
+    </If>
+</Files>
