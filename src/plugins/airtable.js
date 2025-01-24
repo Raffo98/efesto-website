@@ -16,7 +16,7 @@ async function configureAirtable() {
   try {
     // Effettua una richiesta al file PHP
     const response = await fetch('/get-api-key.php'); // Assumi che sia nella root del server
-    console.log(response);
+    console.log("AOOOO", response);
     
     
     if (!response.ok) {
