@@ -25,7 +25,7 @@ import useTvaMq from "./plugins/tvaMq.js";
 import { useI18n } from "vue-i18n";
 import { useStateStore } from "@/utilities/store/store";
 import { onClickOutside } from '@vueuse/core';
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { computed } from 'vue'
 import airtable from "@/plugins/airtable.js";
 
@@ -35,7 +35,7 @@ import Footer from "@/components/footer.vue";
 const { $tvaMq } = useTvaMq();
 const i18n = useI18n();
 const route = useRoute();
-const router = useRouter();
+// const router = useRouter();
 
 //breadcrumbs
 const pathList = ref([]);
@@ -52,8 +52,6 @@ const path = computed(() => {
   else {
     pathList.value.slice(0, pathList.value.indexOf(route.name))
   }
-  console.log(route.fullPath, router)
-  console.log(pathList.value)
   return route.name;
 })
 
