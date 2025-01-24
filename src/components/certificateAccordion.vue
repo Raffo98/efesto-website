@@ -4,7 +4,7 @@
             <div class="accordion__section__header">
                 <div class="accordion__section__header__title" v-html="props.type"></div>
                 <div class="accordion__section__header__arrow">
-                    <img :src="`${$assetsBasePath}icons/${item.open ? 'arrow-down' : 'arrow-up'}.svg`">
+                    <img :src="`${$assetsBasePath}/icons/${item.open ? 'arrow-down' : 'arrow-up'}.svg`">
                 </div>
             </div>
             <div class="accordion__section__list" :class="{ slideDown: item.open }">

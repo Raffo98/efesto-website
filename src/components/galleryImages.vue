@@ -8,7 +8,7 @@
           <div class="carousel__main__overlay__arrows__button">
             <div class="carousel__main__overlay__arrows__button__icon"
               :style="[isHover && activeArrow == arrow ? { backgroundColor: 'rgba(247, 247, 247, 1)' } : { backgroundColor: 'rgba(231, 83, 23, 1)' }]">
-              <img :src="`${$assetsBasePath}icons/gallery/${arrow}.svg`"
+              <img :src="`${$assetsBasePath}/icons/gallery/${arrow}.svg`"
                 :class="{ 'onHover': isHover && activeArrow == arrow }" />
             </div>
           </div>
@@ -16,7 +16,7 @@
       </div>
       <div class="carousel__main__strip" ref="strip">
         <div class="carousel__main__strip__box" v-for="image, index in props.content.length" :key="index">
-          <img :src="`${$assetsBasePath}gallery/${props.content.filename}-${index}.jpg`" alt="">
+          <img :src="`${$assetsBasePath}/gallery/${props.content.filename}-${index}.jpg`" alt="">
         </div>
       </div>
     </div>
