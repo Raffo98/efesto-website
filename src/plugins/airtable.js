@@ -1,5 +1,6 @@
 var Airtable = require('airtable');
-const apiKey = import.meta.env.VITE_AIRTABLE_API_KEY;
+
+const apiKey = process.env.VUE_APP_AIRTABLE_API_KEY;
 
 Airtable.configure({
     endpointUrl: 'https://api.airtable.com',

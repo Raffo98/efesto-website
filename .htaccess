@@ -1,6 +1,10 @@
-<Files "get-api-key.php">
-    Require all denied
-    <If "%{HTTP_REFERER} =~ m#^https?://(www\.)?efestotrattamenti\.com#">
-        Require all granted
-    </If>
-</Files>
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    
+    # Se la richiesta non è un file esistente, reindirizza a index.html
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.html [QSA,L]
+  </IfModule>
+  
