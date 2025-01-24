@@ -3,7 +3,7 @@
     <div class="header__box">
       <router-link :to="{ name: 'home', params: { lang: isClickedLang } }">
         <div class="header__box__logo">
-          <img :src="`${$assetsBasePath}/icons/logo.svg`">
+          <img :src="`${$assetsBasePath}icons/logo.svg`">
         </div>
       </router-link>
       <div class="header__box__sections" v-if="$tvaMq == 'desktop' || $tvaMq == 'large'">

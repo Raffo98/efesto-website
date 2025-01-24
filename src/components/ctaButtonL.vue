@@ -10,7 +10,7 @@
             </div>
             <div class="cta__button__box__icon"
                 :style="[isHover ? { backgroundColor: 'rgba(231, 83, 23, 1)' } : { backgroundColor: 'rgba(247, 247, 247, 1)' }]">
-                <img :src="`${$assetsBasePath}/icons/${props.content.icon}.svg`" :class="{ 'onHover': isHover }" />
+                <img :src="`${$assetsBasePath}icons/${props.content.icon}.svg`" :class="{ 'onHover': isHover }" />
             </div>
         </button>
     </div>

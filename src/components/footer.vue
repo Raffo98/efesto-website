@@ -224,7 +224,6 @@ const handleClick = (link) => {
 }
 </style> -->
 
-
 <template>
     <div class="footer">
         <div class="footer__box">
@@ -254,7 +253,7 @@ const handleClick = (link) => {
                 <div class="footer__box__sections__social__icons">
                     <div class="footer__box__sections__social__icons__icon"
                         v-for="(icon, idx) in props.sections.social.subsections" :key="idx">
-                        <a :href="icon.url"><img :src="`${$assetsBasePath}/icons/${icon.name}.svg`"></a>
+                        <a :href="icon.url"><img :src="`${$assetsBasePath}icons/${icon.name}.svg`"></a>
                     </div>
                 </div>
             </div>
