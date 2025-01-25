@@ -46,8 +46,9 @@ const route = useRoute();
 
 const path = computed(() => {
   if (!path.value == route.name) {
-    return path.value = route.name;
+    return route.name;
   }
+  return route.name;
 })
 
 const dataReady = ref(false);
