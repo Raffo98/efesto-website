@@ -4,7 +4,8 @@ import App from "./App.vue";
 // Plugins
 import globalVariables from "./plugins/globalVariables";
 import { createPinia } from 'pinia';
-import { createWebHistory, createRouter } from "vue-router";
+// import { createWebHistory, createRouter } from "vue-router";
+import { createWebHashHistory, createRouter } from "vue-router";
 
 
 // import router from '/src/utilities/store/index.js';
