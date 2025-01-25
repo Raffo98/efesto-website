@@ -3,9 +3,9 @@
     <Header class="header" :sections="$tm('header.sections')" :button="$tm('header.button')" @set-lang="setLanguage" />
 
 
-    <div class="breadcrumbs">
+    <!-- <div class="breadcrumbs">
 
-    </div>
+    </div> -->
 
     <div class="container" v-if="dataReady">
       <!-- <router-view :content="$tm(`${path}`)"></router-view> -->
@@ -38,21 +38,16 @@ const route = useRoute();
 // const router = useRouter();
 
 //breadcrumbs
-const pathList = ref([]);
+// const pathList = ref([]);
 
-function updateBreadcrumbs(path) {
-  pathList.value.push(path);
-
-}
+// function updateBreadcrumbs(path) {
+//   pathList.value.push(path);
+// }
 
 const path = computed(() => {
-  if (!pathList.value.includes(route.name)) {
-    updateBreadcrumbs(route.name);
+  if (!path.value == route.name) {
+    return path.value = route.name;
   }
-  else {
-    pathList.value.slice(0, pathList.value.indexOf(route.name))
-  }
-  return route.name;
 })
 
 const dataReady = ref(false);
