@@ -80,7 +80,8 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory('/'),
+  // history: createWebHistory('/'),
+  history: createWebHashHistory(),
   routes,
   scrollBehavior(to, from, savedPosition) {
     // Se c'è una posizione salvata (quando si preme il pulsante "Indietro" del browser)
