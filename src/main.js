@@ -17,21 +17,17 @@ import '@yzfe/svgicon/lib/svgicon.css';
 import VueGoogleMaps from '@fawmi/vue-google-maps';
 
 
-import Home from "@views/Home.vue";
-import About from "@views/About.vue";
-import Quality from "@views/Quality.vue";
-import Contacts from "@views/Contacts.vue";
-import Plants from "@views/Plants.vue";
-import News from "@views/News.vue";
-import NewsId from "@views/NewsId.vue";
-import Lab from "@views/Lab.vue";
+import Home from "@/views/Home.vue";
+import About from "@/views/About.vue";
+import Quality from "@/views/Quality.vue";
+import Contacts from "@/views/Contacts.vue";
+import Plants from "@/views/Plants.vue";
+import News from "@/views/News.vue";
+import NewsId from "@/views/NewsId.vue";
+import Lab from "@/views/Lab.vue";
 
 
 const routes = [
-  // {
-  //   path: '/',
-  //   redirect: { name: 'home' }
-  // },
   {
     path: "/",
     name: "home",
@@ -84,7 +80,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(''),
+  history: createWebHistory('/'),
   routes,
   scrollBehavior(to, from, savedPosition) {
     // Se c'è una posizione salvata (quando si preme il pulsante "Indietro" del browser)
