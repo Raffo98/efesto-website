@@ -41,7 +41,7 @@ const webpack = require("webpack");
 const Dotenv = require("dotenv-webpack");
 
 module.exports = {
-  publicPath: '',
+  publicPath: '/',
   outputDir: "dist",
   configureWebpack: {
     plugins: [
