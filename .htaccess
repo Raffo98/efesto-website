@@ -1,4 +1,4 @@
-<IfModule mod_rewrite.c>
+<!-- <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
     
@@ -7,4 +7,17 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^ index.html [QSA,L]
   </IfModule>
+   -->
+
+   <IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
   
+    # Reindirizza tutte le richieste a index.html tranne file e directory esistenti
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.html [L]
+  </IfModule>
+  
+  # Gestione degli errori 404
+  ErrorDocument 404 /index.html

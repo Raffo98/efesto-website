@@ -9,8 +9,6 @@
 
     <div class="container" v-if="dataReady">
       <!-- <router-view :content="$tm(`${path}`)"></router-view> -->
-       <div>{{ path }}</div>
-       <div>{{ route.name }}</div>
       <router-view :content="content" :preview="path == 'home' ? newsPreview : null"></router-view>
       <!-- <router-view :content="$tm('home')"></router-view> -->
     </div>
