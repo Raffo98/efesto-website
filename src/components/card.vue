@@ -16,7 +16,7 @@
 <script setup>
 import { ref } from "@vue/runtime-core";
 
-const isHover = ref(false);
+// const isHover = ref(false);
 
 const props = defineProps({
     content: Object,
