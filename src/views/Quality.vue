@@ -35,7 +35,7 @@
                     <p v-html="props.content.policy.button.text"></p>
                     <img :src="`${$assetsBasePath}icons/${props.content.policy.button.iconHover}.svg`" />
                 </button> -->
-                <a :href="`${props.assetsBasePath}pdfs/${props.content.policy.button.pdfFile}`"
+                <a :href="`${$assetsBasePath}pdfs/${props.content.policy.button.pdfFile}`"
                     :download="props.content.policy.button.pdfFile" class="quality__policy__box__button">
                     <img :src="`${$assetsBasePath}icons/${props.content.policy.button.icon}.svg`" />
                     <p v-html="props.content.policy.button.text"></p>
@@ -230,6 +230,7 @@ fetchCertificatesData();
                 padding: .8rem 1.3rem .8rem 1.3rem !important;
                 border: 1px solid $color-white !important;
                 overflow: hidden;
+                width: 320px;
 
                 p {
                     @include paragraph-m;
