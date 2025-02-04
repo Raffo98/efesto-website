@@ -174,7 +174,8 @@
       "button": {
         "text": "scarica il documento",
         "icon": "download-btn",
-        "iconHover": "arrow-right-download"
+        "iconHover": "arrow-right-download",
+        "pdfFile": "politica_della_qualità.pdf"
       }
     },
     "cta": {

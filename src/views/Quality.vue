@@ -30,7 +30,7 @@
                     <h2 v-html="props.content.policy.title"></h2>
                 </div>
                 <div class="quality__policy__box__text" v-html="props.content.policy.text"></div>
-                <button class="quality__policy__box__button">
+                <button class="quality__policy__box__button" @click="downloadPDF">
                     <img :src="`${$assetsBasePath}icons/${props.content.policy.button.icon}.svg`" />
                     <p v-html="props.content.policy.button.text"></p>
                     <img :src="`${$assetsBasePath}icons/${props.content.policy.button.iconHover}.svg`" />
@@ -79,6 +79,16 @@ const fetchCertificatesData = () => {
 };
 
 fetchCertificatesData();
+
+const downloadPDF = () => {
+  const pdfUrl = `${$assetsBasePath}pdfs/${props.content.policy.button.pdfFile}`;
+  const link = document.createElement('a');
+  link.href = pdfUrl;
+  link.setAttribute('download', props.content.policy.button.pdfFile);
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
 
 </script>
 
