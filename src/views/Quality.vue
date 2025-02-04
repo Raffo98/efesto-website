@@ -30,11 +30,17 @@
                     <h2 v-html="props.content.policy.title"></h2>
                 </div>
                 <div class="quality__policy__box__text" v-html="props.content.policy.text"></div>
-                <button class="quality__policy__box__button" @click="downloadPDF">
+                <!-- <button class="quality__policy__box__button" @click="downloadPDF">
                     <img :src="`${$assetsBasePath}icons/${props.content.policy.button.icon}.svg`" />
                     <p v-html="props.content.policy.button.text"></p>
                     <img :src="`${$assetsBasePath}icons/${props.content.policy.button.iconHover}.svg`" />
-                </button>
+                </button> -->
+                <a :href="`${props.assetsBasePath}pdfs/${props.content.policy.button.pdfFile}`"
+                    :download="props.content.policy.button.pdfFile" class="quality__policy__box__button">
+                    <img :src="`${$assetsBasePath}icons/${props.content.policy.button.icon}.svg`" />
+                    <p v-html="props.content.policy.button.text"></p>
+                    <img :src="`${$assetsBasePath}icons/${props.content.policy.button.iconHover}.svg`" />
+                </a>
             </div>
         </div>
     </div>
@@ -62,7 +68,7 @@ const fetchCertificatesData = () => {
             if (record.fields.type == 'certificazione') {
                 await certificateDb.value.push({ "name": record.fields.name, "description": record.fields.description, "type": record.fields.type, "member": record.fields.member, "link": record.fields.link, "doc": record.fields.doc });
             }
-            else if (record.fields.type == 'patente'){
+            else if (record.fields.type == 'patente') {
                 await licenseDb.value.push({ "name": record.fields.name, "description": record.fields.description, "type": record.fields.type, "member": record.fields.member, "link": record.fields.link, "doc": record.fields.doc });
             }
             else {
@@ -79,16 +85,6 @@ const fetchCertificatesData = () => {
 };
 
 fetchCertificatesData();
-
-const downloadPDF = () => {
-  const pdfUrl = `${$assetsBasePath}pdfs/${props.content.policy.button.pdfFile}`;
-  const link = document.createElement('a');
-  link.href = pdfUrl;
-  link.setAttribute('download', props.content.policy.button.pdfFile);
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-};
 
 </script>
 
