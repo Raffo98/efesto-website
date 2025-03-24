@@ -55,7 +55,7 @@ import { useRoute } from 'vue-router';
 const route = useRoute();
 
 
-const bookmark = ref(0);
+// const bookmark = ref(0);
 const props = defineProps({
   sections: Array,
   button: Object
