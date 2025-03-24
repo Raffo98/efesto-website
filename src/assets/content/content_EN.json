@@ -2,31 +2,31 @@
   "header": {
     "sections": [
       {
-        "title": "azienda",
+        "title": "company",
         "subsections": [
           {
-            "title": "chi siamo",
+            "title": "about us",
             "id": "about"
           },
           {
-            "title": "qualità e certificazioni",
+            "title": "quality and certifications",
             "id": "quality"
           },
           {
-            "title": "contatti",
+            "title": "contacts",
             "id": "contacts"
           }
         ]
       },
       {
-        "title": "servizi",
+        "title": "services",
         "subsections": [
           {
-            "title": "impianti",
+            "title": "plants",
             "id": "plants"
           },
           {
-            "title": "laboratorio",
+            "title": "quality control lab",
             "id": "lab"
           }
         ]
@@ -37,60 +37,445 @@
       }
     ],
     "button": {
-      "text": "richiedi informazioni",
+      "text": "ask more",
+      "function": {
+        "type": "mail",
+        "link": "mailto:info@efestotrattamenti.com"
+      },
+
       "icon": "arrow-right"
     }
   },
+  "breadcrumbs": {
+    "path": "home"
+  },
   "home": {
+    "path": ["home"],
     "hero": {
-      "title": "trattamenti termici<br>for the la metalmecanig.",
-      "cta": "scopri di più"
+      "title": "heat treatment for metalworking industry",
+      "cta": "see more",
+      "icon": "arrow-down"
     },
     "services": {
-      "title": "i nostri servizi principali",
+      "title": "our main services",
       "service": [
         {
-          "title": "carbonitrurazione",
-          "subtitle": "da 0,02mm a 0,30 mm di profondità"
+          "title": "case hardening",
+          "subtitle": "from 0,02mm to 0,30 mm depth"
         },
         {
-          "title": "brunitura",
-          "subtitle": "brunitura protettiva"
+          "title": "burnishing",
+          "subtitle": "protective burnishing"
         },
         {
-          "title": "bonifica",
-          "subtitle": "8,8 - 9,8 -10,9 -12,9 su acciai basso, medio e altro legati"
+          "title": "hardening and tempering",
+          "subtitle": "8.8 - 9.8 -10.9 -12.9 on low, medium and high alloy steel"
         },
         {
-          "title": "trattamenti speciali",
-          "subtitle": "con ricette personalizzate"
+          "title": "special treatments",
+          "subtitle": "with customized recipes"
         }
       ]
     },
-    "contact": {
-      "title": "cerchi un partner affidabile per trattamenti termici di qualità?",
+    "news": {
+      "title": "news",
       "button": {
-        "text": "contattaci",
+        "text": "read all",
+        "function": {
+          "type": "page",
+          "link": "/news"
+        },
+        "icon": "arrow-right"
+      }
+    },
+    "carousel": {
+      "filename": "gallery",
+      "length": 4,
+      "button": {
+        "icons": ["slide-left", "slide-right"]
+      }
+    },
+    "contact": {
+      "title": "are you looking for a reliable partner for quality heat treatments?",
+      "button": {
+        "text": "contact us",
+        "function": {
+          "type": "mail",
+          "link": "mailto:info@efestotrattamenti.com"
+        },
+        "icon": "arrow-right-L"
+      }
+    }
+  },
+  "about": {
+    "path": ["home", "about us"],
+    "title": "we are the partner for heat treating process",
+    "text": "Efesto was born from the idea of providing a complete and top-quality heat treatment service.<br>For this to be possible, efficient and tidy plants are not enough, competence and skill are needed in all heat treatment details. We are expert in heat treatment processes and in the specific certifications, so to guarantee excellent results and compliance with the requirements of all applications. We have skills and appropriate control tools to provide the highest quality in every process. We carefully manage the efficiency of our supply chain to be able to guarantee fast and precise service and we are attentive to new needs of our customers. At Efesto we are not just treaters but consultants and partners of our customers for heat treating process.",
+    "image": "about",
+    "sections": [
+      {
+        "id": "certificate",
+        "title": "we have quality certified products",
+        "text": "More and more, heat treatments require skills and experience to be able to provide not only a quality product but a service in line with certification needs of supply chains and products. our treatments are certified to meet even the highest standards for the most demanding markets.",
+        "button": {
+          "text": "discover our sertifications",
+          "function": {
+            "type": "page",
+            "link": "/quality"
+          },
+          "icon": "arrow-right"
+        }
+      },
+      {
+        "id": "team",
+        "title": "we are a skilled team",
+        "text": "In EFESTO we value people who give value to our service and quality of our treatment services. For this reason, we invest in continuous and high-level training and growth.",
+        "cards": {
+          "titles": [
+            "email",
+            "telephone",
+            "certifications"
+          ]
+        }
+      },
+      {
+        "id": "cvsender",
+        "title": "work with us",
+        "text": "At EFESTO we deeply believe that a good team is made up of passionate, involved and trained people. To get that, we invest in a welcoming work environment and in training all staff according to their aptitudes and potential. We are always looking for technical and administrative staff."
+      }
+    ],
+    "cta": {
+      "title": "do you want to join our team?",
+      "button": {
+        "text": "send us your cv",
+        "function": {
+          "type": "mail",
+          "link": "mailto:info@efestotrattamenti.com"
+        },
+        "icon": "arrow-right-L"
+      }
+    }
+  },
+  "quality": {
+    "path": ["home", "qualità e certificazioni"],
+    "title": "quality and certifications",
+    "accordion": {
+      "certificate": "certificazions",
+      "license": "license",
+      "diploma": "attestati"
+    },
+    "text": "More and more, heat treatments require skills and experience to be able to provide not only a quality product but a service in line with certification needs of supply chains and products. Our treatments are certified to meet even the highest standards for the most demanding markets. The list of our certifications is constantly updated and continuously adapted to market changes.",
+    "certificate": {
+      "subtitle": "our staff's certifications",
+      "text": "Training our staff is one of our priorities. A trained and competent team is a basic requirements for a top-level quality service and a safe and motivating working environment."
+    },
+    "policy": {
+      "title": "quality policy",
+      "text": "Improve the way processes are managed to achieve qualitative and quantitative results worthy the mission; provide services that comply with customers standards requirements, are established by the company and are compliant with legal requirements; promote and encourage the training of our staff; incorporate the principle of continuous improvement into EFESTO's company culture, applying it daily at a personal and team level.",
+      "button": {
+        "text": "download",
+        "icon": "download-btn",
+        "iconHover": "arrow-right-download",
+        "pdfFile": "politica_della_qualita.pdf"
+      }
+    },
+    "cta": {
+      "button": {
+        "text": "discover the team",
+        "function": {
+          "type": "page",
+          "link": "/about"
+        },
         "icon": "arrow-right"
       }
     }
   },
   "contacts": {
+    "path": ["home", "contatti"],
     "title": "contacts",
-    "text": "La volontà dell’Organizzazione è divenire interlocutore principale dei propri clienti in merito alla gestione di tutte le problematiche relative ai trattamenti termici, mirando a soddisfarne tutte le esigenze e garantendo un servizio di elevata qualità, in tempi brevi e nel rispetto dei requisiti applicabili.",
+    "text": "Our Organization's aim is to become the main partner of customers regarding the management of all issues related to heat treatments, aiming to satisfy all customers' needs and guaranteeing a high quality service, in short time and in compliance with specific requirements.",
+    "image": {
+      "name": "map",
+      "link": "https://maps.app.goo.gl/fs15z6w6SkpsuqVv5"
+    },
     "info": {
-      "title": "dove trovarci",
+      "title": "where to find us",
       "details": [
-        {"title": "sede operativa", "content": "Via Giancarlo Puecher, 5<br>Paderno Dugnano (MI) Italia"},
-        {"title": "sede legale", "content": "via Dell'Industria, 12<br>20032 Cormano (MI) Italia"},
-        {"title": "telefono", "content": "+39 02 123456"},
-        {"title": "mail", "content": "info@efestotrattamenti.com"}
+        {
+          "title": "operational headquarters",
+          "content": "Via Giancarlo Puecher, 5<br>Paderno Dugnano (MI) Italia"
+        },
+        {
+          "title": "registered office",
+          "content": "via Dell'Industria, 12<br>20032 Cormano (MI) Italia"
+        },
+        {
+          "title": "telephone",
+          "content": "+39 02 123456"
+        },
+        {
+          "title": "mail",
+          "content": "info@efestotrattamenti.com"
+        }
       ]
+    },
+    "cta": {
+      "title": "are you looking for a reliable partner for high quality heat treamtments?",
+      "button": {
+        "text": "ask more",
+        "function": {
+          "type": "mail",
+          "link": "mailto:info@efestotrattamenti.com"
+        },
+        "icon": "arrow-right-L"
+      }
     }
+  },
+  "plants": {
+    "path": ["home", "impianti"],
+    "title": "plants",
+    "text": "Our plants are EFESTO's beating heart and guarantee the high quality of our services.",
+    "sections": [
+      {
+        "name": "Aichelin furnace 1",
+        "image":"aichelin1",
+        "description": "Aichelin 1 is EFESTO's first furnace.It has a 750 kg/H capacity and is designed for hardening and tempering, for case hardening and for carbonitriding treatments of automotive parts according to CQi9, from Ø 4 mm to Ø 18 mm.<br><br>The plants include, in addition to the heat treatment furnace, a dephosphating washing machine for all parts and a burnishing tank with application of a corrosion inhibitor (anti-rust)<br>The furnace is optimized for the highest possible quality and efficiency through PLC computer control. Temperature uniformity is ensured thanks to an exclusively internal moving conveyor belt and 19 WS burners. The furnace atmosphere is monitored down to the smallest detail with a sophisticated control system that includes: enrichment methane for Carbon regulation, redundant Oxygen probes for the control of the percentage of saturation (%C) and a 3 gas analyzer.",
+        "accordion": {
+          "header": "technical details",
+          "details": [
+            {
+              "name": "dephosphating washing machine",
+              "description": "a 4-stages process for all parts"
+            },
+            {
+              "name": "computerized control",
+              "description": "thorugh PLC system"
+            },
+            {
+              "name": "even temperature",
+              "description": "through internal belt transport system and 19 burners"
+            },
+            {
+              "name": "controlled atmosphere",
+              "description": "with Carbon regulation"
+            },
+            {
+              "name": "",
+              "description": "the Oxygen probes perform a reduntant check"
+            },
+            {
+              "name": "",
+              "description": "3-gas analyzer"
+            }
+          ],
+          "processes": {
+            "header": "available treatments",
+            "items": [
+              {
+                "name": "hardening and tempering"
+              },
+              {
+                "name": "case hardening"
+              },
+              {
+                "name": "burnishing"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Aichelin furnace 2",
+        "description": "Aichelin 2 is the twin of Aichelin 1. It has the same 750 kg/h capacity and the same technical features that guarantee a high quality treatment.<br><br>Aichelin 2 allows us the possibility of a customized tratment, without burnishing.",
+        "accordion": {
+          "header": "technical details",
+          "details": [
+            {
+              "name": "dephosphating washing machine",
+              "description": "a 4-stages process for all parts"
+            },
+            {
+              "name": "computerized control",
+              "description": "through PLC system"
+            },
+            {
+              "name": "even termperature",
+              "description": "with internal belt transport system and 19 burners"
+            },
+            {
+              "name": "controlled atmosphere",
+              "description": "with Carbon regulation"
+            },
+            {
+              "name": "",
+              "description": "the Oxygen probes perform a redundant check"
+            },
+            {
+              "name": "",
+              "description": "2-gas analyzer"
+            }
+          ],
+          "processes": {
+            "header": "available treatments",
+            "items": [
+              {
+                "name": "hardening and tempering"
+              },
+              {
+                "name": "case hardening"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "ipsen furnace",
+        "image":"ipsen",
+        "description": "The Ipsen chamber furnace is our single-chamber system for the treatment of large and special parts. It allows hardening and case hardening up to 950°C and tempering up to 630°C. It has a 910x1220x760cm loading capacity wich makes it suitable for the treatment of many components in all industries.",
+        "accordion": {
+          "header": "technical details",
+          "details": [
+            {
+              "name": "temperature",
+              "description": "hardening and case hardening up to 950°C and tempering up to 630°C"
+            },
+            {
+              "name": "loading compartment",
+              "description": "useful dimensions 910 X 1220 X 760 cm"
+            }
+          ],
+          "processes": {
+            "header": "available services",
+            "items": [
+              {
+                "name": "hardening and tempering"
+              },
+              {
+                "name": "case hardening"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "cta": {
+      "title": "still don't know which plant is best suited to your needs?",
+      "button": {
+        "text": "contact us",
+        "function": {
+          "type": "mail",
+          "link": "mailto:info@efestotrattamenti.com"
+        },
+        "icon": "arrow-right-L"
+      }
+    }
+  },
+  "lab": {
+    "path": ["home", "laboratorio"],
+    "title": "quality control lab",
+    "text": "At EFESTO we verify the quality of each part internally, thanks to our technical lab.",
+    "sections": [
+      {
+        "name": "microhardness testers",
+        "image":"microdurometro",
+        "description": "Our quality control lab is equipped with a wide range of microdurometers theat allow us to precisely control the quality of all our processes and guarantee all the necessary measurements for the certification of our treatments. Our equipment includes the following microdurometers: Future Tech FR-X3, Future Tech FV-310, Wolpert 2RC, MAB RBR.",
+        "accordion": {
+          "header": "technical details",
+          "details": [
+            {
+              "name": "Rockwell hardness tests (HRA, HRB, HRC)",
+              "description": ""
+            },
+            {
+              "name": "Vickers harness tests (HV 0.3 - 30)",
+              "description": ""
+            },
+            {
+              "name": "Metallographic test station",
+              "description": ""
+            },
+            {
+              "name": "Brinell hardness tests(HBW)",
+              "description": ""
+            },
+            {
+              "name": "prove manuali di durezza scala Rockwell (HRA, HRB, HRC)",
+              "description": ""
+            }
+          ],
+          "processes": {
+          }
+        }
+      },
+      {
+        "name": "Metallographic test station",
+        "image":"provino",
+        "description": "We are equipped to prepare high quality metallographic specimens for our microhardness tests. We perform cutting, mounting and cleaning directly in our technical lab. The station includes a HiTech Europe C321 cutter, a Hi Tech Europe EP50PT mounting press and a HiTech Europe TSP single plate metallographic cleaner.",
+        "accordion": {
+          "header": "technical details",
+          "details": [
+            {
+              "name": "cutting",
+              "description": ""
+            },
+            {
+              "name": "mounting",
+              "description": ""
+            },
+            {
+              "name": "cleaning of metallographic specimens",
+              "description": ""
+            }
+          ],
+          "processes": {
+          }
+        }
+      }
+    ],
+    "cta": {
+      "title": "still don't know which plant is best suited to your needs?",
+      "button": {
+        "text": "contact us",
+        "function": {
+          "type": "mail",
+          "link": "mailto:info@efestotrattamenti.com"
+        },
+        "icon": "arrow-right-L"
+      }
+    }
+  },
+  "news": {
+    "path": ["home", "news"],
+    "title": "news",
+    "buttons": [
+      {
+        "text": "search",
+        "icon": "lens"
+      },
+      {
+        "text": "sort by",
+        "icon": "arrow-up-S",
+        "icon-active": "arrow-down-S",
+        "subtext": [
+          {
+            "id": "recent",
+            "text": "most recent"
+          },
+          {
+            "id": "oldest",
+            "text": "less recent"
+          }
+        ]
+      },
+      {
+        "text": "filter",
+        "icon": "filter"
+      }
+    ]
   },
   "footer": {
     "info": {
-      "title": "vuoi più informazioni?",
+      "title": "ask more",
       "subsections": [
         "info@efestotrattamenti.com",
         "+39 335 275978"
@@ -98,36 +483,52 @@
     },
     "sections": [
       {
-        "title": "azienda",
+        "title": "company",
         "subsections": [
-          "chi siamo",
-          "qualità e certificazioni",
-          "contatti"
+          {
+            "title": "about us",
+            "link": "/about"
+          },
+          {
+            "title": "quality and certifications",
+            "link": "/quality"
+          },
+          {
+            "title": "contacts",
+            "link": "/contacts"
+          }
         ]
       },
       {
-        "title": "servizi",
+        "title": "services",
         "subsections": [
-          "impianti",
-          "laboratorio"
+          {
+            "title": "plants",
+            "link": "/plants"
+          },
+          {
+            "title": "quality control lab",
+            "link": "/lab"
+          }
         ]
       },
       {
         "title": "news",
-        "subsections": [
-          "categoria 1",
-          "categoria 2",
-          "categoria 3"
-        ]
+        "link": "/news"
       }
     ],
     "social": {
-      "title": "follow su",
+      "title": "follow us on",
       "subsections": [
-        "linkedin",
-        "youtube",
-        "facebook",
-        "instagram"
+        {
+          "name": "linkedin",
+          "url": "https://www.linkedin.com/company/efesto-trattamenti/"
+        },
+        {
+          "name": "youtube",
+          "url": ""
+        }
+
       ]
     },
     "details": {

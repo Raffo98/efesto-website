@@ -68,7 +68,7 @@
         },
         {
           "title": "bonifica",
-          "subtitle": "8,8 - 9,8 -10,9 -12,9 su acciai basso, medio e altro legati"
+          "subtitle": "8.8 - 9.8 -10.9 -12.9 su acciai basso, medio e alto legati"
         },
         {
           "title": "trattamenti speciali",
@@ -238,7 +238,7 @@
       {
         "name": "forno aichelin 1",
         "image":"aichelin1",
-        "description": "Aichelin 1 è il primo impianto Efesto. Ha una capacità di 750 kg/h ed è concepito per il trattamento di bonifica e carbonitrurazione di particolari automotive secondo specifica CQi9 dal D. 4 al D. 18.<br><br>L'impianto comprende, oltre al forno di trattamento, una lavatrice per la defosfatazione di tutti i particolari e un sistema per la brunitura dei pezzi con applicazione di inibitore di corrosione (antiruggine).<br><br>Ottimizziamo il nostro forno di trattamento per la migliore qualità ed efficienza possibili grazie al controllo computerizzato PLC. Garantiamo l'uniformità di temperatura grazie a un nastro trasportatore a movimento esclusivamente interno e 19 bruciatori WS. L'atmosfera interna è monitorata fino al minimo dettaglio grazie a un sosfisticato sistema di controllo che comprende: metano di arricchimento per la regolazione del carbonio, relative sonde ridondanti per il monitoraggio della percentuale di saturazione (%C) e analizzatore 2 gas.",
+        "description": "Aichelin 1 è il primo impianto Efesto. Ha una capacità di 750 kg/h ed è concepito per il trattamento di bonifica e carbonitrurazione di particolari automotive secondo specifica CQi9 dal Ø 4 al Ø 18.<br><br>L'impianto comprende, oltre al forno di trattamento, una lavatrice per la defosfatazione di tutti i particolari e un sistema per la brunitura dei pezzi con applicazione di inibitore di corrosione (antiruggine).<br><br>Ottimizziamo il nostro forno di trattamento per la migliore qualità ed efficienza possibili grazie al controllo computerizzato PLC. Garantiamo l'uniformità di temperatura grazie a un nastro trasportatore a movimento esclusivamente interno e 19 bruciatori WS. L'atmosfera interna è monitorata fino al minimo dettaglio grazie a un sosfisticato sistema di controllo che comprende: metano di arricchimento per la regolazione del carbonio, relative sonde ridondanti per il monitoraggio della percentuale di saturazione (%C) e analizzatore 2 gas.",
         "accordion": {
           "header": "dettagli tecnici",
           "details": [
@@ -264,7 +264,7 @@
             },
             {
               "name": "",
-              "description": "analizzatore 3 gas"
+              "description": "analizzatore 2 gas"
             }
           ],
           "processes": {
@@ -311,7 +311,7 @@
             },
             {
               "name": "",
-              "description": "analizzatore 3 gas"
+              "description": "analizzatore 2 gas"
             }
           ],
           "processes": {
@@ -330,13 +330,13 @@
       {
         "name": "forno ipsen",
         "image":"ipsen",
-        "description": "Il forno a camera Ipsen è il nostro impianto monocamera per il trattamento di elementi di grandi dimensioni e speciali. Permette un preriscaldo e rinvenimento fino a 630° e ha una capacità di carico di 910 X 1220 X 760 cm che lo rendono adatto al trattamento di moltissimi componenti di tutti i settori industriali.",
+        "description": "Il forno a camera Ipsen è il nostro impianto monocamera per il trattamento di elementi di grandi dimensioni e speciali. Permette un trattamento di bonifica e cementazione fino a 950°C e un successivo rinvenimento fino a 630°C, ha una capacità di carico di 910 X 1220 X 760 cm che lo rende adatto al trattamento di moltissimi componenti di tutti i settori industriali.",
         "accordion": {
           "header": "dettagli tecnici",
           "details": [
             {
               "name": "temperatura",
-              "description": "preriscaldo e rinvenimento fino a 590°"
+              "description": "preriscaldo e rinvenimento fino a 630°C"
             },
             {
               "name": "vano di carico",
