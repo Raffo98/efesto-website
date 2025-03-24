@@ -9,14 +9,14 @@
       <div class="header__box__sections" v-if="$tvaMq == 'desktop' || $tvaMq == 'large'">
         <sectionHeader v-for="(section, idx) in props.sections" :key="idx" :content="section" />
         <div class="header__box__sections__buttons">
-          <!-- <div class="header__box__sections__buttons__lang">
+          <div class="header__box__sections__buttons__lang">
             <button @mouseover="isHoveredIta = true" @mouseleave="isHoveredIta = false"
               @click="$emit('setLang', 'it'); isClickedLang = 'it'"
               :style="{ color: isHoveredIta || isClickedLang == 'it' ? 'rgba(231, 83, 23, 1)' : 'rgba(247, 247, 247, 1)' }">ita</button>/<button
               @mouseover="isHoveredEng = true" @mouseleave="isHoveredEng = false"
               @click="$emit('setLang', 'en'); isClickedLang = 'en'"
               :style="{ color: isHoveredEng || isClickedLang == 'en' ? 'rgba(231, 83, 23, 1)' : 'rgba(247, 247, 247, 1)' }">eng</button>
-          </div> -->
+          </div>
           <ctaButtonM :content="props.button" />
         </div>
       </div>
@@ -27,14 +27,14 @@
         <div class="header__box__hamburger__wrapper" :class="{ slideDown: isOpenMobile }">
           <sectionHeaderMobile v-for="(section, idx) in props.sections" :key="idx" :content="section" />
           <div class="header__box__hamburger__wrapper__buttons">
-            <!-- <div class="header__box__hamburger__wrapper__buttons__lang">
+            <div class="header__box__hamburger__wrapper__buttons__lang">
               <button @mouseover="isHoveredIta = true" @mouseleave="isHoveredIta = false"
                 @click="$emit('setLang', 'it'); isClickedLang = 'it'"
                 :style="{ color: isHoveredIta || isClickedLang == 'it' ? 'rgba(231, 83, 23, 1)' : 'rgba(247, 247, 247, 1)' }">ita</button>/<button
                 @mouseover="isHoveredEng = true" @mouseleave="isHoveredEng = false"
                 @click="$emit('setLang', 'en'); isClickedLang = 'en'"
                 :style="{ color: isHoveredEng || isClickedLang == 'en' ? 'rgba(231, 83, 23, 1)' : 'rgba(247, 247, 247, 1)' }">eng</button>
-            </div> -->
+            </div>
             <ctaButtonM :content="props.button" />
           </div>
         </div>
@@ -46,7 +46,7 @@
 import { provide, watch } from "@vue/runtime-core";
 import useTvaMq from "@/plugins/tvaMq.js";
 import { ref } from "@vue/reactivity";
-// import { useStateStore } from '@/utilities/store/store';
+import { useStateStore } from '@/utilities/store/store';
 import sectionHeader from "@/components/sectionHeader.vue";
 import sectionHeaderMobile from "@/components/sectionHeaderMobile.vue";
 import ctaButtonM from "@/components/ctaButtonM.vue";
@@ -55,7 +55,7 @@ import { useRoute } from 'vue-router';
 const route = useRoute();
 
 
-// const bookmark = ref(0);
+const bookmark = ref(0);
 const props = defineProps({
   sections: Array,
   button: Object
@@ -63,8 +63,8 @@ const props = defineProps({
 
 const { $tvaMq } = useTvaMq();
 provide("$tvaMq", $tvaMq);
-// const isHoveredIta = ref("");
-// const isHoveredEng = ref("");
+const isHoveredIta = ref("");
+const isHoveredEng = ref("");
 const isClickedLang = ref("it");
 const isOpenMobile = ref(false);
 
@@ -72,8 +72,8 @@ function dropdownMenu() {
   isOpenMobile.value = !isOpenMobile.value;
 }
 
-// const stateModal = useStateStore();
-// const selectedId = stateModal.activeId;
+const stateModal = useStateStore();
+const selectedId = stateModal.activeId;
 
 watch(route, () => {
   isOpenMobile.value = false;
@@ -81,13 +81,13 @@ watch(route, () => {
 
 
 
-// watch(
-//   stateModal, () => {
-//     if (stateModal.activeId != selectedId.value) {
-//       selectedId.value = stateModal.activeId;
-//     }
-//   },
-// );
+watch(
+  stateModal, () => {
+    if (stateModal.activeId != selectedId.value) {
+      selectedId.value = stateModal.activeId;
+    }
+  },
+);
 </script>
 <style lang="scss" scoped>
 .header {
