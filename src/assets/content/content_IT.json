@@ -396,10 +396,6 @@
             {
               "name": "prove di durezza scala Brinell (HBW)",
               "description": ""
-            },
-            {
-              "name": "prove manuali di durezza scala Rockwell (HRA, HRB, HRC)",
-              "description": ""
             }
           ],
           "processes": {

@@ -46,7 +46,7 @@
 import { provide, watch } from "@vue/runtime-core";
 import useTvaMq from "@/plugins/tvaMq.js";
 import { ref } from "@vue/reactivity";
-import { useStateStore } from '@/utilities/store/store';
+// import { useStateStore } from '@/utilities/store/store';
 import sectionHeader from "@/components/sectionHeader.vue";
 import sectionHeaderMobile from "@/components/sectionHeaderMobile.vue";
 import ctaButtonM from "@/components/ctaButtonM.vue";
@@ -72,8 +72,8 @@ function dropdownMenu() {
   isOpenMobile.value = !isOpenMobile.value;
 }
 
-const stateModal = useStateStore();
-const selectedId = stateModal.activeId;
+// const stateModal = useStateStore();
+// const selectedId = stateModal.activeId;
 
 watch(route, () => {
   isOpenMobile.value = false;
@@ -81,13 +81,13 @@ watch(route, () => {
 
 
 
-watch(
-  stateModal, () => {
-    if (stateModal.activeId != selectedId.value) {
-      selectedId.value = stateModal.activeId;
-    }
-  },
-);
+// watch(
+//   stateModal, () => {
+//     if (stateModal.activeId != selectedId.value) {
+//       selectedId.value = stateModal.activeId;
+//     }
+//   },
+// );
 </script>
 <style lang="scss" scoped>
 .header {

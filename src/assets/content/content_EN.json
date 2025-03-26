@@ -129,7 +129,7 @@
       {
         "id": "team",
         "title": "we are a skilled team",
-        "text": "In EFESTO we value people who give value to our service and quality of our treatment services. For this reason, we invest in continuous and high-level training and growth.",
+        "text": "At EFESTO we value people who give value to our service and quality of our treatment services. For this reason, we invest in continuous and high-level training and growth.",
         "cards": {
           "titles": [
             "email",
@@ -160,9 +160,9 @@
     "path": ["home", "qualità e certificazioni"],
     "title": "quality and certifications",
     "accordion": {
-      "certificate": "certificazions",
+      "certificate": "certifications",
       "license": "license",
-      "diploma": "attestati"
+      "diploma": "declaration"
     },
     "text": "More and more, heat treatments require skills and experience to be able to provide not only a quality product but a service in line with certification needs of supply chains and products. Our treatments are certified to meet even the highest standards for the most demanding markets. The list of our certifications is constantly updated and continuously adapted to market changes.",
     "certificate": {
@@ -173,7 +173,7 @@
       "title": "quality policy",
       "text": "Improve the way processes are managed to achieve qualitative and quantitative results worthy the mission; provide services that comply with customers standards requirements, are established by the company and are compliant with legal requirements; promote and encourage the training of our staff; incorporate the principle of continuous improvement into EFESTO's company culture, applying it daily at a personal and team level.",
       "button": {
-        "text": "download",
+        "text": "download document",
         "icon": "download-btn",
         "iconHover": "arrow-right-download",
         "pdfFile": "politica_della_qualita.pdf"
@@ -239,7 +239,7 @@
       {
         "name": "Aichelin furnace 1",
         "image":"aichelin1",
-        "description": "Aichelin 1 is EFESTO's first furnace.It has a 750 kg/H capacity and is designed for hardening and tempering, for case hardening and for carbonitriding treatments of automotive parts according to CQi9, from Ø 4 mm to Ø 18 mm.<br><br>The plants include, in addition to the heat treatment furnace, a dephosphating washing machine for all parts and a burnishing tank with application of a corrosion inhibitor (anti-rust)<br>The furnace is optimized for the highest possible quality and efficiency through PLC computer control. Temperature uniformity is ensured thanks to an exclusively internal moving conveyor belt and 19 WS burners. The furnace atmosphere is monitored down to the smallest detail with a sophisticated control system that includes: enrichment methane for Carbon regulation, redundant Oxygen probes for the control of the percentage of saturation (%C) and a 3 gas analyzer.",
+        "description": "Aichelin 1 is EFESTO's first furnace.It has a 750 kg/H capacity and is designed for hardening and tempering, for case hardening and for carbonitriding treatments of automotive parts according to CQi9, from Ø 4 mm to Ø 18 mm.<br><br>The plants include, in addition to the heat treatment furnace, a dephosphating washing machine for all parts and a burnishing tank with application of a corrosion inhibitor (anti-rust)<br>The furnace is optimized for the highest possible quality and efficiency through PLC computer control. Temperature uniformity is ensured thanks to an exclusively internal moving conveyor belt and 19 WS burners. The furnace atmosphere is monitored down to the smallest detail with a sophisticated control system that includes: enrichment methane for Carbon regulation, redundant Oxygen probes for the control of the percentage of saturation (%C) and a 2-gas analyzer.",
         "accordion": {
           "header": "technical details",
           "details": [
@@ -265,7 +265,7 @@
             },
             {
               "name": "",
-              "description": "3-gas analyzer"
+              "description": "2-gas analyzer"
             }
           ],
           "processes": {
@@ -396,10 +396,6 @@
             },
             {
               "name": "Brinell hardness tests(HBW)",
-              "description": ""
-            },
-            {
-              "name": "prove manuali di durezza scala Rockwell (HRA, HRB, HRC)",
               "description": ""
             }
           ],
